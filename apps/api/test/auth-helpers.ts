@@ -1,0 +1,95 @@
+import { ROLE } from "@vaultkeeper/shared/constants";
+import { eq } from "drizzle-orm";
+import { createApp, type App } from "../src/app";
+import { createAuth, type Auth, type CreateAuthOptions } from "../src/auth/auth";
+import { createDatabase, type DatabaseHandle } from "../src/db/client";
+import { user } from "../src/db/schema";
+import { cookieHeader } from "./fake-oauth";
+import { TEST_PUBLIC_URL, testEnv, userInput, type UserInput } from "./factories";
+
+export interface TestApp {
+  app: App;
+  auth: Auth;
+  database: DatabaseHandle;
+  close(): Promise<void>;
+}
+
+export interface TestAppOptions {
+  env?: Record<string, string>;
+  auth?: Partial<Omit<CreateAuthOptions, "db" | "env">>;
+}
+
+/**
+ * The real app wired like server.ts, on this test file's database. Rate limiting is OFF by default
+ * (in-process requests carry no client IP, so every test would share one 3-per-10s bucket).
+ */
+export function createTestApp(databaseUrl: string, options: TestAppOptions = {}): TestApp {
+  const env = testEnv(databaseUrl, options.env);
+  const database = createDatabase(env.DATABASE_URL);
+  const auth = createAuth({ db: database.db, env, rateLimit: false, ...options.auth });
+  const app = createApp({ auth, db: database.db, log: () => {}, onUnexpectedError: () => {} });
+  return { app, auth, database, close: () => database.close() };
+}
+
+export { cookieHeader };
+
+export function authPost(app: App, path: string, body: unknown, cookie?: string) {
+  const headers = new Headers({ "content-type": "application/json", origin: TEST_PUBLIC_URL });
+  if (cookie) headers.set("cookie", cookie);
+  return app.request(`${TEST_PUBLIC_URL}/api/auth${path}`, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+  });
+}
+
+/** GET with a session cookie (or none). */
+export function getWith(app: App, path: string, cookie?: string) {
+  return app.request(`${TEST_PUBLIC_URL}${path}`, cookie ? { headers: { cookie } } : {});
+}
+
+export interface SignedInUser {
+  id: string;
+  email: string;
+  password: string;
+  cookie: string;
+}
+
+interface AuthUserBody {
+  user: { id: string; email: string };
+}
+
+/** Email sign-up through Better Auth; returns the session cookie. Throws if it did not succeed. */
+export async function signUp(app: App, input: Partial<UserInput> = {}): Promise<SignedInUser> {
+  const data = userInput(input);
+  const response = await authPost(app, "/sign-up/email", data);
+  if (response.status !== 200) {
+    throw new Error(`sign-up failed (${response.status}): ${await response.text()}`);
+  }
+  const body = (await response.json()) as AuthUserBody;
+  return {
+    id: body.user.id,
+    email: data.email,
+    password: data.password,
+    cookie: cookieHeader(response),
+  };
+}
+
+export function signIn(app: App, email: string, password: string) {
+  return authPost(app, "/sign-in/email", { email, password });
+}
+
+/** Test shortcut for the promote-admin CLI (2.15): sets role directly in the database. */
+export async function promoteAdmin(database: DatabaseHandle, userId: string): Promise<void> {
+  await database.db.update(user).set({ role: ROLE.ADMIN }).where(eq(user.id, userId));
+}
+
+/** Signs up a user and promotes it to admin. */
+export async function signUpAdmin(
+  testApp: TestApp,
+  input: Partial<UserInput> = {},
+): Promise<SignedInUser> {
+  const admin = await signUp(testApp.app, input);
+  await promoteAdmin(testApp.database, admin.id);
+  return admin;
+}
