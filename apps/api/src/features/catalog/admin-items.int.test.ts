@@ -209,6 +209,19 @@ describe("admin catalog items: create / list / patch (task 3.2)", () => {
     expect(empty.status).toBe(422);
   });
 
+  it("GET /admin/catalog/items/:id reads any item, inactive included; users get 403", async () => {
+    const created = await create({ categorySlug: "wings", name: "Wings of Admin Read" });
+    const item = catalogItem.parse(await created.json());
+    await sendJson(t.app, "PATCH", `${ITEMS}/${item.id}`, { isActive: false }, admin.cookie);
+    const res = await getWith(t.app, `${ITEMS}/${item.id}`, admin.cookie);
+    expect(res.status).toBe(200);
+    expect(catalogItem.parse(await res.json())).toMatchObject({ id: item.id, isActive: false });
+    expect((await getWith(t.app, `${ITEMS}/${crypto.randomUUID()}`, admin.cookie)).status).toBe(
+      404,
+    );
+    expect((await getWith(t.app, `${ITEMS}/${item.id}`, member.cookie)).status).toBe(403);
+  });
+
   it("a non-uuid id is a 422, never a 500", async () => {
     const res = await sendJson(t.app, "PATCH", `${ITEMS}/not-a-uuid`, { name: "X" }, admin.cookie);
     expect(res.status).toBe(422);

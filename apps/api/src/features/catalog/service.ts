@@ -15,12 +15,16 @@ import { AppError, ConflictError, NotFoundError, ValidationError } from "../../s
 import { PG_ERROR, pgCodeOf } from "../../shared/http/on-error";
 import { offsetPage, type OffsetPage } from "../../shared/http/pagination";
 import type { ValidationFailureDetails } from "../../shared/http/validator";
+import type { StorageAdapter } from "../../storage/storage-adapter";
+import { deleteImageIfUnused } from "../catalog-images/repository";
 import * as catalogRepository from "./repository";
 
 export type CatalogRepository = typeof catalogRepository;
 
 export interface CatalogServiceDeps {
   db: Database;
+  /** Item image files: a hard delete drops the item's file once no other item uses it. */
+  storage: StorageAdapter;
   repo?: CatalogRepository;
 }
 
@@ -64,7 +68,11 @@ function adminActiveFilter(query: AdminCatalogSearchQuery): boolean | undefined 
 }
 
 /** Catalog use cases (design 02). Authorization (admin vs user) is enforced by the routers. */
-export function createCatalogService({ db, repo = catalogRepository }: CatalogServiceDeps) {
+export function createCatalogService({
+  db,
+  storage,
+  repo = catalogRepository,
+}: CatalogServiceDeps) {
   /** Fuzzy search for q >= 2 non-space chars, otherwise a name-prefix/category browse (S7). */
   async function findItems(
     query: CatalogSearchQuery,
@@ -96,9 +104,19 @@ export function createCatalogService({ db, repo = catalogRepository }: CatalogSe
       return item;
     },
 
-    /** R-CAT-3 S4: only unreferenced items can be deleted; used ones should be deactivated. */
+    /** Admin read: any state (admins edit inactive items too). */
+    async adminGetItem(id: string): Promise<CatalogItem> {
+      const item = await repo.findItem(db, id, { activeOnly: false });
+      if (!item) throw new NotFoundError("Catalog item not found");
+      return item;
+    },
+
+    /**
+     * R-CAT-3 S4: only unreferenced items can be deleted; used ones should be deactivated.
+     * The item's image file goes too, unless another item shares it (content-addressed).
+     */
     async deleteItem(id: string): Promise<void> {
-      let deleted: boolean;
+      let deleted: catalogRepository.DeletedItem | null;
       try {
         deleted = await repo.deleteItem(db, id);
       } catch (error) {
@@ -112,6 +130,7 @@ export function createCatalogService({ db, repo = catalogRepository }: CatalogSe
         throw error;
       }
       if (!deleted) throw new NotFoundError("Catalog item not found");
+      if (deleted.imageKey !== null) await deleteImageIfUnused(db, storage, deleted.imageKey);
     },
 
     /** User search/browse: active items only (R-SRCH-2 S1, R-AUTH-4 S3). */

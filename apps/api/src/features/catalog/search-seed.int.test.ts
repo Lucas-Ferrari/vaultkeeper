@@ -43,22 +43,28 @@ describe("catalog search on the real OpenMU seed (R-SRCH-1 S3/S4/S5/S9)", () => 
     expect(names).toContain("Wing of Storm");
   });
 
-  // KNOWN GAP (task 3.11 report): on the real names S9 fails. "wigs" scores 0.4 against both
-  // "wing" and "wind", and "excelent" scores 0.333 against "violent", so the five "Violent Wind"
-  // armor pieces outrank every wing (mean per-word 0.367 vs <= 0.256). The 0.3 threshold is not
-  // the cause (all wings pass it); the ranking needs a new signal (e.g. category-name match).
-  // `it.fails` keeps the gap visible: it starts failing the day ranking is fixed -> flip to `it`.
-  it.fails("S9: 'excelent wigs' ranks wings-category items near the top (top 5)", async () => {
+  // On item names alone "wigs" scores 0.4 against both "wing" and "wind", and "excelent" 0.333
+  // against "violent", so the five "Violent Wind" armors used to outrank every wing. The category
+  // signal ("wigs" ~ "Wings & Capes") is what puts the wings back on top.
+  it("S9: 'excelent wigs' ranks wings-category items near the top (top 5)", async () => {
     const results = await top("excelent wigs", 5);
     expect(results.filter((item) => item.categorySlug === "wings").length).toBeGreaterThanOrEqual(
-      1,
+      3,
     );
     expect(results[0]?.categorySlug).toBe("wings");
+    expect(results.map((item) => item.name)).not.toContain("Violent Wind Armor");
   });
 
   it("S4: 'storm' returns items containing Storm", async () => {
     const names = (await top("storm", 20)).map((item) => item.name);
     expect(names.filter((name) => /storm/i.test(name)).length).toBeGreaterThanOrEqual(5);
+  });
+
+  it("a weak category resemblance does not reorder equal name matches ('storm' ~ 'staffs')", async () => {
+    // Every name below contains the word "storm" (score 1.0), so they tie and sort by name; "storm"
+    // vs "staffs" is only 0.18, under CATEGORY_SIMILARITY_THRESHOLD, so "Storm Blitz Stick" is not lifted.
+    const names = (await top("storm", 5)).map((item) => item.name);
+    expect(names).toEqual([...names].sort((a, b) => (a < b ? -1 : a > b ? 1 : 0)));
   });
 
   it("S5: an exact name ranks first ('kris', 'jewel of bless')", async () => {

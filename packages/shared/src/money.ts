@@ -30,6 +30,11 @@ function divRoundHalfUp(dividend: bigint, divisor: bigint): bigint {
 const toCents = (amount: string): bigint =>
   toUnits(amount, MC_AMOUNT_PATTERN, MC_SCALE, "MC amount");
 
+/** Canonical numeric(14,2) text of an amount ("1500" -> "1500.00"), as Postgres returns it. */
+export function normalizeMc(amount: string): string {
+  return formatCents(toCents(amount));
+}
+
 /** amount x quantity, e.g. mul("100.00", 3) === "300.00". */
 export function mul(amount: string, quantity: number): string {
   if (!Number.isSafeInteger(quantity) || quantity < 0) {

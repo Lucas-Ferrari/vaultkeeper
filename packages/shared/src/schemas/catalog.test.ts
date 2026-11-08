@@ -7,6 +7,7 @@ import {
   categorySlug,
   createCatalogItemInput,
   createCategoryInput,
+  imageKey,
   updateCatalogItemInput,
   updateCategoryInput,
 } from "./catalog";
@@ -220,5 +221,41 @@ describe("catalogItem (response contract)", () => {
         source: "scraped",
       }).success,
     ).toBe(false);
+  });
+});
+
+describe("imageKey (design 21: catalog/<sha256>.<png|jpg|webp>)", () => {
+  const sha = "a".repeat(64);
+
+  it.each([`catalog/${sha}.png`, `catalog/${sha}.jpg`, `catalog/${sha}.webp`])(
+    "accepts %s",
+    (key) => {
+      expect(imageKey.parse(key)).toBe(key);
+    },
+  );
+
+  it.each([
+    `catalog/${sha}.gif`,
+    `catalog/${sha}.jpeg`,
+    `catalog/${"A".repeat(64)}.png`,
+    `catalog/${sha.slice(1)}.png`,
+    `../${sha}.png`,
+    `catalog/../${sha}.png`,
+    `${sha}.png`,
+  ])("rejects %s", (key) => {
+    expect(imageKey.safeParse(key).success).toBe(false);
+  });
+
+  it("catalogItem.imageKey must be a valid key or null", () => {
+    const item = {
+      id: "6f1c2c9e-3f7a-4a51-9b51-2b1f1d2b9c11",
+      categorySlug: "wings",
+      name: "W",
+      isActive: true,
+      referencePriceMc: null,
+      source: "admin",
+    };
+    expect(catalogItem.safeParse({ ...item, imageKey: `catalog/${sha}.png` }).success).toBe(true);
+    expect(catalogItem.safeParse({ ...item, imageKey: "whatever.png" }).success).toBe(false);
   });
 });

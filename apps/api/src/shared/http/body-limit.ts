@@ -1,4 +1,3 @@
-import { CSV_MAX_BYTES, UPLOAD_MAX_BYTES } from "@vaultkeeper/shared/constants";
 import { ERROR_CODE } from "@vaultkeeper/shared/errors";
 import type { MiddlewareHandler } from "hono";
 import { bodyLimit } from "hono/body-limit";
@@ -6,9 +5,12 @@ import { AppError, errorResponse } from "./errors";
 
 /** Per route group limits (design 02); multipart groups add 16 KB for form overhead. */
 export const JSON_BODY_LIMIT_BYTES = 64 * 1024;
-const MULTIPART_OVERHEAD_BYTES = 16 * 1024;
-export const IMAGE_BODY_LIMIT_BYTES = UPLOAD_MAX_BYTES + MULTIPART_OVERHEAD_BYTES;
-export const CSV_BODY_LIMIT_BYTES = CSV_MAX_BYTES + MULTIPART_OVERHEAD_BYTES;
+export const MULTIPART_OVERHEAD_BYTES = 16 * 1024;
+
+/** Body limit of a multipart route whose single file may be `fileMaxBytes` (env-configured). */
+export function multipartBodyLimit(fileMaxBytes: number): number {
+  return fileMaxBytes + MULTIPART_OVERHEAD_BYTES;
+}
 
 export function limitBody(maxSize: number): MiddlewareHandler {
   return bodyLimit({

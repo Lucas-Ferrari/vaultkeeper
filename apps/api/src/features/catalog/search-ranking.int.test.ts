@@ -15,6 +15,16 @@ import {
 } from "../../../test/catalog-fixtures";
 import { useTestDatabase } from "../../../test/db";
 
+/**
+ * Name-only decoys that out-score every wing on item names for "excelent wigs" (the shape of the
+ * real OpenMU "Violent Wind" set): "wigs" ~ "wind" 0.4, "excelent" ~ "violent" 0.333.
+ */
+const CATEGORY_DECOYS = [
+  { categorySlug: "armors", name: "Violent Wind Armor" },
+  { categorySlug: "helms", name: "Violent Wind Helm" },
+  { categorySlug: "staffs", name: "Red Wing Stick" },
+];
+
 describe("catalog search ranking + typos (task 3.6, R-SRCH-1)", () => {
   const db = useTestDatabase();
   let t: TestApp;
@@ -23,7 +33,7 @@ describe("catalog search ranking + typos (task 3.6, R-SRCH-1)", () => {
   beforeAll(async () => {
     t = createTestApp(db.current.url);
     await insertCategories(t.database.pool, SEARCH_CATEGORIES);
-    await insertItems(t.database.pool, SEARCH_ITEMS);
+    await insertItems(t.database.pool, [...SEARCH_ITEMS, ...CATEGORY_DECOYS]);
     member = await signUp(t.app);
   });
   afterAll(async () => {
@@ -58,6 +68,17 @@ describe("catalog search ranking + typos (task 3.6, R-SRCH-1)", () => {
     expect(results[0]?.categorySlug).toBe("wings");
     const wings = results.filter((item) => item.categorySlug === "wings");
     expect(wings.length).toBeGreaterThanOrEqual(3);
+  });
+
+  it("a query word similar to a category name lifts that category over name-only decoys", async () => {
+    const names = (await top("excelent wigs", 5)).map((item) => item.name);
+    expect(names).not.toContain("Violent Wind Armor");
+    expect(names).not.toContain("Violent Wind Helm");
+  });
+
+  it("the category lift does not outweigh a full name match ('wing stick' -> the staff)", async () => {
+    // "wing" ~ "wings" lifts every wing, but "Red Wing Stick" matches the whole query by name.
+    expect((await top("wing stick", 1))[0]?.name).toBe("Red Wing Stick");
   });
 
   it("short filler words do not drag in unrelated items ('of' alone is not a match)", async () => {

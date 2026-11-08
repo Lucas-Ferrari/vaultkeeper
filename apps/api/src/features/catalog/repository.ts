@@ -131,13 +131,21 @@ export async function findItem(
   return row ?? null;
 }
 
-/** Hard delete. Stock entries reference items ON DELETE RESTRICT, so a used item fails (23503). */
-export async function deleteItem(db: DbOrTx, id: string): Promise<boolean> {
-  const rows = await db
+export interface DeletedItem {
+  /** The deleted item's image, so the caller can drop the file once nothing else uses it. */
+  imageKey: string | null;
+}
+
+/**
+ * Hard delete. Stock entries reference items ON DELETE RESTRICT, so a used item fails (23503).
+ * null when no such item.
+ */
+export async function deleteItem(db: DbOrTx, id: string): Promise<DeletedItem | null> {
+  const [row] = await db
     .delete(catalogItems)
     .where(eq(catalogItems.id, id))
-    .returning({ id: catalogItems.id });
-  return rows.length > 0;
+    .returning({ imageKey: catalogItems.imageKey });
+  return row ?? null;
 }
 
 export interface CatalogSearchFilter extends CatalogItemFilter {
@@ -156,7 +164,7 @@ export const MIN_TOKEN_LENGTH = 3;
  *   OR the whole query as a substring (covers 2-char queries and exact fragments);
  * - rank: exact folded name first (S5), then score = max(whole-query word_similarity, mean of the
  *   per-word word_similarity) so multi-typo queries ("excelent wigs", S9) still rank the words that
- *   do match, then name.
+ *   do match, plus the category lift (see CATEGORY_MATCH_WEIGHT), then name.
  * Whole-query `<%` alone (design 07) missed S9: "excelent wigs" scores 0.2 vs every wing.
  * Index use (task 3.7): `%> ANY(...)` is GIN-servable (bitmap scan), but at 10k rows Postgres
  * prefers a seq scan because pg_trgm costs GIN scans high; the perf suite asserts the shape stays
@@ -178,6 +186,35 @@ function searchWhere(filter: CatalogSearchFilter): SQL | undefined {
 }
 
 /**
+ * Category signal (R-SRCH-1 S9 on the real seed): a query word that is `similarity()`-close to a
+ * word of a category's name or slug ("wigs" ~ "wings" 0.375) lifts every item of that category by
+ * CATEGORY_MATCH_WEIGHT x that similarity. It only re-ranks rows the name predicate already matched.
+ * Symmetric `similarity` (not `word_similarity`) on single words, so noise stays low ("storm" vs
+ * "staffs" 0.18, "wigns" vs "wings" 0.2: S3 does not depend on it); below the threshold it is 0.
+ * Weight 0.5: on names alone "Violent Wind" scores 0.367 vs 0.256 for the best wing; with the lift
+ * wings reach 0.443. An exact name still ranks first (separate ORDER BY key).
+ */
+export const CATEGORY_SIMILARITY_THRESHOLD = 0.35;
+export const CATEGORY_MATCH_WEIGHT = 0.5;
+
+/**
+ * `{ slug: similarity }` for the categories some query word resembles (>= threshold). It is an
+ * uncorrelated scalar subquery, so Postgres evaluates it ONCE per search (InitPlan over ~25
+ * categories) instead of per row, and the item scan stays a single-table, GIN-capable scan (a JOIN
+ * on category_slug made the planner prefer the (category_slug, search_name) btree).
+ */
+function categoryScores(query: SQL): SQL {
+  return sql`(SELECT COALESCE(jsonb_object_agg(match.slug, match.score), '{}'::jsonb) FROM (
+    SELECT c.slug, max(similarity(word, token)) AS score
+    FROM ${itemCategories} AS c,
+      unnest(${queryWords(query)}) AS word,
+      regexp_split_to_table(public.immutable_unaccent(lower(c.name)) || ' ' || c.slug, ${"[^a-z0-9]+"}) AS token
+    WHERE token <> ''
+    GROUP BY c.slug
+  ) AS match WHERE match.score >= ${CATEGORY_SIMILARITY_THRESHOLD})`;
+}
+
+/**
  * The page query of `searchItems`, without the threshold set-up. Exported so the perf suite can
  * EXPLAIN exactly what runs (task 3.7); run it only inside a transaction that set the threshold.
  */
@@ -187,7 +224,7 @@ export function searchSelect(db: DbOrTx, filter: CatalogSearchFilter) {
   const score = sql<number>`GREATEST(
     word_similarity(${query}, ${name}),
     COALESCE((SELECT avg(word_similarity(word, ${name})) FROM unnest(${queryWords(query)}) AS word), 0)
-  )`;
+  ) + ${CATEGORY_MATCH_WEIGHT} * COALESCE((${categoryScores(query)} ->> ${catalogItems.categorySlug})::float8, 0)`;
   return (
     db
       // The total rides along as a window count: one scan instead of re-running the fuzzy

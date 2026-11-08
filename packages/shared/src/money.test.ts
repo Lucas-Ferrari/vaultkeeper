@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { mul, sum, toMp } from "./money";
+import { mul, normalizeMc, sum, toMp } from "./money";
 
 describe("money (BigInt cents, client previews only; R-VAL-1, R-VAL-2, ADR3)", () => {
   describe("mul(amount, quantity)", () => {
@@ -58,6 +58,21 @@ describe("money (BigInt cents, client previews only; R-VAL-1, R-VAL-2, ADR3)", (
     it("has no float drift: 0.1 + 0.2 = 0.30", () => {
       expect(0.1 + 0.2).not.toBe(0.3);
       expect(sum(["0.1", "0.2"])).toBe("0.30");
+    });
+  });
+
+  describe("normalizeMc(amount) (numeric(14,2) text form, for comparing amounts)", () => {
+    it.each([
+      ["1500", "1500.00"],
+      ["1500.5", "1500.50"],
+      ["0", "0.00"],
+      ["007.10", "7.10"],
+    ])("%s -> %s", (amount, expected) => {
+      expect(normalizeMc(amount)).toBe(expected);
+    });
+
+    it("rejects malformed amounts", () => {
+      expect(() => normalizeMc("1,5")).toThrow(RangeError);
     });
   });
 });

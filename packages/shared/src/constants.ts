@@ -17,10 +17,22 @@ export const IMAGE_MIME = {
 } as const;
 export type ImageMime = (typeof IMAGE_MIME)[keyof typeof IMAGE_MIME];
 
+/**
+ * Stored image key (design 09/21): content-addressed `catalog/<sha256 hex>.<ext>`, extension from
+ * the sniffed type. Also the only file names /media/catalog serves (no traversal possible).
+ */
+export const IMAGE_KEY_PATTERN = /^catalog\/[a-f0-9]{64}\.(png|jpg|webp)$/;
+
 /** Max item image upload size: 1 MiB. */
 export const UPLOAD_MAX_BYTES = 1_048_576;
 /** Max admin catalog CSV upload size: 2 MiB. */
 export const CSV_MAX_BYTES = 2_097_152;
+
+/** Admin catalog CSV import (R-CAT-5, design 11): data rows per file, besides CSV_MAX_BYTES. */
+export const CSV_IMPORT_LIMIT = {
+  MAX_ROWS: 5000,
+  EXTERNAL_KEY_MAX: 200,
+} as const;
 
 /** Item level range (+0 .. +15). */
 export const LEVEL = {

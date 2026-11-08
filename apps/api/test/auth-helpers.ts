@@ -1,9 +1,15 @@
+import { mkdtempSync } from "node:fs";
+import { rm } from "node:fs/promises";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
 import { ROLE } from "@vaultkeeper/shared/constants";
 import { eq } from "drizzle-orm";
 import { createApp, type App } from "../src/app";
 import { createAuth, type Auth, type CreateAuthOptions } from "../src/auth/auth";
 import { createDatabase, type DatabaseHandle } from "../src/db/client";
 import { user } from "../src/db/schema";
+import { createLocalDiskAdapter } from "../src/storage/local-disk-adapter";
+import type { StorageAdapter } from "../src/storage/storage-adapter";
 import { cookieHeader } from "./fake-oauth";
 import { TEST_PUBLIC_URL, testEnv, userInput, type UserInput } from "./factories";
 
@@ -11,6 +17,9 @@ export interface TestApp {
   app: App;
   auth: Auth;
   database: DatabaseHandle;
+  /** MEDIA_DIR of this app: a fresh temp dir per test app, removed by close(). */
+  mediaDir: string;
+  storage: StorageAdapter;
   close(): Promise<void>;
 }
 
@@ -27,8 +36,27 @@ export function createTestApp(databaseUrl: string, options: TestAppOptions = {})
   const env = testEnv(databaseUrl, options.env);
   const database = createDatabase(env.DATABASE_URL);
   const auth = createAuth({ db: database.db, env, rateLimit: false, ...options.auth });
-  const app = createApp({ auth, db: database.db, log: () => {}, onUnexpectedError: () => {} });
-  return { app, auth, database, close: () => database.close() };
+  const mediaDir = mkdtempSync(join(tmpdir(), "vk-media-"));
+  const storage = createLocalDiskAdapter(mediaDir);
+  const app = createApp({
+    auth,
+    db: database.db,
+    storage,
+    limits: { uploadMaxBytes: env.UPLOAD_MAX_BYTES, csvMaxBytes: env.CSV_MAX_BYTES },
+    log: () => {},
+    onUnexpectedError: () => {},
+  });
+  return {
+    app,
+    auth,
+    database,
+    mediaDir,
+    storage,
+    close: async () => {
+      await database.close();
+      await rm(mediaDir, { recursive: true, force: true });
+    },
+  };
 }
 
 export { cookieHeader };

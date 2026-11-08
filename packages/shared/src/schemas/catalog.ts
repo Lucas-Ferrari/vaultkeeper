@@ -3,6 +3,7 @@ import {
   CATALOG_SOURCE,
   CATEGORY_LIMIT,
   CATEGORY_SLUG_PATTERN,
+  IMAGE_KEY_PATTERN,
   SEARCH_LIMIT,
   TEXT_LIMIT,
 } from "../constants";
@@ -84,6 +85,9 @@ export const adminCatalogSearchQuery = catalogSearchQuery.extend({
 });
 export type AdminCatalogSearchQuery = z.infer<typeof adminCatalogSearchQuery>;
 
+/** Key of a stored item image (served at `/media/<key>`). */
+export const imageKey = z.string().regex(IMAGE_KEY_PATTERN);
+
 /** Catalog item as the API returns it. Money is a decimal string (numeric(14,2)). */
 export const catalogItem = z.object({
   id: z.uuid(),
@@ -91,7 +95,7 @@ export const catalogItem = z.object({
   name: z.string(),
   isActive: z.boolean(),
   referencePriceMc: mcAmount.nullable(),
-  imageKey: z.string().nullable(),
+  imageKey: imageKey.nullable(),
   source: z.enum(CATALOG_SOURCE),
 });
 export type CatalogItem = z.infer<typeof catalogItem>;

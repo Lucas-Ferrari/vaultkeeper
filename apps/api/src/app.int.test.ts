@@ -1,3 +1,5 @@
+import { tmpdir } from "node:os";
+import { join } from "node:path";
 import { ERROR_CODE, type ApiErrorBody } from "@vaultkeeper/shared/errors";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import { createTestApp, getWith, type TestApp } from "../test/auth-helpers";
@@ -7,6 +9,7 @@ import { createApp } from "./app";
 import { createAuth } from "./auth/auth";
 import { createDatabase, type DatabaseHandle } from "./db/client";
 import { JSON_BODY_LIMIT_BYTES } from "./shared/http/body-limit";
+import { createLocalDiskAdapter } from "./storage/local-disk-adapter";
 
 describe("createApp", () => {
   const db = useTestDatabase();
@@ -65,6 +68,8 @@ describe("GET /healthz with the database down (R-DEP-3 S1)", () => {
     const app = createApp({
       auth: createAuth({ db: unreachable.db, env, rateLimit: false }),
       db: unreachable.db,
+      // Never written to: /healthz does not touch storage.
+      storage: createLocalDiskAdapter(join(tmpdir(), "vk-unused-media")),
       log: () => {},
       onUnexpectedError: () => {},
     });

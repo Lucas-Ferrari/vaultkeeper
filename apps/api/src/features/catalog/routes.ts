@@ -38,6 +38,9 @@ export function adminCatalogRoutes(catalog: CatalogService) {
     .get("/items", validate("query", adminCatalogSearchQuery), async (c) =>
       c.json(await catalog.adminListItems(c.req.valid("query")), 200),
     )
+    .get("/items/:id", validate("param", idParam), async (c) =>
+      c.json(await catalog.adminGetItem(c.req.valid("param").id), 200),
+    )
     .post("/items", validate("json", createCatalogItemInput), async (c) =>
       c.json(await catalog.createItem(c.req.valid("json")), 201),
     )
