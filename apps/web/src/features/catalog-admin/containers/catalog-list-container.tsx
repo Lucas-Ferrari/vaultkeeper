@@ -65,7 +65,7 @@ export function CatalogListContainer({ search }: { search: AdminCatalogSearch })
               <Link
                 to="/catalog/$itemId"
                 params={{ itemId: item.id }}
-                className="font-medium text-primary hover:underline"
+                className="inline-flex min-h-11 min-w-11 items-center font-medium text-primary hover:underline"
               >
                 {item.name}
               </Link>

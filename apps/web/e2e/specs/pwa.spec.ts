@@ -7,7 +7,7 @@ const OFFLINE_BANNER = "You are offline, data may be stale";
 test.describe("PWA", () => {
   test(
     "the manifest is linked and valid (R-PWA-1)",
-    { tag: ["@high", "@e2e", "@pwa", "@PWA-E2E-001"] },
+    { tag: ["@high", "@e2e", "@pwa", "@PWA-E2E-003"] },
     async ({ page, request }) => {
       await page.goto("/login");
 
@@ -34,7 +34,7 @@ test.describe("PWA", () => {
 
   test(
     "the service worker registers and the app shell loads offline (R-PWA-3 S1)",
-    { tag: ["@critical", "@e2e", "@pwa", "@PWA-E2E-002"] },
+    { tag: ["@critical", "@e2e", "@pwa", "@PWA-E2E-004"] },
     async ({ page, context }) => {
       const login = new LoginPage(page);
       await page.goto("/login");
