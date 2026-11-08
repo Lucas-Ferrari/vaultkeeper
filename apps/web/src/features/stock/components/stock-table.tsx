@@ -10,15 +10,28 @@ interface StockTableProps {
   renderName: (entry: StockEntry) => ReactNode;
   /** Move / delete controls for a row (provided by the container). */
   renderActions: (entry: StockEntry) => ReactNode;
+  /** Optional row selection (bulk "add to group"): a checkbox column when given. */
+  selection?: { selected: ReadonlySet<string>; onToggle: (entry: StockEntry) => void };
 }
 
 /** R-STK-4 row: image/placeholder, name (+ inactive), level, options, qty, location, value. */
-export function StockTable({ entries, iconOf, renderName, renderActions }: StockTableProps) {
+export function StockTable({
+  entries,
+  iconOf,
+  renderName,
+  renderActions,
+  selection,
+}: StockTableProps) {
   return (
     <div className="overflow-x-auto rounded-lg border border-border">
       <table className="w-full text-left text-sm">
         <thead className="bg-surface-raised text-muted">
           <tr>
+            {selection && (
+              <th scope="col" className="px-3 py-2">
+                <span className="sr-only">Select</span>
+              </th>
+            )}
             <th scope="col" className="px-3 py-2">
               Item
             </th>
@@ -45,6 +58,17 @@ export function StockTable({ entries, iconOf, renderName, renderActions }: Stock
         <tbody>
           {entries.map((entry) => (
             <tr key={entry.id} className="border-t border-border align-top">
+              {selection && (
+                <td className="px-3 py-2">
+                  <input
+                    type="checkbox"
+                    className="size-5 accent-primary"
+                    aria-label={`Select ${entry.itemName}`}
+                    checked={selection.selected.has(entry.id)}
+                    onChange={() => selection.onToggle(entry)}
+                  />
+                </td>
+              )}
               <td className="px-3 py-2">
                 <span className="flex items-center gap-3">
                   <ItemImage

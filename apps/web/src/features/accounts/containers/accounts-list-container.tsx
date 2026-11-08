@@ -4,7 +4,7 @@ import { gameAccountName } from "@vaultkeeper/shared/schemas/game-accounts";
 import { Alert } from "../../../shared/ui/alert";
 import { useCreateAccount } from "../api/mutations";
 import { accountsQueryOptions } from "../api/queries";
-import { NameForm } from "../components/name-form";
+import { NameForm } from "../../../shared/ui/name-form";
 import { accountErrorMessage } from "../lib/messages";
 
 /** /accounts: own game accounts + create (R-GA-1). */

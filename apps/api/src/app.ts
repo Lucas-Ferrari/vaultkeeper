@@ -14,11 +14,17 @@ import { adminCatalogRoutes, catalogRoutes } from "./features/catalog/routes";
 import { createCatalogService } from "./features/catalog/service";
 import { characterRoutes, gameAccountRoutes } from "./features/game-accounts/routes";
 import { createGameAccountsService } from "./features/game-accounts/service";
+import { groupRoutes } from "./features/groups/routes";
+import { createGroupsService } from "./features/groups/service";
 import { healthRoutes } from "./features/health/routes";
 import { mediaRoutes } from "./features/media/routes";
 import { meRoutes } from "./features/me/routes";
+import { adminSettingsRoutes, settingsRoutes } from "./features/settings/routes";
+import { createSettingsService } from "./features/settings/service";
 import { stockRoutes } from "./features/stock/routes";
 import { createStockService } from "./features/stock/service";
+import { valuationRoutes } from "./features/valuation/routes";
+import { createValuationService } from "./features/valuation/service";
 import { jsonBodyLimit } from "./shared/http/body-limit";
 import {
   createErrorHandler,
@@ -71,18 +77,25 @@ export function createApp(deps: AppDeps) {
   const catalogImport = createCatalogImportService({ db, maxBytes: limits.csvMaxBytes });
   const gameAccounts = createGameAccountsService({ db });
   const stock = createStockService({ db });
+  const groups = createGroupsService({ db });
+  const settings = createSettingsService({ db });
+  const valuation = createValuationService({ db });
 
   const v1 = new Hono()
     .use(sessionMiddleware(auth))
     .use(requireUser)
     .route("/me", meRoutes())
+    .route("/settings", settingsRoutes(settings))
+    .route("/admin/settings", adminSettingsRoutes(settings))
     .route("/catalog", catalogRoutes(catalog))
     .route("/admin/catalog", adminCatalogRoutes(catalog))
     .route("/admin/catalog", catalogImageRoutes(catalogImages, limits.uploadMaxBytes))
     .route("/admin/catalog", catalogImportRoutes(catalogImport, limits.csvMaxBytes))
     .route("/game-accounts", gameAccountRoutes(gameAccounts))
     .route("/characters", characterRoutes(gameAccounts))
-    .route("/stock", stockRoutes(stock));
+    .route("/stock", stockRoutes(stock))
+    .route("/groups", groupRoutes(groups))
+    .route("/valuation", valuationRoutes(valuation));
 
   const app = new Hono()
     .use(requestId())

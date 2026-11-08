@@ -36,11 +36,17 @@ export function AuthedLayoutContainer({ me }: AuthedLayoutContainerProps) {
               <Link to="/stock" className={NAV_LINK}>
                 Stock
               </Link>
+              <Link to="/groups" className={NAV_LINK}>
+                Groups
+              </Link>
             </nav>
             {me.role === ROLE.ADMIN && (
-              <nav aria-label="Admin">
+              <nav aria-label="Admin" className="flex items-center gap-4">
                 <Link to="/catalog" className={NAV_LINK}>
                   Catalog
+                </Link>
+                <Link to="/settings" className={NAV_LINK}>
+                  Settings
                 </Link>
               </nav>
             )}

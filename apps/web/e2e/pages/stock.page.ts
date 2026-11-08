@@ -7,6 +7,7 @@ export class StockPage extends BasePage {
   readonly itemSearch: Locator;
   readonly locationSelect: Locator;
   readonly levelInput: Locator;
+  readonly priceInput: Locator;
   readonly saveButton: Locator;
   readonly emptyState: Locator;
 
@@ -16,6 +17,7 @@ export class StockPage extends BasePage {
     this.itemSearch = page.getByRole("combobox", { name: "Item" });
     this.locationSelect = page.getByLabel("Location");
     this.levelInput = page.getByLabel("Level");
+    this.priceInput = page.getByLabel("Price override (MC)");
     this.saveButton = page.getByRole("button", { name: "Save entry" });
     this.emptyState = page.getByText(/No stock yet/);
   }
@@ -31,6 +33,7 @@ export class StockPage extends BasePage {
     expected: RegExp,
     location: string,
     level: string,
+    priceMc?: string,
   ): Promise<string> {
     await super.goto("/stock/new");
     await this.itemSearch.fill(query);
@@ -41,6 +44,7 @@ export class StockPage extends BasePage {
     await expect(this.page.getByText(`Selected: ${name}`)).toBeVisible();
     await this.locationSelect.selectOption({ label: location });
     await this.levelInput.fill(level);
+    if (priceMc !== undefined) await this.priceInput.fill(priceMc);
     await this.saveButton.click();
     await expect(this.heading).toBeVisible();
     return name;
@@ -48,6 +52,17 @@ export class StockPage extends BasePage {
 
   row(itemName: string): Locator {
     return this.page.getByRole("row").filter({ hasText: itemName });
+  }
+
+  /** Bulk "add to group" for the given rows (R-GRP-2 S7). */
+  async addToGroup(itemNames: readonly string[], groupName: string): Promise<void> {
+    for (const name of itemNames) {
+      await this.page.getByRole("checkbox", { name: `Select ${name}` }).check();
+    }
+    const bar = this.page.getByRole("region", { name: "Selection" });
+    await bar.getByLabel("Group").selectOption({ label: groupName });
+    await bar.getByRole("button", { name: "Add to group" }).click();
+    await expect(this.page.getByText(`to ${groupName}.`)).toBeVisible();
   }
 
   async move(itemName: string, location: string): Promise<void> {

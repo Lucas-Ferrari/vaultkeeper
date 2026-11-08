@@ -7,6 +7,7 @@ import { Button, BUTTON_VARIANT } from "../../../shared/ui/button";
 import { ConfirmButton } from "../../../shared/ui/confirm-button";
 import { useLocationChoices } from "../../accounts/api/queries";
 import { categoriesQueryOptions } from "../../catalog/api/queries";
+import { AddToGroupBar } from "../../groups/containers/add-to-group-bar";
 import { useDeleteEntry, useMoveEntry } from "../api/mutations";
 import type { StockFilters } from "../api/keys";
 import { stockListQueryOptions } from "../api/queries";
@@ -26,6 +27,11 @@ export function StockTableContainer({ filters }: { filters: StockFilters }) {
   const iconOf = (slug: string) =>
     categories.data?.find((category) => category.slug === slug)?.icon ?? GENERIC_ICON;
   const [moving, setMoving] = useState<StockEntry | null>(null);
+  const [selected, setSelected] = useState<string[]>([]);
+  const toggle = (entry: StockEntry) =>
+    setSelected((ids) =>
+      ids.includes(entry.id) ? ids.filter((id) => id !== entry.id) : [...ids, entry.id],
+    );
   const move = useMoveEntry();
   const remove = useDeleteEntry();
   const { choices } = useLocationChoices();
@@ -73,9 +79,14 @@ export function StockTableContainer({ filters }: { filters: StockFilters }) {
           }
         />
       )}
+      <AddToGroupBar
+        entryIds={selected.filter((id) => entries.some((entry) => entry.id === id))}
+        onAdded={() => setSelected([])}
+      />
       <StockTable
         entries={entries}
         iconOf={iconOf}
+        selection={{ selected: new Set(selected), onToggle: toggle }}
         renderName={(entry) => (
           <Link
             to="/stock/$entryId"

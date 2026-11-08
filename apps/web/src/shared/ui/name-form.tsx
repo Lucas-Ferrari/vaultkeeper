@@ -2,8 +2,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { Button } from "../../../shared/ui/button";
-import { TextField } from "../../../shared/ui/text-field";
+import { Button } from "./button";
+import { TextField } from "./text-field";
 
 interface NameFormProps {
   /** Shared name schema (gameAccountName / characterName), so the UI applies the API's rules. */

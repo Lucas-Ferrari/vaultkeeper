@@ -111,19 +111,24 @@ export function createStockService({ db, repo = stockRepository }: StockServiceD
     /** R-STK-2 S1/S2: any own location not over limit; moving OUT of an over-limit vault is fine. */
     move(userId: string, id: string, storageLocationId: string): Promise<StockEntry> {
       return db.transaction(async (tx) => {
-        if (!(await repo.findEntryItem(tx, userId, id))) {
-          throw new NotFoundError("Stock entry not found");
-        }
+        const current = await repo.findEntryItem(tx, userId, id);
+        if (!current) throw new NotFoundError("Stock entry not found");
         await requireWritableLocation(tx, userId, storageLocationId);
         await repo.updateEntry(tx, userId, id, { storageLocationId });
+        await repo.deleteVaultIfEmptyOverLimit(tx, userId, current.storageLocationId);
         return read(tx, userId, id);
       });
     },
 
-    async remove(userId: string, id: string): Promise<void> {
-      if (!(await repo.deleteEntry(db, userId, id))) {
-        throw new NotFoundError("Stock entry not found");
-      }
+    /** R-STK-3; emptying an over-limit vault removes it in the same transaction (R-GA-5). */
+    remove(userId: string, id: string): Promise<void> {
+      return db.transaction(async (tx) => {
+        const current = await repo.findEntryItem(tx, userId, id);
+        if (!current || !(await repo.deleteEntry(tx, userId, id))) {
+          throw new NotFoundError("Stock entry not found");
+        }
+        await repo.deleteVaultIfEmptyOverLimit(tx, userId, current.storageLocationId);
+      });
     },
 
     async list(userId: string, query: StockListQuery): Promise<StockPage> {

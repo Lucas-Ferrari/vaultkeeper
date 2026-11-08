@@ -17,6 +17,8 @@ export default defineConfig({
   testDir: "./specs",
   outputDir: "./test-results",
   fullyParallel: true,
+  // One worker: valuation.spec changes GLOBAL settings (rate, vault_count) that other specs see.
+  workers: 1,
   forbidOnly: isCI,
   retries: isCI ? 2 : 0,
   reporter: isCI

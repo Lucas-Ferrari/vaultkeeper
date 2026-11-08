@@ -16,6 +16,8 @@ import { Route as AuthedIndexRouteImport } from './routes/_authed/index'
 import { Route as AuthedAdminRouteImport } from './routes/_authed/_admin'
 import { Route as AuthedAdminSettingsRouteImport } from './routes/_authed/_admin/settings'
 import { Route as AuthedAccountsIndexRouteImport } from './routes/_authed/accounts/index'
+import { Route as AuthedGroupsIndexRouteImport } from './routes/_authed/groups/index'
+import { Route as AuthedGroupsGroupIdRouteImport } from './routes/_authed/groups/$groupId'
 import { Route as AuthedStockIndexRouteImport } from './routes/_authed/stock/index'
 import { Route as AuthedStockEntryIdRouteImport } from './routes/_authed/stock/$entryId'
 import { Route as AuthedStockNewRouteImport } from './routes/_authed/stock/new'
@@ -56,6 +58,16 @@ const AuthedAdminSettingsRoute = AuthedAdminSettingsRouteImport.update({
 const AuthedAccountsIndexRoute = AuthedAccountsIndexRouteImport.update({
   id: '/accounts/',
   path: '/accounts/',
+  getParentRoute: () => AuthedRoute,
+} as any)
+const AuthedGroupsIndexRoute = AuthedGroupsIndexRouteImport.update({
+  id: '/groups/',
+  path: '/groups/',
+  getParentRoute: () => AuthedRoute,
+} as any)
+const AuthedGroupsGroupIdRoute = AuthedGroupsGroupIdRouteImport.update({
+  id: '/groups/$groupId',
+  path: '/groups/$groupId',
   getParentRoute: () => AuthedRoute,
 } as any)
 const AuthedStockIndexRoute = AuthedStockIndexRouteImport.update({
@@ -108,9 +120,11 @@ export interface FileRoutesByFullPath {
   '/login': typeof LoginRoute
   '/register': typeof RegisterRoute
   '/settings': typeof AuthedAdminSettingsRoute
+  '/groups/$groupId': typeof AuthedGroupsGroupIdRoute
   '/stock/$entryId': typeof AuthedStockEntryIdRoute
   '/stock/new': typeof AuthedStockNewRoute
   '/accounts/': typeof AuthedAccountsIndexRoute
+  '/groups/': typeof AuthedGroupsIndexRoute
   '/stock/': typeof AuthedStockIndexRoute
   '/catalog/$itemId': typeof AuthedAdminCatalogItemIdRoute
   '/catalog/import': typeof AuthedAdminCatalogImportRoute
@@ -123,9 +137,11 @@ export interface FileRoutesByTo {
   '/register': typeof RegisterRoute
   '/': typeof AuthedIndexRoute
   '/settings': typeof AuthedAdminSettingsRoute
+  '/groups/$groupId': typeof AuthedGroupsGroupIdRoute
   '/stock/$entryId': typeof AuthedStockEntryIdRoute
   '/stock/new': typeof AuthedStockNewRoute
   '/accounts': typeof AuthedAccountsIndexRoute
+  '/groups': typeof AuthedGroupsIndexRoute
   '/stock': typeof AuthedStockIndexRoute
   '/catalog/$itemId': typeof AuthedAdminCatalogItemIdRoute
   '/catalog/import': typeof AuthedAdminCatalogImportRoute
@@ -141,9 +157,11 @@ export interface FileRoutesById {
   '/_authed/_admin': typeof AuthedAdminRouteWithChildren
   '/_authed/': typeof AuthedIndexRoute
   '/_authed/_admin/settings': typeof AuthedAdminSettingsRoute
+  '/_authed/groups/$groupId': typeof AuthedGroupsGroupIdRoute
   '/_authed/stock/$entryId': typeof AuthedStockEntryIdRoute
   '/_authed/stock/new': typeof AuthedStockNewRoute
   '/_authed/accounts/': typeof AuthedAccountsIndexRoute
+  '/_authed/groups/': typeof AuthedGroupsIndexRoute
   '/_authed/stock/': typeof AuthedStockIndexRoute
   '/_authed/_admin/catalog/$itemId': typeof AuthedAdminCatalogItemIdRoute
   '/_authed/_admin/catalog/import': typeof AuthedAdminCatalogImportRoute
@@ -158,9 +176,11 @@ export interface FileRouteTypes {
     | '/login'
     | '/register'
     | '/settings'
+    | '/groups/$groupId'
     | '/stock/$entryId'
     | '/stock/new'
     | '/accounts/'
+    | '/groups/'
     | '/stock/'
     | '/catalog/$itemId'
     | '/catalog/import'
@@ -173,9 +193,11 @@ export interface FileRouteTypes {
     | '/register'
     | '/'
     | '/settings'
+    | '/groups/$groupId'
     | '/stock/$entryId'
     | '/stock/new'
     | '/accounts'
+    | '/groups'
     | '/stock'
     | '/catalog/$itemId'
     | '/catalog/import'
@@ -190,9 +212,11 @@ export interface FileRouteTypes {
     | '/_authed/_admin'
     | '/_authed/'
     | '/_authed/_admin/settings'
+    | '/_authed/groups/$groupId'
     | '/_authed/stock/$entryId'
     | '/_authed/stock/new'
     | '/_authed/accounts/'
+    | '/_authed/groups/'
     | '/_authed/stock/'
     | '/_authed/_admin/catalog/$itemId'
     | '/_authed/_admin/catalog/import'
@@ -256,6 +280,20 @@ declare module '@tanstack/react-router' {
       path: '/accounts'
       fullPath: '/accounts/'
       preLoaderRoute: typeof AuthedAccountsIndexRouteImport
+      parentRoute: typeof AuthedRoute
+    }
+    '/_authed/groups/': {
+      id: '/_authed/groups/'
+      path: '/groups'
+      fullPath: '/groups/'
+      preLoaderRoute: typeof AuthedGroupsIndexRouteImport
+      parentRoute: typeof AuthedRoute
+    }
+    '/_authed/groups/$groupId': {
+      id: '/_authed/groups/$groupId'
+      path: '/groups/$groupId'
+      fullPath: '/groups/$groupId'
+      preLoaderRoute: typeof AuthedGroupsGroupIdRouteImport
       parentRoute: typeof AuthedRoute
     }
     '/_authed/stock/': {
@@ -338,9 +376,11 @@ const AuthedAdminRouteWithChildren = AuthedAdminRoute._addFileChildren(
 interface AuthedRouteChildren {
   AuthedAdminRoute: typeof AuthedAdminRouteWithChildren
   AuthedIndexRoute: typeof AuthedIndexRoute
+  AuthedGroupsGroupIdRoute: typeof AuthedGroupsGroupIdRoute
   AuthedStockEntryIdRoute: typeof AuthedStockEntryIdRoute
   AuthedStockNewRoute: typeof AuthedStockNewRoute
   AuthedAccountsIndexRoute: typeof AuthedAccountsIndexRoute
+  AuthedGroupsIndexRoute: typeof AuthedGroupsIndexRoute
   AuthedStockIndexRoute: typeof AuthedStockIndexRoute
   AuthedAccountsAccountIdIndexRoute: typeof AuthedAccountsAccountIdIndexRoute
   AuthedAccountsAccountIdLocationsLocationIdRoute: typeof AuthedAccountsAccountIdLocationsLocationIdRoute
@@ -349,9 +389,11 @@ interface AuthedRouteChildren {
 const AuthedRouteChildren: AuthedRouteChildren = {
   AuthedAdminRoute: AuthedAdminRouteWithChildren,
   AuthedIndexRoute: AuthedIndexRoute,
+  AuthedGroupsGroupIdRoute: AuthedGroupsGroupIdRoute,
   AuthedStockEntryIdRoute: AuthedStockEntryIdRoute,
   AuthedStockNewRoute: AuthedStockNewRoute,
   AuthedAccountsIndexRoute: AuthedAccountsIndexRoute,
+  AuthedGroupsIndexRoute: AuthedGroupsIndexRoute,
   AuthedStockIndexRoute: AuthedStockIndexRoute,
   AuthedAccountsAccountIdIndexRoute: AuthedAccountsAccountIdIndexRoute,
   AuthedAccountsAccountIdLocationsLocationIdRoute:

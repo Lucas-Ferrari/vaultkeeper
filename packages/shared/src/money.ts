@@ -8,7 +8,8 @@ const MC_SCALE = 2;
 const RATE_SCALE = 4;
 /** Non-negative MC amount: up to 12 integer digits, up to 2 decimals (numeric(14,2)). */
 export const MC_AMOUNT_PATTERN = /^\d{1,12}(\.\d{1,2})?$/;
-const RATE_PATTERN = /^\d{1,4}(\.\d{1,4})?$/;
+/** Non-negative MC -> MP rate: up to 4 integer digits, up to 4 decimals (numeric(8,4)). */
+export const RATE_PATTERN = /^\d{1,4}(\.\d{1,4})?$/;
 
 /** Parses a non-negative decimal string into an integer scaled by 10^scale. */
 function toUnits(value: string, pattern: RegExp, scale: number, label: string): bigint {

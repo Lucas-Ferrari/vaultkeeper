@@ -9,8 +9,8 @@ import type {
   UpdateGameAccountInput,
 } from "@vaultkeeper/shared/schemas/game-accounts";
 import type { Database, Transaction } from "../../db/client";
-import { AppError, ConflictError, NotFoundError } from "../../shared/http/errors";
-import { PG_ERROR, pgCodeOf } from "../../shared/http/on-error";
+import { AppError, NotFoundError } from "../../shared/http/errors";
+import { mapNameConflict, PG_ERROR, pgCodeOf } from "../../shared/http/on-error";
 import * as accountsRepository from "./repository";
 
 export type GameAccountsRepository = typeof accountsRepository;
@@ -28,18 +28,6 @@ export function storageNotEmpty(count: number | undefined): AppError {
     message: "Move or delete the stock stored here first",
     ...(count === undefined ? {} : { details: { count } }),
   });
-}
-
-/** Case-insensitive unique names (R-GA-1 S2, R-GA-3 S2) are a 409 on the name field. */
-async function mapNameConflict<T>(write: Promise<T>, message: string): Promise<T> {
-  try {
-    return await write;
-  } catch (error) {
-    if (pgCodeOf(error) === PG_ERROR.UNIQUE_VIOLATION) {
-      throw new ConflictError(message, { field: "name" });
-    }
-    throw error;
-  }
 }
 
 /** Game accounts, characters and their storage (design 02/05). Every call is scoped to userId. */

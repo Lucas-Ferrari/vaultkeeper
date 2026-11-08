@@ -2,7 +2,7 @@ import { ERROR_CODE, type ErrorCode } from "@vaultkeeper/shared/errors";
 import type { Context, ErrorHandler, NotFoundHandler } from "hono";
 import { HTTPException } from "hono/http-exception";
 import type { ContentfulStatusCode } from "hono/utils/http-status";
-import { AppError, errorResponse, NotFoundError } from "./errors";
+import { AppError, ConflictError, errorResponse, NotFoundError } from "./errors";
 
 /** Postgres SQLSTATEs that are expected outcomes of user input, not bugs (design 02). */
 export const PG_ERROR = {
@@ -53,6 +53,18 @@ export function pgCodeOf(error: unknown): string | undefined {
     current = current.cause;
   }
   return undefined;
+}
+
+/** Case-insensitive unique names (accounts, characters, groups) are a 409 on the name field. */
+export async function mapNameConflict<T>(write: Promise<T>, message: string): Promise<T> {
+  try {
+    return await write;
+  } catch (error) {
+    if (pgCodeOf(error) === PG_ERROR.UNIQUE_VIOLATION) {
+      throw new ConflictError(message, { field: "name" });
+    }
+    throw error;
+  }
 }
 
 function fromHttpException(error: HTTPException): AppError {

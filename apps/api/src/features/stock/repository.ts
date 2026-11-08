@@ -3,7 +3,7 @@ import type {
   StockEntry,
   UpdateStockEntryInput,
 } from "@vaultkeeper/shared/schemas/stock";
-import { and, desc, eq, exists, sql, type SQL } from "drizzle-orm";
+import { and, desc, eq, exists, inArray, notExists, sql, type SQL } from "drizzle-orm";
 import type { DbOrTx } from "../../db/client";
 import {
   catalogItems,
@@ -100,17 +100,45 @@ export async function findEntry(
   return row ? toRow(row).entry : null;
 }
 
-/** Entry's current item (to tell whether a PATCH changes it). */
+/** Entry's current item and location (PATCH item check, over-limit cleanup). Row-locked. */
 export async function findEntryItem(
   db: DbOrTx,
   userId: string,
   id: string,
-): Promise<{ catalogItemId: string } | null> {
+): Promise<{ catalogItemId: string; storageLocationId: string } | null> {
   const [row] = await db
-    .select({ catalogItemId: stockEntries.catalogItemId })
+    .select({
+      catalogItemId: stockEntries.catalogItemId,
+      storageLocationId: stockEntries.storageLocationId,
+    })
     .from(stockEntries)
-    .where(ownEntry(userId, id));
+    .where(ownEntry(userId, id))
+    .for("update");
   return row ?? null;
+}
+
+/**
+ * R-GA-5: an over-limit vault is removed as soon as it is emptied. Within-limit vaults and
+ * inventories are never touched; a vault that still holds stock is kept.
+ */
+export async function deleteVaultIfEmptyOverLimit(
+  db: DbOrTx,
+  userId: string,
+  locationId: string,
+): Promise<void> {
+  await db.delete(storageLocations).where(
+    and(
+      eq(storageLocations.id, locationId),
+      eq(storageLocations.userId, userId),
+      isOverLimit,
+      notExists(
+        db
+          .select({ one: sql`1` })
+          .from(stockEntries)
+          .where(eq(stockEntries.storageLocationId, storageLocations.id)),
+      ),
+    ),
+  );
 }
 
 export async function insertEntry(
@@ -156,6 +184,46 @@ export async function deleteEntry(db: DbOrTx, userId: string, id: string): Promi
     .where(ownEntry(userId, id))
     .returning({ id: stockEntries.id });
   return rows.length > 0;
+}
+
+/** All members of a group with their current location (R-GRP-3), newest first. */
+export async function listGroupEntries(
+  db: DbOrTx,
+  userId: string,
+  groupId: string,
+): Promise<StockEntry[]> {
+  const rows = await selectRows(
+    db,
+    and(
+      eq(stockEntries.userId, userId),
+      exists(
+        db
+          .select({ one: sql`1` })
+          .from(stockGroupEntries)
+          .where(
+            and(
+              eq(stockGroupEntries.stockEntryId, stockEntries.id),
+              eq(stockGroupEntries.groupId, groupId),
+            ),
+          ),
+      ),
+    ),
+  ).orderBy(desc(stockEntries.createdAt), desc(stockEntries.id));
+  return rows.map((row) => toRow(row).entry);
+}
+
+/** How many of `ids` (distinct) are this user's entries. */
+export async function countOwnEntries(
+  db: DbOrTx,
+  userId: string,
+  ids: readonly string[],
+): Promise<number> {
+  if (ids.length === 0) return 0;
+  const [row] = await db
+    .select({ n: sql<number>`count(*)::int` })
+    .from(stockEntries)
+    .where(and(eq(stockEntries.userId, userId), inArray(stockEntries.id, [...ids])));
+  return row?.n ?? 0;
 }
 
 export interface StockFilter {

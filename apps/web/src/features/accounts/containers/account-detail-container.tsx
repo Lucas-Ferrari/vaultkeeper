@@ -5,7 +5,7 @@ import { Alert } from "../../../shared/ui/alert";
 import { ConfirmButton } from "../../../shared/ui/confirm-button";
 import { useCreateCharacter, useDeleteAccount } from "../api/mutations";
 import { accountQueryOptions, storageQueryOptions } from "../api/queries";
-import { NameForm } from "../components/name-form";
+import { NameForm } from "../../../shared/ui/name-form";
 import { StorageList } from "../components/storage-list";
 import { accountErrorMessage } from "../lib/messages";
 
