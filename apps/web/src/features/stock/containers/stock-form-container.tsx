@@ -54,7 +54,10 @@ export function StockCreateContainer() {
 
   return (
     <section className="flex flex-col gap-4">
-      <Link to="/stock" className="text-sm text-primary">
+      <Link
+        to="/stock"
+        className="inline-flex min-h-11 items-center self-start text-sm text-primary"
+      >
         ← Stock
       </Link>
       <h1 className="text-2xl font-bold">Add stock</h1>
@@ -96,7 +99,10 @@ export function StockEditContainer({ entryId }: { entryId: string }) {
 
   return (
     <section className="flex flex-col gap-4">
-      <Link to="/stock" className="text-sm text-primary">
+      <Link
+        to="/stock"
+        className="inline-flex min-h-11 items-center self-start text-sm text-primary"
+      >
         ← Stock
       </Link>
       <h1 className="text-2xl font-bold">

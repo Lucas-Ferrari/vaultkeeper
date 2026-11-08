@@ -1,11 +1,12 @@
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { QueryClientProvider } from "@tanstack/react-query";
 import { createMemoryHistory, RouterProvider } from "@tanstack/react-router";
 import { render } from "@testing-library/react";
+import { createQueryClient } from "../shared/lib/query-client";
 import { createAppRouter } from "../router";
 
 /** The real router (all file routes + guards) in memory, with a fresh QueryClient per test. */
 export function renderApp(path: string) {
-  const queryClient = new QueryClient({ defaultOptions: { queries: { retry: false } } });
+  const queryClient = createQueryClient({ queries: { retry: false } });
   const router = createAppRouter({
     queryClient,
     history: createMemoryHistory({ initialEntries: [path] }),

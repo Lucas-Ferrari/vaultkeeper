@@ -27,7 +27,10 @@ export function GroupDetailContainer({ groupId }: { groupId: string }) {
 
   return (
     <section className="flex flex-col gap-4">
-      <Link to="/groups" className="text-sm text-primary">
+      <Link
+        to="/groups"
+        className="inline-flex min-h-11 items-center self-start text-sm text-primary"
+      >
         ← Groups
       </Link>
       <h1 className="text-2xl font-bold">{group.data.name}</h1>
@@ -59,6 +62,7 @@ export function GroupDetailContainer({ groupId }: { groupId: string }) {
             <Button
               variant={BUTTON_VARIANT.SECONDARY}
               aria-label={`Remove ${entry.itemName} from group`}
+              requiresNetwork
               disabled={removeEntry.isPending}
               onClick={() => removeEntry.mutate(entry.id)}
             >

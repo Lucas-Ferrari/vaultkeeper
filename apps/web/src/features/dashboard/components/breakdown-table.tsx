@@ -21,7 +21,7 @@ export function BreakdownTable({ title, labelHeader, rows, testIdPrefix }: Break
   return (
     <section aria-label={title} className="flex flex-col gap-2">
       <h2 className="text-lg font-semibold">{title}</h2>
-      <div className="overflow-x-auto rounded-lg border border-border">
+      <div className="relative overflow-x-auto rounded-lg border border-border">
         <table className="w-full text-left text-sm">
           <thead className="bg-surface-raised text-muted">
             <tr>

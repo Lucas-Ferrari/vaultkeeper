@@ -17,7 +17,11 @@ export function LocationContainer({
 
   return (
     <section className="flex flex-col gap-4">
-      <Link to="/accounts/$accountId" params={{ accountId }} className="text-sm text-primary">
+      <Link
+        to="/accounts/$accountId"
+        params={{ accountId }}
+        className="inline-flex min-h-11 items-center self-start text-sm text-primary"
+      >
         ← {account.data?.name ?? "Account"}
       </Link>
       <h1 className="text-2xl font-bold">

@@ -62,6 +62,7 @@ export function ImageSectionContainer({ item, categoryIcon }: ImageSectionContai
             <Button
               variant={BUTTON_VARIANT.GHOST}
               className="self-start"
+              requiresNetwork
               disabled={busy}
               onClick={() => {
                 upload.reset();

@@ -22,7 +22,10 @@ export function AccountDetailContainer({ accountId }: { accountId: string }) {
 
   return (
     <section className="flex flex-col gap-6">
-      <Link to="/accounts" className="text-sm text-primary">
+      <Link
+        to="/accounts"
+        className="inline-flex min-h-11 items-center self-start text-sm text-primary"
+      >
         ← Game accounts
       </Link>
       <h1 className="text-2xl font-bold">{account.data.name}</h1>

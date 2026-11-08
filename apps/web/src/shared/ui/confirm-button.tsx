@@ -36,7 +36,7 @@ export function ConfirmButton({
   return (
     <div className="flex flex-wrap items-center gap-2">
       <span className="text-sm">{prompt}</span>
-      <Button className="bg-danger" disabled={pending} onClick={onConfirm}>
+      <Button className="bg-danger" requiresNetwork disabled={pending} onClick={onConfirm}>
         {confirmLabel}
       </Button>
       <Button variant={BUTTON_VARIANT.GHOST} onClick={() => setAsking(false)}>

@@ -28,7 +28,10 @@ export function ItemEditContainer({ itemId }: { itemId: string }) {
 
   return (
     <section className="flex flex-col gap-6">
-      <Link to="/catalog" className="text-sm text-primary">
+      <Link
+        to="/catalog"
+        className="inline-flex min-h-11 items-center self-start text-sm text-primary"
+      >
         ← Catalog
       </Link>
       <div className="flex flex-wrap items-center gap-3">
@@ -52,6 +55,7 @@ export function ItemEditContainer({ itemId }: { itemId: string }) {
       <div className="flex flex-wrap items-center gap-3 border-t border-border pt-4">
         <Button
           variant={BUTTON_VARIANT.SECONDARY}
+          requiresNetwork
           disabled={update.isPending}
           onClick={() => update.mutate({ isActive: !current.isActive })}
         >

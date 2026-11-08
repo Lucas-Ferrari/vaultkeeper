@@ -35,7 +35,7 @@ export function MoveDialog({
         onChange={(event) => setTarget(event.target.value)}
       />
       <div className="flex gap-2">
-        <Button disabled={pending || target === ""} onClick={() => onMove(target)}>
+        <Button requiresNetwork disabled={pending || target === ""} onClick={() => onMove(target)}>
           Move
         </Button>
         <Button variant={BUTTON_VARIANT.GHOST} onClick={onCancel}>

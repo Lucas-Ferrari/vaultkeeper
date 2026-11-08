@@ -38,7 +38,10 @@ export function CsvImportContainer() {
 
   return (
     <section className="flex flex-col gap-4">
-      <Link to="/catalog" className="text-sm text-primary">
+      <Link
+        to="/catalog"
+        className="inline-flex min-h-11 items-center self-start text-sm text-primary"
+      >
         ← Catalog
       </Link>
       <h1 className="text-2xl font-bold">Import catalog CSV</h1>

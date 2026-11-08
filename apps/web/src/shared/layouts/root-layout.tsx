@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { OfflineBanner } from "../ui/offline-banner";
 import { Footer } from "./footer";
 
 interface RootLayoutProps {
@@ -9,6 +10,7 @@ interface RootLayoutProps {
 export function RootLayout({ children }: RootLayoutProps) {
   return (
     <div className="flex min-h-full flex-col">
+      <OfflineBanner />
       <main className="mx-auto w-full max-w-5xl flex-1 px-4 py-6">{children}</main>
       <Footer />
     </div>

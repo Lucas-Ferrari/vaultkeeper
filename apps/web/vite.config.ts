@@ -4,6 +4,8 @@ import tailwindcss from "@tailwindcss/vite";
 import { tanstackRouter } from "@tanstack/router-plugin/vite";
 import react, { reactCompilerPreset } from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
+import { VitePWA } from "vite-plugin-pwa";
+import { pwaOptions } from "./src/pwa.config.ts";
 
 const root = fileURLToPath(new URL(".", import.meta.url));
 const API_ORIGIN = process.env.VK_API_ORIGIN ?? "http://localhost:3000";
@@ -26,6 +28,8 @@ export default defineConfig({
     react(),
     babel({ presets: [reactCompilerPreset()] }),
     tailwindcss(),
+    // The service worker is only emitted by `vite build` (devOptions off): dev and tests stay SW-free.
+    VitePWA(pwaOptions),
   ],
   server: {
     port: 5173,

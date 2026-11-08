@@ -19,7 +19,7 @@ export function DeleteItem({ onConfirm, pending }: DeleteItemProps) {
   return (
     <div className="flex flex-wrap items-center gap-2">
       <span className="text-sm">Delete permanently? This cannot be undone.</span>
-      <Button className="bg-danger" disabled={pending} onClick={onConfirm}>
+      <Button className="bg-danger" requiresNetwork disabled={pending} onClick={onConfirm}>
         Confirm delete
       </Button>
       <Button variant={BUTTON_VARIANT.GHOST} onClick={() => setAsking(false)}>

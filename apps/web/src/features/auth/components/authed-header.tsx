@@ -18,7 +18,7 @@ interface AuthedHeaderProps {
 export function AuthedHeader({ brand, nav, email, onSignOut, signingOut }: AuthedHeaderProps) {
   return (
     <header className="mb-6 flex flex-wrap items-center justify-between gap-3 border-b border-border pb-3">
-      <div className="flex items-center gap-4">
+      <div className="flex flex-wrap items-center gap-x-4">
         {brand}
         {nav}
       </div>

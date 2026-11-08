@@ -48,6 +48,7 @@ export function AddToGroupBar({ entryIds, onAdded }: AddToGroupBarProps) {
         onChange={(event) => setGroupId(event.target.value)}
       />
       <Button
+        requiresNetwork
         disabled={!target || add.isPending}
         onClick={() => {
           if (!target) return;

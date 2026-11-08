@@ -56,7 +56,7 @@ export function CsvImportView({
         >
           Preview
         </Button>
-        <Button disabled={!canConfirm} onClick={onConfirm}>
+        <Button requiresNetwork disabled={!canConfirm} onClick={onConfirm}>
           Confirm import
         </Button>
       </div>
@@ -97,7 +97,7 @@ export function CsvImportView({
             </div>
           )}
           {preview.rows.length > 0 && (
-            <div className="overflow-x-auto rounded-lg border border-border">
+            <div className="relative overflow-x-auto rounded-lg border border-border">
               <table className="w-full text-left text-sm">
                 <thead className="bg-surface-raised text-muted">
                   <tr>
