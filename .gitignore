@@ -21,3 +21,4 @@ backups/
 # os / editor
 .DS_Store
 *.log
+.lighthouseci/

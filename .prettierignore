@@ -10,3 +10,4 @@ test-results/
 **/routeTree.gen.ts
 # drizzle-kit output (generated SQL + snapshots)
 apps/api/src/db/migrations/meta/
+.lighthouseci/

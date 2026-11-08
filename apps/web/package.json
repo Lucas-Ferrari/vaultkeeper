@@ -5,6 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview --port 4173 --strictPort",
+    "lighthouse": "vite build && lhci autorun",
     "typecheck": "tsc --noEmit -p tsconfig.json",
     "e2e": "playwright test -c e2e/playwright.config.ts"
   },
@@ -24,6 +27,7 @@
   },
   "devDependencies": {
     "@babel/core": "7.29.13",
+    "@lhci/cli": "0.16.0",
     "@playwright/test": "1.65.0",
     "@rolldown/plugin-babel": "0.3.0",
     "@tailwindcss/vite": "4.3.5",

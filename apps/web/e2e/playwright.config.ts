@@ -1,10 +1,11 @@
 import { defineConfig, devices } from "@playwright/test";
-import { API_PORT, apiEnv, repoRoot, WEB_URL } from "./env";
+import { API_PORT, apiEnv, PREVIEW_URL, repoRoot, WEB_URL } from "./env";
 
 /**
- * E2E harness (design 16). Both servers run in DEV mode (no production build, by project rule):
- * the API via tsx and the web app via Vite, which proxies /api and /media to the API, so the
- * browser sees one origin exactly like production behind Caddy.
+ * E2E harness (design 16). The API runs via tsx and the web app via the Vite dev server, which
+ * proxies /api and /media to the API, so the browser sees one origin exactly like production
+ * behind Caddy. The `preview` project additionally builds the web app (`vite build`, approved
+ * exception to the no-build rule) and serves it with `vite preview` to test the service worker.
  *
  * Run: pnpm e2e (from the repo root). Needs the dev Postgres first:
  *   docker compose -f docker-compose.dev.yml up -d --wait
@@ -28,7 +29,16 @@ export default defineConfig({
     baseURL: WEB_URL,
     trace: "retain-on-failure",
   },
-  projects: [{ name: "chromium", use: { ...devices["Desktop Chrome"] } }],
+  projects: [
+    { name: "chromium", testIgnore: /pwa\.spec\.ts/, use: { ...devices["Desktop Chrome"] } },
+    {
+      // Production bundle served by `vite preview` (same /api, /media proxy as dev): the only
+      // project with a service worker (task 6.5, R-PWA-1/3).
+      name: "preview",
+      testMatch: /pwa\.spec\.ts/,
+      use: { ...devices["Desktop Chrome"], baseURL: PREVIEW_URL },
+    },
+  ],
   webServer: [
     {
       name: "api",
@@ -46,6 +56,14 @@ export default defineConfig({
       url: WEB_URL,
       reuseExistingServer: !isCI,
       timeout: 60_000,
+    },
+    {
+      name: "preview",
+      command: "pnpm --filter @vaultkeeper/web build && pnpm --filter @vaultkeeper/web preview",
+      cwd: repoRoot,
+      url: PREVIEW_URL,
+      reuseExistingServer: !isCI,
+      timeout: 120_000,
     },
   ],
 });
