@@ -1,0 +1,20 @@
+{
+  "name": "@vaultkeeper/api-client",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./errors": "./src/errors.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit -p tsconfig.json"
+  },
+  "dependencies": {
+    "@vaultkeeper/shared": "workspace:*",
+    "hono": "4.13.17"
+  },
+  "devDependencies": {
+    "@vaultkeeper/api": "workspace:*"
+  }
+}
