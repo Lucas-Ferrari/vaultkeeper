@@ -174,15 +174,31 @@ function queryWords(query: SQL): SQL {
   return sql`ARRAY(SELECT word FROM regexp_split_to_table(${query}, ${"\\s+"}) AS word WHERE char_length(word) >= ${MIN_TOKEN_LENGTH})`;
 }
 
-function searchWhere(filter: CatalogSearchFilter): SQL | undefined {
+/**
+ * The fuzzy name predicate of catalog search (any word word-similar, or the whole query as a
+ * substring). Reused by the stock list's `q` filter (R-STK-4 S2: same matching as the catalog);
+ * run it inside `withSearchThreshold`.
+ */
+export function fuzzyNameMatch(q: string): SQL | undefined {
   const name = catalogItems.searchName;
-  return and(
-    filterConditions(filter),
-    or(
-      sql`${name} %> ANY(${queryWords(folded(filter.q))})`,
-      sql`${name} LIKE '%' || ${folded(escapeLike(filter.q))} || '%'`,
-    ),
+  return or(
+    sql`${name} %> ANY(${queryWords(folded(q))})`,
+    sql`${name} LIKE '%' || ${folded(escapeLike(q))} || '%'`,
   );
+}
+
+function searchWhere(filter: CatalogSearchFilter): SQL | undefined {
+  return and(filterConditions(filter), fuzzyNameMatch(filter.q));
+}
+
+/** Runs `fn` in a transaction with the word-similarity threshold set locally (see above). */
+export function withSearchThreshold<T>(db: DbOrTx, fn: (tx: DbOrTx) => Promise<T>): Promise<T> {
+  return db.transaction(async (tx) => {
+    await tx.execute(
+      sql`SELECT set_config('pg_trgm.word_similarity_threshold', ${String(WORD_SIMILARITY_THRESHOLD)}, true)`,
+    );
+    return fn(tx);
+  });
 }
 
 /**
@@ -247,10 +263,7 @@ export async function searchItems(
   db: DbOrTx,
   filter: CatalogSearchFilter,
 ): Promise<CatalogItemRows> {
-  return db.transaction(async (tx) => {
-    await tx.execute(
-      sql`SELECT set_config('pg_trgm.word_similarity_threshold', ${String(WORD_SIMILARITY_THRESHOLD)}, true)`,
-    );
+  return withSearchThreshold(db, async (tx) => {
     const rows = await searchSelect(tx, filter);
     const items = rows.map(({ total: _total, ...item }) => item);
     if (rows[0]) return { items, total: rows[0].total };

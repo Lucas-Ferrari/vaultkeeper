@@ -30,3 +30,12 @@ export function catalogSearchQueryOptions(params: CatalogSearchParams) {
     staleTime: CATALOG_STALE_TIME_MS,
   });
 }
+
+/** A single active item (user endpoint; inactive items are 404 for users). */
+export function catalogItemQueryOptions(id: string) {
+  return queryOptions({
+    queryKey: catalogKeys.item(id),
+    queryFn: () => unwrap(api.api.v1.catalog.items[":id"].$get({ param: { id } })),
+    staleTime: CATALOG_STALE_TIME_MS,
+  });
+}

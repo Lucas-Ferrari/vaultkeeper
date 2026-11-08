@@ -63,6 +63,8 @@ export const TEXT_LIMIT = {
   GROUP_DESCRIPTION: 500,
   ENTRY_OPTIONS: 500,
   ENTRY_NOTES: 500,
+  GAME_ACCOUNT_NOTES: 500,
+  CHARACTER_CLASS: 30,
 } as const;
 
 /** Catalog category limits (admin-curated; slug is the PK and never edited). */

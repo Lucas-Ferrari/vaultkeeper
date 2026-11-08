@@ -156,6 +156,12 @@ export function fakeCatalogApi(): FakeCatalogApi {
         ),
       );
     }),
+    http.get("/api/v1/catalog/items/:id", ({ params }) => {
+      const item = find(String(params.id));
+      return item?.isActive
+        ? HttpResponse.json(item)
+        : apiError(404, ERROR_CODE.NOT_FOUND, "Not found");
+    }),
     http.get("/api/v1/admin/catalog/items", ({ request }) => {
       const url = new URL(request.url);
       calls.adminList.push({ path: url.pathname, search: url.searchParams });

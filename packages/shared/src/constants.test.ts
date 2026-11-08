@@ -36,6 +36,8 @@ describe("shared constants (smoke)", () => {
       GROUP_DESCRIPTION: 500,
       ENTRY_OPTIONS: 500,
       ENTRY_NOTES: 500,
+      GAME_ACCOUNT_NOTES: 500,
+      CHARACTER_CLASS: 30,
     });
     expect(QUANTITY).toEqual({ MIN: 1, MAX: 9999 });
     expect(VAULT_COUNT).toEqual({ MIN: 1, MAX: 50, DEFAULT: 10 });

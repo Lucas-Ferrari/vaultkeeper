@@ -15,9 +15,15 @@ import { Route as RegisterRouteImport } from './routes/register'
 import { Route as AuthedIndexRouteImport } from './routes/_authed/index'
 import { Route as AuthedAdminRouteImport } from './routes/_authed/_admin'
 import { Route as AuthedAdminSettingsRouteImport } from './routes/_authed/_admin/settings'
+import { Route as AuthedAccountsIndexRouteImport } from './routes/_authed/accounts/index'
+import { Route as AuthedStockIndexRouteImport } from './routes/_authed/stock/index'
+import { Route as AuthedStockEntryIdRouteImport } from './routes/_authed/stock/$entryId'
+import { Route as AuthedStockNewRouteImport } from './routes/_authed/stock/new'
 import { Route as AuthedAdminCatalogIndexRouteImport } from './routes/_authed/_admin/catalog/index'
 import { Route as AuthedAdminCatalogItemIdRouteImport } from './routes/_authed/_admin/catalog/$itemId'
 import { Route as AuthedAdminCatalogImportRouteImport } from './routes/_authed/_admin/catalog/import'
+import { Route as AuthedAccountsAccountIdIndexRouteImport } from './routes/_authed/accounts/$accountId/index'
+import { Route as AuthedAccountsAccountIdLocationsLocationIdRouteImport } from './routes/_authed/accounts/$accountId/locations/$locationId'
 
 const AuthedRoute = AuthedRouteImport.update({
   id: '/_authed',
@@ -47,6 +53,26 @@ const AuthedAdminSettingsRoute = AuthedAdminSettingsRouteImport.update({
   path: '/settings',
   getParentRoute: () => AuthedAdminRoute,
 } as any)
+const AuthedAccountsIndexRoute = AuthedAccountsIndexRouteImport.update({
+  id: '/accounts/',
+  path: '/accounts/',
+  getParentRoute: () => AuthedRoute,
+} as any)
+const AuthedStockIndexRoute = AuthedStockIndexRouteImport.update({
+  id: '/stock/',
+  path: '/stock/',
+  getParentRoute: () => AuthedRoute,
+} as any)
+const AuthedStockEntryIdRoute = AuthedStockEntryIdRouteImport.update({
+  id: '/stock/$entryId',
+  path: '/stock/$entryId',
+  getParentRoute: () => AuthedRoute,
+} as any)
+const AuthedStockNewRoute = AuthedStockNewRouteImport.update({
+  id: '/stock/new',
+  path: '/stock/new',
+  getParentRoute: () => AuthedRoute,
+} as any)
 const AuthedAdminCatalogIndexRoute = AuthedAdminCatalogIndexRouteImport.update({
   id: '/catalog/',
   path: '/catalog/',
@@ -64,24 +90,48 @@ const AuthedAdminCatalogImportRoute =
     path: '/catalog/import',
     getParentRoute: () => AuthedAdminRoute,
   } as any)
+const AuthedAccountsAccountIdIndexRoute =
+  AuthedAccountsAccountIdIndexRouteImport.update({
+    id: '/accounts/$accountId/',
+    path: '/accounts/$accountId/',
+    getParentRoute: () => AuthedRoute,
+  } as any)
+const AuthedAccountsAccountIdLocationsLocationIdRoute =
+  AuthedAccountsAccountIdLocationsLocationIdRouteImport.update({
+    id: '/accounts/$accountId/locations/$locationId',
+    path: '/accounts/$accountId/locations/$locationId',
+    getParentRoute: () => AuthedRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof AuthedIndexRoute
   '/login': typeof LoginRoute
   '/register': typeof RegisterRoute
   '/settings': typeof AuthedAdminSettingsRoute
+  '/stock/$entryId': typeof AuthedStockEntryIdRoute
+  '/stock/new': typeof AuthedStockNewRoute
+  '/accounts/': typeof AuthedAccountsIndexRoute
+  '/stock/': typeof AuthedStockIndexRoute
   '/catalog/$itemId': typeof AuthedAdminCatalogItemIdRoute
   '/catalog/import': typeof AuthedAdminCatalogImportRoute
   '/catalog/': typeof AuthedAdminCatalogIndexRoute
+  '/accounts/$accountId/': typeof AuthedAccountsAccountIdIndexRoute
+  '/accounts/$accountId/locations/$locationId': typeof AuthedAccountsAccountIdLocationsLocationIdRoute
 }
 export interface FileRoutesByTo {
   '/login': typeof LoginRoute
   '/register': typeof RegisterRoute
   '/': typeof AuthedIndexRoute
   '/settings': typeof AuthedAdminSettingsRoute
+  '/stock/$entryId': typeof AuthedStockEntryIdRoute
+  '/stock/new': typeof AuthedStockNewRoute
+  '/accounts': typeof AuthedAccountsIndexRoute
+  '/stock': typeof AuthedStockIndexRoute
   '/catalog/$itemId': typeof AuthedAdminCatalogItemIdRoute
   '/catalog/import': typeof AuthedAdminCatalogImportRoute
   '/catalog': typeof AuthedAdminCatalogIndexRoute
+  '/accounts/$accountId': typeof AuthedAccountsAccountIdIndexRoute
+  '/accounts/$accountId/locations/$locationId': typeof AuthedAccountsAccountIdLocationsLocationIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -91,9 +141,15 @@ export interface FileRoutesById {
   '/_authed/_admin': typeof AuthedAdminRouteWithChildren
   '/_authed/': typeof AuthedIndexRoute
   '/_authed/_admin/settings': typeof AuthedAdminSettingsRoute
+  '/_authed/stock/$entryId': typeof AuthedStockEntryIdRoute
+  '/_authed/stock/new': typeof AuthedStockNewRoute
+  '/_authed/accounts/': typeof AuthedAccountsIndexRoute
+  '/_authed/stock/': typeof AuthedStockIndexRoute
   '/_authed/_admin/catalog/$itemId': typeof AuthedAdminCatalogItemIdRoute
   '/_authed/_admin/catalog/import': typeof AuthedAdminCatalogImportRoute
   '/_authed/_admin/catalog/': typeof AuthedAdminCatalogIndexRoute
+  '/_authed/accounts/$accountId/': typeof AuthedAccountsAccountIdIndexRoute
+  '/_authed/accounts/$accountId/locations/$locationId': typeof AuthedAccountsAccountIdLocationsLocationIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -102,18 +158,30 @@ export interface FileRouteTypes {
     | '/login'
     | '/register'
     | '/settings'
+    | '/stock/$entryId'
+    | '/stock/new'
+    | '/accounts/'
+    | '/stock/'
     | '/catalog/$itemId'
     | '/catalog/import'
     | '/catalog/'
+    | '/accounts/$accountId/'
+    | '/accounts/$accountId/locations/$locationId'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/login'
     | '/register'
     | '/'
     | '/settings'
+    | '/stock/$entryId'
+    | '/stock/new'
+    | '/accounts'
+    | '/stock'
     | '/catalog/$itemId'
     | '/catalog/import'
     | '/catalog'
+    | '/accounts/$accountId'
+    | '/accounts/$accountId/locations/$locationId'
   id:
     | '__root__'
     | '/_authed'
@@ -122,9 +190,15 @@ export interface FileRouteTypes {
     | '/_authed/_admin'
     | '/_authed/'
     | '/_authed/_admin/settings'
+    | '/_authed/stock/$entryId'
+    | '/_authed/stock/new'
+    | '/_authed/accounts/'
+    | '/_authed/stock/'
     | '/_authed/_admin/catalog/$itemId'
     | '/_authed/_admin/catalog/import'
     | '/_authed/_admin/catalog/'
+    | '/_authed/accounts/$accountId/'
+    | '/_authed/accounts/$accountId/locations/$locationId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -177,6 +251,34 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthedAdminSettingsRouteImport
       parentRoute: typeof AuthedAdminRoute
     }
+    '/_authed/accounts/': {
+      id: '/_authed/accounts/'
+      path: '/accounts'
+      fullPath: '/accounts/'
+      preLoaderRoute: typeof AuthedAccountsIndexRouteImport
+      parentRoute: typeof AuthedRoute
+    }
+    '/_authed/stock/': {
+      id: '/_authed/stock/'
+      path: '/stock'
+      fullPath: '/stock/'
+      preLoaderRoute: typeof AuthedStockIndexRouteImport
+      parentRoute: typeof AuthedRoute
+    }
+    '/_authed/stock/$entryId': {
+      id: '/_authed/stock/$entryId'
+      path: '/stock/$entryId'
+      fullPath: '/stock/$entryId'
+      preLoaderRoute: typeof AuthedStockEntryIdRouteImport
+      parentRoute: typeof AuthedRoute
+    }
+    '/_authed/stock/new': {
+      id: '/_authed/stock/new'
+      path: '/stock/new'
+      fullPath: '/stock/new'
+      preLoaderRoute: typeof AuthedStockNewRouteImport
+      parentRoute: typeof AuthedRoute
+    }
     '/_authed/_admin/catalog/': {
       id: '/_authed/_admin/catalog/'
       path: '/catalog'
@@ -197,6 +299,20 @@ declare module '@tanstack/react-router' {
       fullPath: '/catalog/import'
       preLoaderRoute: typeof AuthedAdminCatalogImportRouteImport
       parentRoute: typeof AuthedAdminRoute
+    }
+    '/_authed/accounts/$accountId/': {
+      id: '/_authed/accounts/$accountId/'
+      path: '/accounts/$accountId'
+      fullPath: '/accounts/$accountId/'
+      preLoaderRoute: typeof AuthedAccountsAccountIdIndexRouteImport
+      parentRoute: typeof AuthedRoute
+    }
+    '/_authed/accounts/$accountId/locations/$locationId': {
+      id: '/_authed/accounts/$accountId/locations/$locationId'
+      path: '/accounts/$accountId/locations/$locationId'
+      fullPath: '/accounts/$accountId/locations/$locationId'
+      preLoaderRoute: typeof AuthedAccountsAccountIdLocationsLocationIdRouteImport
+      parentRoute: typeof AuthedRoute
     }
   }
 }
@@ -222,11 +338,24 @@ const AuthedAdminRouteWithChildren = AuthedAdminRoute._addFileChildren(
 interface AuthedRouteChildren {
   AuthedAdminRoute: typeof AuthedAdminRouteWithChildren
   AuthedIndexRoute: typeof AuthedIndexRoute
+  AuthedStockEntryIdRoute: typeof AuthedStockEntryIdRoute
+  AuthedStockNewRoute: typeof AuthedStockNewRoute
+  AuthedAccountsIndexRoute: typeof AuthedAccountsIndexRoute
+  AuthedStockIndexRoute: typeof AuthedStockIndexRoute
+  AuthedAccountsAccountIdIndexRoute: typeof AuthedAccountsAccountIdIndexRoute
+  AuthedAccountsAccountIdLocationsLocationIdRoute: typeof AuthedAccountsAccountIdLocationsLocationIdRoute
 }
 
 const AuthedRouteChildren: AuthedRouteChildren = {
   AuthedAdminRoute: AuthedAdminRouteWithChildren,
   AuthedIndexRoute: AuthedIndexRoute,
+  AuthedStockEntryIdRoute: AuthedStockEntryIdRoute,
+  AuthedStockNewRoute: AuthedStockNewRoute,
+  AuthedAccountsIndexRoute: AuthedAccountsIndexRoute,
+  AuthedStockIndexRoute: AuthedStockIndexRoute,
+  AuthedAccountsAccountIdIndexRoute: AuthedAccountsAccountIdIndexRoute,
+  AuthedAccountsAccountIdLocationsLocationIdRoute:
+    AuthedAccountsAccountIdLocationsLocationIdRoute,
 }
 
 const AuthedRouteWithChildren =

@@ -4,6 +4,8 @@ import { cn } from "../lib/cn";
 export interface SelectOption {
   value: string;
   label: string;
+  /** Shown but not selectable (e.g. an over-limit vault). */
+  disabled?: boolean;
 }
 
 interface SelectFieldProps extends Omit<ComponentProps<"select">, "id" | "children"> {
@@ -40,7 +42,7 @@ export function SelectField({
         {...selectProps}
       >
         {options.map((option) => (
-          <option key={option.value} value={option.value}>
+          <option key={option.value} value={option.value} disabled={option.disabled}>
             {option.label}
           </option>
         ))}

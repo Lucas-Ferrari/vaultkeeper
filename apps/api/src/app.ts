@@ -12,9 +12,13 @@ import { catalogImageRoutes } from "./features/catalog-images/routes";
 import { createCatalogImageService } from "./features/catalog-images/service";
 import { adminCatalogRoutes, catalogRoutes } from "./features/catalog/routes";
 import { createCatalogService } from "./features/catalog/service";
+import { characterRoutes, gameAccountRoutes } from "./features/game-accounts/routes";
+import { createGameAccountsService } from "./features/game-accounts/service";
 import { healthRoutes } from "./features/health/routes";
 import { mediaRoutes } from "./features/media/routes";
 import { meRoutes } from "./features/me/routes";
+import { stockRoutes } from "./features/stock/routes";
+import { createStockService } from "./features/stock/service";
 import { jsonBodyLimit } from "./shared/http/body-limit";
 import {
   createErrorHandler,
@@ -65,6 +69,8 @@ export function createApp(deps: AppDeps) {
     maxBytes: limits.uploadMaxBytes,
   });
   const catalogImport = createCatalogImportService({ db, maxBytes: limits.csvMaxBytes });
+  const gameAccounts = createGameAccountsService({ db });
+  const stock = createStockService({ db });
 
   const v1 = new Hono()
     .use(sessionMiddleware(auth))
@@ -73,7 +79,10 @@ export function createApp(deps: AppDeps) {
     .route("/catalog", catalogRoutes(catalog))
     .route("/admin/catalog", adminCatalogRoutes(catalog))
     .route("/admin/catalog", catalogImageRoutes(catalogImages, limits.uploadMaxBytes))
-    .route("/admin/catalog", catalogImportRoutes(catalogImport, limits.csvMaxBytes));
+    .route("/admin/catalog", catalogImportRoutes(catalogImport, limits.csvMaxBytes))
+    .route("/game-accounts", gameAccountRoutes(gameAccounts))
+    .route("/characters", characterRoutes(gameAccounts))
+    .route("/stock", stockRoutes(stock));
 
   const app = new Hono()
     .use(requestId())

@@ -4,6 +4,8 @@ import type { MeResponse } from "@vaultkeeper/shared/schemas/me";
 import { useSignOut } from "../api/mutations";
 import { AuthedHeader } from "../components/authed-header";
 
+const NAV_LINK = "text-sm font-semibold text-muted hover:text-foreground";
+
 interface AuthedLayoutContainerProps {
   me: MeResponse;
 }
@@ -26,16 +28,23 @@ export function AuthedLayoutContainer({ me }: AuthedLayoutContainerProps) {
           </Link>
         }
         nav={
-          me.role === ROLE.ADMIN && (
-            <nav aria-label="Admin">
-              <Link
-                to="/catalog"
-                className="text-sm font-semibold text-muted hover:text-foreground"
-              >
-                Catalog
+          <>
+            <nav aria-label="Main" className="flex items-center gap-4">
+              <Link to="/accounts" className={NAV_LINK}>
+                Accounts
+              </Link>
+              <Link to="/stock" className={NAV_LINK}>
+                Stock
               </Link>
             </nav>
-          )
+            {me.role === ROLE.ADMIN && (
+              <nav aria-label="Admin">
+                <Link to="/catalog" className={NAV_LINK}>
+                  Catalog
+                </Link>
+              </nav>
+            )}
+          </>
         }
         email={me.email}
         onSignOut={onSignOut}
