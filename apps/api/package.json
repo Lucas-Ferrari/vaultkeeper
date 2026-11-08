@@ -23,6 +23,7 @@
     "drizzle-orm": "0.45.4",
     "hono": "4.13.17",
     "pg": "8.23.1",
+    "tsx": "4.23.15",
     "zod": "4.6.7"
   },
   "devDependencies": {
@@ -30,7 +31,6 @@
     "@types/pg": "8.23.1",
     "drizzle-kit": "0.31.11",
     "msw": "3.0.4",
-    "testcontainers": "12.2.1",
-    "tsx": "4.23.15"
+    "testcontainers": "12.2.1"
   }
 }
