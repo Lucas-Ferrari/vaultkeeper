@@ -45,7 +45,7 @@ const HTTP_STATUS_CODE: Readonly<Partial<Record<number, ErrorCode>>> = {
 const MAX_CAUSE_DEPTH = 5;
 
 /** SQLSTATE of a node-postgres error, also when wrapped (Drizzle's DrizzleQueryError.cause). */
-function pgCodeOf(error: unknown): string | undefined {
+export function pgCodeOf(error: unknown): string | undefined {
   let current: unknown = error;
   for (let depth = 0; depth < MAX_CAUSE_DEPTH && current instanceof Error; depth += 1) {
     const code: unknown = (current as Error & { code?: unknown }).code;

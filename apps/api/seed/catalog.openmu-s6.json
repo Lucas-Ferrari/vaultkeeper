@@ -1,0 +1,3941 @@
+{
+  "source": "openmu",
+  "season": "s6",
+  "openmuRepository": "https://github.com/MUnique/OpenMU",
+  "openmuCommit": "cb52cd658c5d49aacca6ee9bb1cbb9e011685ce2",
+  "license": "MIT License, Copyright (c) 2017 MUnique. See NOTICE.",
+  "categories": [
+    {
+      "slug": "swords",
+      "name": "Swords",
+      "icon": "sword",
+      "sortOrder": 10
+    },
+    {
+      "slug": "axes",
+      "name": "Axes",
+      "icon": "axe",
+      "sortOrder": 20
+    },
+    {
+      "slug": "maces",
+      "name": "Maces & Scepters",
+      "icon": "mace",
+      "sortOrder": 30
+    },
+    {
+      "slug": "spears",
+      "name": "Spears",
+      "icon": "spear",
+      "sortOrder": 40
+    },
+    {
+      "slug": "bows",
+      "name": "Bows & Crossbows",
+      "icon": "bow",
+      "sortOrder": 50
+    },
+    {
+      "slug": "staffs",
+      "name": "Staffs & Sticks",
+      "icon": "staff",
+      "sortOrder": 60
+    },
+    {
+      "slug": "shields",
+      "name": "Shields",
+      "icon": "shield",
+      "sortOrder": 70
+    },
+    {
+      "slug": "helms",
+      "name": "Helms",
+      "icon": "helm",
+      "sortOrder": 80
+    },
+    {
+      "slug": "armors",
+      "name": "Armors",
+      "icon": "armor",
+      "sortOrder": 90
+    },
+    {
+      "slug": "pants",
+      "name": "Pants",
+      "icon": "pants",
+      "sortOrder": 100
+    },
+    {
+      "slug": "gloves",
+      "name": "Gloves",
+      "icon": "gloves",
+      "sortOrder": 110
+    },
+    {
+      "slug": "boots",
+      "name": "Boots",
+      "icon": "boots",
+      "sortOrder": 120
+    },
+    {
+      "slug": "wings",
+      "name": "Wings & Capes",
+      "icon": "wings",
+      "sortOrder": 130
+    },
+    {
+      "slug": "jewelry",
+      "name": "Rings & Pendants",
+      "icon": "ring",
+      "sortOrder": 140
+    },
+    {
+      "slug": "jewels",
+      "name": "Jewels",
+      "icon": "jewel",
+      "sortOrder": 150
+    },
+    {
+      "slug": "pets",
+      "name": "Pets",
+      "icon": "pet",
+      "sortOrder": 160
+    },
+    {
+      "slug": "orbs",
+      "name": "Orbs",
+      "icon": "orb",
+      "sortOrder": 170
+    },
+    {
+      "slug": "scrolls",
+      "name": "Scrolls",
+      "icon": "scroll",
+      "sortOrder": 180
+    },
+    {
+      "slug": "socket-items",
+      "name": "Seeds & Spheres",
+      "icon": "socket",
+      "sortOrder": 190
+    },
+    {
+      "slug": "potions",
+      "name": "Potions & Consumables",
+      "icon": "potion",
+      "sortOrder": 200
+    },
+    {
+      "slug": "boxes",
+      "name": "Boxes",
+      "icon": "box",
+      "sortOrder": 210
+    },
+    {
+      "slug": "buffs",
+      "name": "Seals & Buff Items",
+      "icon": "buff",
+      "sortOrder": 220
+    },
+    {
+      "slug": "event-items",
+      "name": "Event Items",
+      "icon": "ticket",
+      "sortOrder": 230
+    },
+    {
+      "slug": "quest-items",
+      "name": "Quest Items",
+      "icon": "quest",
+      "sortOrder": 240
+    },
+    {
+      "slug": "misc",
+      "name": "Miscellaneous",
+      "icon": "misc",
+      "sortOrder": 250
+    }
+  ],
+  "items": [
+    {
+      "externalKey": "openmu:s6:0:0",
+      "category": "swords",
+      "name": "Kris"
+    },
+    {
+      "externalKey": "openmu:s6:0:1",
+      "category": "swords",
+      "name": "Short Sword"
+    },
+    {
+      "externalKey": "openmu:s6:0:2",
+      "category": "swords",
+      "name": "Rapier"
+    },
+    {
+      "externalKey": "openmu:s6:0:3",
+      "category": "swords",
+      "name": "Katache"
+    },
+    {
+      "externalKey": "openmu:s6:0:4",
+      "category": "swords",
+      "name": "Sword of Assassin"
+    },
+    {
+      "externalKey": "openmu:s6:0:5",
+      "category": "swords",
+      "name": "Blade"
+    },
+    {
+      "externalKey": "openmu:s6:0:6",
+      "category": "swords",
+      "name": "Gladius"
+    },
+    {
+      "externalKey": "openmu:s6:0:7",
+      "category": "swords",
+      "name": "Falchion"
+    },
+    {
+      "externalKey": "openmu:s6:0:8",
+      "category": "swords",
+      "name": "Serpent Sword"
+    },
+    {
+      "externalKey": "openmu:s6:0:9",
+      "category": "swords",
+      "name": "Sword of Salamander"
+    },
+    {
+      "externalKey": "openmu:s6:0:10",
+      "category": "swords",
+      "name": "Light Saber"
+    },
+    {
+      "externalKey": "openmu:s6:0:11",
+      "category": "swords",
+      "name": "Legendary Sword"
+    },
+    {
+      "externalKey": "openmu:s6:0:12",
+      "category": "swords",
+      "name": "Heliacal Sword"
+    },
+    {
+      "externalKey": "openmu:s6:0:13",
+      "category": "swords",
+      "name": "Double Blade"
+    },
+    {
+      "externalKey": "openmu:s6:0:14",
+      "category": "swords",
+      "name": "Lighting Sword"
+    },
+    {
+      "externalKey": "openmu:s6:0:15",
+      "category": "swords",
+      "name": "Giant Sword"
+    },
+    {
+      "externalKey": "openmu:s6:0:16",
+      "category": "swords",
+      "name": "Sword of Destruction"
+    },
+    {
+      "externalKey": "openmu:s6:0:17",
+      "category": "swords",
+      "name": "Dark Breaker"
+    },
+    {
+      "externalKey": "openmu:s6:0:18",
+      "category": "swords",
+      "name": "Thunder Blade"
+    },
+    {
+      "externalKey": "openmu:s6:0:19",
+      "category": "swords",
+      "name": "Divine Sword of Archangel"
+    },
+    {
+      "externalKey": "openmu:s6:0:20",
+      "category": "swords",
+      "name": "Knight Blade"
+    },
+    {
+      "externalKey": "openmu:s6:0:21",
+      "category": "swords",
+      "name": "Dark Reign Blade"
+    },
+    {
+      "externalKey": "openmu:s6:0:22",
+      "category": "swords",
+      "name": "Bone Blade"
+    },
+    {
+      "externalKey": "openmu:s6:0:23",
+      "category": "swords",
+      "name": "Explosion Blade"
+    },
+    {
+      "externalKey": "openmu:s6:0:24",
+      "category": "swords",
+      "name": "Daybreak"
+    },
+    {
+      "externalKey": "openmu:s6:0:25",
+      "category": "swords",
+      "name": "Sword Dancer"
+    },
+    {
+      "externalKey": "openmu:s6:0:26",
+      "category": "swords",
+      "name": "Flamberge"
+    },
+    {
+      "externalKey": "openmu:s6:0:27",
+      "category": "swords",
+      "name": "Sword Breaker"
+    },
+    {
+      "externalKey": "openmu:s6:0:28",
+      "category": "swords",
+      "name": "Imperial Sword"
+    },
+    {
+      "externalKey": "openmu:s6:0:31",
+      "category": "swords",
+      "name": "Rune Blade"
+    },
+    {
+      "externalKey": "openmu:s6:0:32",
+      "category": "swords",
+      "name": "Sacred Glove"
+    },
+    {
+      "externalKey": "openmu:s6:0:33",
+      "category": "swords",
+      "name": "Storm Hard Glove"
+    },
+    {
+      "externalKey": "openmu:s6:0:34",
+      "category": "swords",
+      "name": "Piercing Blade Glove"
+    },
+    {
+      "externalKey": "openmu:s6:0:35",
+      "category": "swords",
+      "name": "Phoenix Soul Star"
+    },
+    {
+      "externalKey": "openmu:s6:1:0",
+      "category": "axes",
+      "name": "Small Axe"
+    },
+    {
+      "externalKey": "openmu:s6:1:1",
+      "category": "axes",
+      "name": "Hand Axe"
+    },
+    {
+      "externalKey": "openmu:s6:1:2",
+      "category": "axes",
+      "name": "Double Axe"
+    },
+    {
+      "externalKey": "openmu:s6:1:3",
+      "category": "axes",
+      "name": "Tomahawk"
+    },
+    {
+      "externalKey": "openmu:s6:1:4",
+      "category": "axes",
+      "name": "Elven Axe"
+    },
+    {
+      "externalKey": "openmu:s6:1:5",
+      "category": "axes",
+      "name": "Battle Axe"
+    },
+    {
+      "externalKey": "openmu:s6:1:6",
+      "category": "axes",
+      "name": "Nikkea Axe"
+    },
+    {
+      "externalKey": "openmu:s6:1:7",
+      "category": "axes",
+      "name": "Larkan Axe"
+    },
+    {
+      "externalKey": "openmu:s6:1:8",
+      "category": "axes",
+      "name": "Crescent Axe"
+    },
+    {
+      "externalKey": "openmu:s6:2:0",
+      "category": "maces",
+      "name": "Mace"
+    },
+    {
+      "externalKey": "openmu:s6:2:1",
+      "category": "maces",
+      "name": "Morning Star"
+    },
+    {
+      "externalKey": "openmu:s6:2:2",
+      "category": "maces",
+      "name": "Flail"
+    },
+    {
+      "externalKey": "openmu:s6:2:3",
+      "category": "maces",
+      "name": "Great Hammer"
+    },
+    {
+      "externalKey": "openmu:s6:2:4",
+      "category": "maces",
+      "name": "Crystal Morning Star"
+    },
+    {
+      "externalKey": "openmu:s6:2:5",
+      "category": "maces",
+      "name": "Crystal Sword"
+    },
+    {
+      "externalKey": "openmu:s6:2:6",
+      "category": "maces",
+      "name": "Chaos Dragon Axe"
+    },
+    {
+      "externalKey": "openmu:s6:2:7",
+      "category": "maces",
+      "name": "Elemental Mace"
+    },
+    {
+      "externalKey": "openmu:s6:2:8",
+      "category": "maces",
+      "name": "Battle Scepter"
+    },
+    {
+      "externalKey": "openmu:s6:2:9",
+      "category": "maces",
+      "name": "Master Scepter"
+    },
+    {
+      "externalKey": "openmu:s6:2:10",
+      "category": "maces",
+      "name": "Great Scepter"
+    },
+    {
+      "externalKey": "openmu:s6:2:11",
+      "category": "maces",
+      "name": "Lord Scepter"
+    },
+    {
+      "externalKey": "openmu:s6:2:12",
+      "category": "maces",
+      "name": "Great Lord Scepter"
+    },
+    {
+      "externalKey": "openmu:s6:2:13",
+      "category": "maces",
+      "name": "Divine Scepter of Archangel"
+    },
+    {
+      "externalKey": "openmu:s6:2:14",
+      "category": "maces",
+      "name": "Soleil Scepter"
+    },
+    {
+      "externalKey": "openmu:s6:2:15",
+      "category": "maces",
+      "name": "Shining Scepter"
+    },
+    {
+      "externalKey": "openmu:s6:2:16",
+      "category": "maces",
+      "name": "Frost Mace"
+    },
+    {
+      "externalKey": "openmu:s6:2:17",
+      "category": "maces",
+      "name": "Absolute Scepter"
+    },
+    {
+      "externalKey": "openmu:s6:2:18",
+      "category": "maces",
+      "name": "Stryker Scepter"
+    },
+    {
+      "externalKey": "openmu:s6:3:0",
+      "category": "spears",
+      "name": "Light Spear"
+    },
+    {
+      "externalKey": "openmu:s6:3:1",
+      "category": "spears",
+      "name": "Spear"
+    },
+    {
+      "externalKey": "openmu:s6:3:2",
+      "category": "spears",
+      "name": "Dragon Lance"
+    },
+    {
+      "externalKey": "openmu:s6:3:3",
+      "category": "spears",
+      "name": "Giant Trident"
+    },
+    {
+      "externalKey": "openmu:s6:3:4",
+      "category": "spears",
+      "name": "Serpent Spear"
+    },
+    {
+      "externalKey": "openmu:s6:3:5",
+      "category": "spears",
+      "name": "Double Poleaxe"
+    },
+    {
+      "externalKey": "openmu:s6:3:6",
+      "category": "spears",
+      "name": "Halberd"
+    },
+    {
+      "externalKey": "openmu:s6:3:7",
+      "category": "spears",
+      "name": "Berdysh"
+    },
+    {
+      "externalKey": "openmu:s6:3:8",
+      "category": "spears",
+      "name": "Great Scythe"
+    },
+    {
+      "externalKey": "openmu:s6:3:9",
+      "category": "spears",
+      "name": "Bill of Balrog"
+    },
+    {
+      "externalKey": "openmu:s6:3:10",
+      "category": "spears",
+      "name": "Dragon Spear"
+    },
+    {
+      "externalKey": "openmu:s6:3:11",
+      "category": "spears",
+      "name": "Beuroba"
+    },
+    {
+      "externalKey": "openmu:s6:4:0",
+      "category": "bows",
+      "name": "Short Bow"
+    },
+    {
+      "externalKey": "openmu:s6:4:1",
+      "category": "bows",
+      "name": "Bow"
+    },
+    {
+      "externalKey": "openmu:s6:4:2",
+      "category": "bows",
+      "name": "Elven Bow"
+    },
+    {
+      "externalKey": "openmu:s6:4:3",
+      "category": "bows",
+      "name": "Battle Bow"
+    },
+    {
+      "externalKey": "openmu:s6:4:4",
+      "category": "bows",
+      "name": "Tiger Bow"
+    },
+    {
+      "externalKey": "openmu:s6:4:5",
+      "category": "bows",
+      "name": "Silver Bow"
+    },
+    {
+      "externalKey": "openmu:s6:4:6",
+      "category": "bows",
+      "name": "Chaos Nature Bow"
+    },
+    {
+      "externalKey": "openmu:s6:4:7",
+      "category": "bows",
+      "name": "Bolt"
+    },
+    {
+      "externalKey": "openmu:s6:4:8",
+      "category": "bows",
+      "name": "Crossbow"
+    },
+    {
+      "externalKey": "openmu:s6:4:9",
+      "category": "bows",
+      "name": "Golden Crossbow"
+    },
+    {
+      "externalKey": "openmu:s6:4:10",
+      "category": "bows",
+      "name": "Arquebus"
+    },
+    {
+      "externalKey": "openmu:s6:4:11",
+      "category": "bows",
+      "name": "Light Crossbow"
+    },
+    {
+      "externalKey": "openmu:s6:4:12",
+      "category": "bows",
+      "name": "Serpent Crossbow"
+    },
+    {
+      "externalKey": "openmu:s6:4:13",
+      "category": "bows",
+      "name": "Bluewing Crossbow"
+    },
+    {
+      "externalKey": "openmu:s6:4:14",
+      "category": "bows",
+      "name": "Aquagold Crossbow"
+    },
+    {
+      "externalKey": "openmu:s6:4:15",
+      "category": "bows",
+      "name": "Arrows"
+    },
+    {
+      "externalKey": "openmu:s6:4:16",
+      "category": "bows",
+      "name": "Saint Crossbow"
+    },
+    {
+      "externalKey": "openmu:s6:4:17",
+      "category": "bows",
+      "name": "Celestial Bow"
+    },
+    {
+      "externalKey": "openmu:s6:4:18",
+      "category": "bows",
+      "name": "Divine Crossbow of Archangel"
+    },
+    {
+      "externalKey": "openmu:s6:4:19",
+      "category": "bows",
+      "name": "Great Reign Crossbow"
+    },
+    {
+      "externalKey": "openmu:s6:4:20",
+      "category": "bows",
+      "name": "Arrow Viper Bow"
+    },
+    {
+      "externalKey": "openmu:s6:4:21",
+      "category": "bows",
+      "name": "Sylph Wind Bow"
+    },
+    {
+      "externalKey": "openmu:s6:4:22",
+      "category": "bows",
+      "name": "Albatross Bow"
+    },
+    {
+      "externalKey": "openmu:s6:4:23",
+      "category": "bows",
+      "name": "Stinger Bow"
+    },
+    {
+      "externalKey": "openmu:s6:4:24",
+      "category": "bows",
+      "name": "Air Lyn Bow"
+    },
+    {
+      "externalKey": "openmu:s6:5:0",
+      "category": "staffs",
+      "name": "Skull Staff"
+    },
+    {
+      "externalKey": "openmu:s6:5:1",
+      "category": "staffs",
+      "name": "Angelic Staff"
+    },
+    {
+      "externalKey": "openmu:s6:5:2",
+      "category": "staffs",
+      "name": "Serpent Staff"
+    },
+    {
+      "externalKey": "openmu:s6:5:3",
+      "category": "staffs",
+      "name": "Thunder Staff"
+    },
+    {
+      "externalKey": "openmu:s6:5:4",
+      "category": "staffs",
+      "name": "Gorgon Staff"
+    },
+    {
+      "externalKey": "openmu:s6:5:5",
+      "category": "staffs",
+      "name": "Legendary Staff"
+    },
+    {
+      "externalKey": "openmu:s6:5:6",
+      "category": "staffs",
+      "name": "Staff of Resurrection"
+    },
+    {
+      "externalKey": "openmu:s6:5:7",
+      "category": "staffs",
+      "name": "Chaos Lightning Staff"
+    },
+    {
+      "externalKey": "openmu:s6:5:8",
+      "category": "staffs",
+      "name": "Staff of Destruction"
+    },
+    {
+      "externalKey": "openmu:s6:5:9",
+      "category": "staffs",
+      "name": "Dragon Soul Staff"
+    },
+    {
+      "externalKey": "openmu:s6:5:10",
+      "category": "staffs",
+      "name": "Divine Staff of Archangel"
+    },
+    {
+      "externalKey": "openmu:s6:5:11",
+      "category": "staffs",
+      "name": "Staff of Kundun"
+    },
+    {
+      "externalKey": "openmu:s6:5:12",
+      "category": "staffs",
+      "name": "Grand Viper Staff"
+    },
+    {
+      "externalKey": "openmu:s6:5:13",
+      "category": "staffs",
+      "name": "Platina Staff"
+    },
+    {
+      "externalKey": "openmu:s6:5:14",
+      "category": "staffs",
+      "name": "Mistery Stick"
+    },
+    {
+      "externalKey": "openmu:s6:5:15",
+      "category": "staffs",
+      "name": "Violent Wind Stick"
+    },
+    {
+      "externalKey": "openmu:s6:5:16",
+      "category": "staffs",
+      "name": "Red Wing Stick"
+    },
+    {
+      "externalKey": "openmu:s6:5:17",
+      "category": "staffs",
+      "name": "Ancient Stick"
+    },
+    {
+      "externalKey": "openmu:s6:5:18",
+      "category": "staffs",
+      "name": "Demonic Stick"
+    },
+    {
+      "externalKey": "openmu:s6:5:19",
+      "category": "staffs",
+      "name": "Storm Blitz Stick"
+    },
+    {
+      "externalKey": "openmu:s6:5:20",
+      "category": "staffs",
+      "name": "Eternal Wing Stick"
+    },
+    {
+      "externalKey": "openmu:s6:5:21",
+      "category": "staffs",
+      "name": "Book of Sahamutt"
+    },
+    {
+      "externalKey": "openmu:s6:5:22",
+      "category": "staffs",
+      "name": "Book of Neil"
+    },
+    {
+      "externalKey": "openmu:s6:5:23",
+      "category": "staffs",
+      "name": "Book of Lagle"
+    },
+    {
+      "externalKey": "openmu:s6:5:30",
+      "category": "staffs",
+      "name": "Deadly Staff"
+    },
+    {
+      "externalKey": "openmu:s6:5:31",
+      "category": "staffs",
+      "name": "Imperial Staff"
+    },
+    {
+      "externalKey": "openmu:s6:5:33",
+      "category": "staffs",
+      "name": "Chromatic Staff"
+    },
+    {
+      "externalKey": "openmu:s6:5:34",
+      "category": "staffs",
+      "name": "Raven Stick"
+    },
+    {
+      "externalKey": "openmu:s6:5:36",
+      "category": "staffs",
+      "name": "Divine Stick of Archangel"
+    },
+    {
+      "externalKey": "openmu:s6:6:0",
+      "category": "shields",
+      "name": "Small Shield"
+    },
+    {
+      "externalKey": "openmu:s6:6:1",
+      "category": "shields",
+      "name": "Horn Shield"
+    },
+    {
+      "externalKey": "openmu:s6:6:2",
+      "category": "shields",
+      "name": "Kite Shield"
+    },
+    {
+      "externalKey": "openmu:s6:6:3",
+      "category": "shields",
+      "name": "Elven Shield"
+    },
+    {
+      "externalKey": "openmu:s6:6:4",
+      "category": "shields",
+      "name": "Buckler"
+    },
+    {
+      "externalKey": "openmu:s6:6:5",
+      "category": "shields",
+      "name": "Dragon Slayer Shield"
+    },
+    {
+      "externalKey": "openmu:s6:6:6",
+      "category": "shields",
+      "name": "Skull Shield"
+    },
+    {
+      "externalKey": "openmu:s6:6:7",
+      "category": "shields",
+      "name": "Spiked Shield"
+    },
+    {
+      "externalKey": "openmu:s6:6:8",
+      "category": "shields",
+      "name": "Tower Shield"
+    },
+    {
+      "externalKey": "openmu:s6:6:9",
+      "category": "shields",
+      "name": "Plate Shield"
+    },
+    {
+      "externalKey": "openmu:s6:6:10",
+      "category": "shields",
+      "name": "Big Round Shield"
+    },
+    {
+      "externalKey": "openmu:s6:6:11",
+      "category": "shields",
+      "name": "Serpent Shield"
+    },
+    {
+      "externalKey": "openmu:s6:6:12",
+      "category": "shields",
+      "name": "Bronze Shield"
+    },
+    {
+      "externalKey": "openmu:s6:6:13",
+      "category": "shields",
+      "name": "Dragon Shield"
+    },
+    {
+      "externalKey": "openmu:s6:6:14",
+      "category": "shields",
+      "name": "Legendary Shield"
+    },
+    {
+      "externalKey": "openmu:s6:6:15",
+      "category": "shields",
+      "name": "Grand Soul Shield"
+    },
+    {
+      "externalKey": "openmu:s6:6:16",
+      "category": "shields",
+      "name": "Elemental Shield"
+    },
+    {
+      "externalKey": "openmu:s6:6:17",
+      "category": "shields",
+      "name": "Crimson Glory"
+    },
+    {
+      "externalKey": "openmu:s6:6:18",
+      "category": "shields",
+      "name": "Salamander Shield"
+    },
+    {
+      "externalKey": "openmu:s6:6:19",
+      "category": "shields",
+      "name": "Frost Barrier"
+    },
+    {
+      "externalKey": "openmu:s6:6:20",
+      "category": "shields",
+      "name": "Guardian Shield"
+    },
+    {
+      "externalKey": "openmu:s6:6:21",
+      "category": "shields",
+      "name": "Cross Shield"
+    },
+    {
+      "externalKey": "openmu:s6:7:0",
+      "category": "helms",
+      "name": "Bronze Helm"
+    },
+    {
+      "externalKey": "openmu:s6:7:1",
+      "category": "helms",
+      "name": "Dragon Helm"
+    },
+    {
+      "externalKey": "openmu:s6:7:2",
+      "category": "helms",
+      "name": "Pad Helm"
+    },
+    {
+      "externalKey": "openmu:s6:7:3",
+      "category": "helms",
+      "name": "Legendary Helm"
+    },
+    {
+      "externalKey": "openmu:s6:7:4",
+      "category": "helms",
+      "name": "Bone Helm"
+    },
+    {
+      "externalKey": "openmu:s6:7:5",
+      "category": "helms",
+      "name": "Leather Helm"
+    },
+    {
+      "externalKey": "openmu:s6:7:6",
+      "category": "helms",
+      "name": "Scale Helm"
+    },
+    {
+      "externalKey": "openmu:s6:7:7",
+      "category": "helms",
+      "name": "Sphinx Mask"
+    },
+    {
+      "externalKey": "openmu:s6:7:8",
+      "category": "helms",
+      "name": "Brass Helm"
+    },
+    {
+      "externalKey": "openmu:s6:7:9",
+      "category": "helms",
+      "name": "Plate Helm"
+    },
+    {
+      "externalKey": "openmu:s6:7:10",
+      "category": "helms",
+      "name": "Vine Helm"
+    },
+    {
+      "externalKey": "openmu:s6:7:11",
+      "category": "helms",
+      "name": "Silk Helm"
+    },
+    {
+      "externalKey": "openmu:s6:7:12",
+      "category": "helms",
+      "name": "Wind Helm"
+    },
+    {
+      "externalKey": "openmu:s6:7:13",
+      "category": "helms",
+      "name": "Spirit Helm"
+    },
+    {
+      "externalKey": "openmu:s6:7:14",
+      "category": "helms",
+      "name": "Guardian Helm"
+    },
+    {
+      "externalKey": "openmu:s6:7:16",
+      "category": "helms",
+      "name": "Black Dragon Helm"
+    },
+    {
+      "externalKey": "openmu:s6:7:17",
+      "category": "helms",
+      "name": "Dark Phoenix Helm"
+    },
+    {
+      "externalKey": "openmu:s6:7:18",
+      "category": "helms",
+      "name": "Grand Soul Helm"
+    },
+    {
+      "externalKey": "openmu:s6:7:19",
+      "category": "helms",
+      "name": "Divine Helm"
+    },
+    {
+      "externalKey": "openmu:s6:7:21",
+      "category": "helms",
+      "name": "Great Dragon Helm"
+    },
+    {
+      "externalKey": "openmu:s6:7:22",
+      "category": "helms",
+      "name": "Dark Soul Helm"
+    },
+    {
+      "externalKey": "openmu:s6:7:24",
+      "category": "helms",
+      "name": "Red Spirit Helm"
+    },
+    {
+      "externalKey": "openmu:s6:7:25",
+      "category": "helms",
+      "name": "Light Plate Mask"
+    },
+    {
+      "externalKey": "openmu:s6:7:26",
+      "category": "helms",
+      "name": "Adamantine Mask"
+    },
+    {
+      "externalKey": "openmu:s6:7:27",
+      "category": "helms",
+      "name": "Dark Steel Mask"
+    },
+    {
+      "externalKey": "openmu:s6:7:28",
+      "category": "helms",
+      "name": "Dark Master Mask"
+    },
+    {
+      "externalKey": "openmu:s6:7:29",
+      "category": "helms",
+      "name": "Dragon Knight Helm"
+    },
+    {
+      "externalKey": "openmu:s6:7:30",
+      "category": "helms",
+      "name": "Venom Mist Helm"
+    },
+    {
+      "externalKey": "openmu:s6:7:31",
+      "category": "helms",
+      "name": "Sylphid Ray Helm"
+    },
+    {
+      "externalKey": "openmu:s6:7:33",
+      "category": "helms",
+      "name": "Sunlight Mask"
+    },
+    {
+      "externalKey": "openmu:s6:7:34",
+      "category": "helms",
+      "name": "Ashcrow Helm"
+    },
+    {
+      "externalKey": "openmu:s6:7:35",
+      "category": "helms",
+      "name": "Eclipse Helm"
+    },
+    {
+      "externalKey": "openmu:s6:7:36",
+      "category": "helms",
+      "name": "Iris Helm"
+    },
+    {
+      "externalKey": "openmu:s6:7:38",
+      "category": "helms",
+      "name": "Glorious Mask"
+    },
+    {
+      "externalKey": "openmu:s6:7:39",
+      "category": "helms",
+      "name": "Mistery Helm"
+    },
+    {
+      "externalKey": "openmu:s6:7:40",
+      "category": "helms",
+      "name": "Red Wing Helm"
+    },
+    {
+      "externalKey": "openmu:s6:7:41",
+      "category": "helms",
+      "name": "Ancient Helm"
+    },
+    {
+      "externalKey": "openmu:s6:7:42",
+      "category": "helms",
+      "name": "Black Rose Helm"
+    },
+    {
+      "externalKey": "openmu:s6:7:43",
+      "category": "helms",
+      "name": "Aura Helm"
+    },
+    {
+      "externalKey": "openmu:s6:7:44",
+      "category": "helms",
+      "name": "Lilium Helm"
+    },
+    {
+      "externalKey": "openmu:s6:7:45",
+      "category": "helms",
+      "name": "Titan Helm"
+    },
+    {
+      "externalKey": "openmu:s6:7:46",
+      "category": "helms",
+      "name": "Brave Helm"
+    },
+    {
+      "externalKey": "openmu:s6:7:49",
+      "category": "helms",
+      "name": "Seraphim Helm"
+    },
+    {
+      "externalKey": "openmu:s6:7:50",
+      "category": "helms",
+      "name": "Faith Helm"
+    },
+    {
+      "externalKey": "openmu:s6:7:51",
+      "category": "helms",
+      "name": "Paewang Mask"
+    },
+    {
+      "externalKey": "openmu:s6:7:52",
+      "category": "helms",
+      "name": "Hades Helm"
+    },
+    {
+      "externalKey": "openmu:s6:7:59",
+      "category": "helms",
+      "name": "Sacred Helm"
+    },
+    {
+      "externalKey": "openmu:s6:7:60",
+      "category": "helms",
+      "name": "Storm Hard Helm"
+    },
+    {
+      "externalKey": "openmu:s6:7:61",
+      "category": "helms",
+      "name": "Piercing Helm"
+    },
+    {
+      "externalKey": "openmu:s6:7:62",
+      "category": "helms",
+      "name": "Scale Helm (Lucky)"
+    },
+    {
+      "externalKey": "openmu:s6:7:63",
+      "category": "helms",
+      "name": "Silk Helm (Lucky)"
+    },
+    {
+      "externalKey": "openmu:s6:7:64",
+      "category": "helms",
+      "name": "Sphinx Helm"
+    },
+    {
+      "externalKey": "openmu:s6:7:65",
+      "category": "helms",
+      "name": "Violent Wind Helm"
+    },
+    {
+      "externalKey": "openmu:s6:7:66",
+      "category": "helms",
+      "name": "Adamantine Mask (Lucky)"
+    },
+    {
+      "externalKey": "openmu:s6:7:67",
+      "category": "helms",
+      "name": "Dragon Helm (Lucky)"
+    },
+    {
+      "externalKey": "openmu:s6:7:68",
+      "category": "helms",
+      "name": "Guardian Helm (Lucky)"
+    },
+    {
+      "externalKey": "openmu:s6:7:69",
+      "category": "helms",
+      "name": "Legendary Helm (Lucky)"
+    },
+    {
+      "externalKey": "openmu:s6:7:70",
+      "category": "helms",
+      "name": "Red Wing Helm (Lucky)"
+    },
+    {
+      "externalKey": "openmu:s6:7:72",
+      "category": "helms",
+      "name": "Storm Jahad Helm"
+    },
+    {
+      "externalKey": "openmu:s6:7:73",
+      "category": "helms",
+      "name": "Phoenix Soul Helmet"
+    },
+    {
+      "externalKey": "openmu:s6:8:0",
+      "category": "armors",
+      "name": "Bronze Armor"
+    },
+    {
+      "externalKey": "openmu:s6:8:1",
+      "category": "armors",
+      "name": "Dragon Armor"
+    },
+    {
+      "externalKey": "openmu:s6:8:2",
+      "category": "armors",
+      "name": "Pad Armor"
+    },
+    {
+      "externalKey": "openmu:s6:8:3",
+      "category": "armors",
+      "name": "Legendary Armor"
+    },
+    {
+      "externalKey": "openmu:s6:8:4",
+      "category": "armors",
+      "name": "Bone Armor"
+    },
+    {
+      "externalKey": "openmu:s6:8:5",
+      "category": "armors",
+      "name": "Leather Armor"
+    },
+    {
+      "externalKey": "openmu:s6:8:6",
+      "category": "armors",
+      "name": "Scale Armor"
+    },
+    {
+      "externalKey": "openmu:s6:8:7",
+      "category": "armors",
+      "name": "Sphinx Armor"
+    },
+    {
+      "externalKey": "openmu:s6:8:8",
+      "category": "armors",
+      "name": "Brass Armor"
+    },
+    {
+      "externalKey": "openmu:s6:8:9",
+      "category": "armors",
+      "name": "Plate Armor"
+    },
+    {
+      "externalKey": "openmu:s6:8:10",
+      "category": "armors",
+      "name": "Vine Armor"
+    },
+    {
+      "externalKey": "openmu:s6:8:11",
+      "category": "armors",
+      "name": "Silk Armor"
+    },
+    {
+      "externalKey": "openmu:s6:8:12",
+      "category": "armors",
+      "name": "Wind Armor"
+    },
+    {
+      "externalKey": "openmu:s6:8:13",
+      "category": "armors",
+      "name": "Spirit Armor"
+    },
+    {
+      "externalKey": "openmu:s6:8:14",
+      "category": "armors",
+      "name": "Guardian Armor"
+    },
+    {
+      "externalKey": "openmu:s6:8:15",
+      "category": "armors",
+      "name": "Storm Crow Armor"
+    },
+    {
+      "externalKey": "openmu:s6:8:16",
+      "category": "armors",
+      "name": "Black Dragon Armor"
+    },
+    {
+      "externalKey": "openmu:s6:8:17",
+      "category": "armors",
+      "name": "Dark Phoenix Armor"
+    },
+    {
+      "externalKey": "openmu:s6:8:18",
+      "category": "armors",
+      "name": "Grand Soul Armor"
+    },
+    {
+      "externalKey": "openmu:s6:8:19",
+      "category": "armors",
+      "name": "Divine Armor"
+    },
+    {
+      "externalKey": "openmu:s6:8:20",
+      "category": "armors",
+      "name": "Thunder Hawk Armor"
+    },
+    {
+      "externalKey": "openmu:s6:8:21",
+      "category": "armors",
+      "name": "Great Dragon Armor"
+    },
+    {
+      "externalKey": "openmu:s6:8:22",
+      "category": "armors",
+      "name": "Dark Soul Armor"
+    },
+    {
+      "externalKey": "openmu:s6:8:23",
+      "category": "armors",
+      "name": "Hurricane Armor"
+    },
+    {
+      "externalKey": "openmu:s6:8:24",
+      "category": "armors",
+      "name": "Red Sprit Armor"
+    },
+    {
+      "externalKey": "openmu:s6:8:25",
+      "category": "armors",
+      "name": "Light Plate Armor"
+    },
+    {
+      "externalKey": "openmu:s6:8:26",
+      "category": "armors",
+      "name": "Adamantine Armor"
+    },
+    {
+      "externalKey": "openmu:s6:8:27",
+      "category": "armors",
+      "name": "Dark Steel Armor"
+    },
+    {
+      "externalKey": "openmu:s6:8:28",
+      "category": "armors",
+      "name": "Dark Master Armor"
+    },
+    {
+      "externalKey": "openmu:s6:8:29",
+      "category": "armors",
+      "name": "Dragon Knight Armor"
+    },
+    {
+      "externalKey": "openmu:s6:8:30",
+      "category": "armors",
+      "name": "Venom Mist Armor"
+    },
+    {
+      "externalKey": "openmu:s6:8:31",
+      "category": "armors",
+      "name": "Sylphid Ray Armor"
+    },
+    {
+      "externalKey": "openmu:s6:8:32",
+      "category": "armors",
+      "name": "Volcano Armor"
+    },
+    {
+      "externalKey": "openmu:s6:8:33",
+      "category": "armors",
+      "name": "Sunlight Armor"
+    },
+    {
+      "externalKey": "openmu:s6:8:34",
+      "category": "armors",
+      "name": "Ashcrow Armor"
+    },
+    {
+      "externalKey": "openmu:s6:8:35",
+      "category": "armors",
+      "name": "Eclipse Armor"
+    },
+    {
+      "externalKey": "openmu:s6:8:36",
+      "category": "armors",
+      "name": "Iris Armor"
+    },
+    {
+      "externalKey": "openmu:s6:8:37",
+      "category": "armors",
+      "name": "Valiant Armor"
+    },
+    {
+      "externalKey": "openmu:s6:8:38",
+      "category": "armors",
+      "name": "Glorious Armor"
+    },
+    {
+      "externalKey": "openmu:s6:8:39",
+      "category": "armors",
+      "name": "Mistery Armor"
+    },
+    {
+      "externalKey": "openmu:s6:8:40",
+      "category": "armors",
+      "name": "Red Wing Armor"
+    },
+    {
+      "externalKey": "openmu:s6:8:41",
+      "category": "armors",
+      "name": "Ancient Armor"
+    },
+    {
+      "externalKey": "openmu:s6:8:42",
+      "category": "armors",
+      "name": "Black Rose Armor"
+    },
+    {
+      "externalKey": "openmu:s6:8:43",
+      "category": "armors",
+      "name": "Aura Armor"
+    },
+    {
+      "externalKey": "openmu:s6:8:44",
+      "category": "armors",
+      "name": "Lilium Armor"
+    },
+    {
+      "externalKey": "openmu:s6:8:45",
+      "category": "armors",
+      "name": "Titan Armor"
+    },
+    {
+      "externalKey": "openmu:s6:8:46",
+      "category": "armors",
+      "name": "Brave Armor"
+    },
+    {
+      "externalKey": "openmu:s6:8:47",
+      "category": "armors",
+      "name": "Destory Armor"
+    },
+    {
+      "externalKey": "openmu:s6:8:48",
+      "category": "armors",
+      "name": "Phantom Armor"
+    },
+    {
+      "externalKey": "openmu:s6:8:49",
+      "category": "armors",
+      "name": "Seraphim Armor"
+    },
+    {
+      "externalKey": "openmu:s6:8:50",
+      "category": "armors",
+      "name": "Faith Armor"
+    },
+    {
+      "externalKey": "openmu:s6:8:51",
+      "category": "armors",
+      "name": "Paewang Armor"
+    },
+    {
+      "externalKey": "openmu:s6:8:52",
+      "category": "armors",
+      "name": "Hades Armor"
+    },
+    {
+      "externalKey": "openmu:s6:8:59",
+      "category": "armors",
+      "name": "Sacred Armor"
+    },
+    {
+      "externalKey": "openmu:s6:8:60",
+      "category": "armors",
+      "name": "Storm Hard Armor"
+    },
+    {
+      "externalKey": "openmu:s6:8:61",
+      "category": "armors",
+      "name": "Piercing Armor"
+    },
+    {
+      "externalKey": "openmu:s6:8:62",
+      "category": "armors",
+      "name": "Scale Armor (Lucky)"
+    },
+    {
+      "externalKey": "openmu:s6:8:63",
+      "category": "armors",
+      "name": "Silk Armor (Lucky)"
+    },
+    {
+      "externalKey": "openmu:s6:8:64",
+      "category": "armors",
+      "name": "Sphinx Armor (Lucky)"
+    },
+    {
+      "externalKey": "openmu:s6:8:65",
+      "category": "armors",
+      "name": "Violent Wind Armor"
+    },
+    {
+      "externalKey": "openmu:s6:8:66",
+      "category": "armors",
+      "name": "Adamantine Armor (Lucky)"
+    },
+    {
+      "externalKey": "openmu:s6:8:67",
+      "category": "armors",
+      "name": "Dragon Armor (Lucky)"
+    },
+    {
+      "externalKey": "openmu:s6:8:68",
+      "category": "armors",
+      "name": "Guardian Armor (Lucky)"
+    },
+    {
+      "externalKey": "openmu:s6:8:69",
+      "category": "armors",
+      "name": "Legendary Armor (Lucky)"
+    },
+    {
+      "externalKey": "openmu:s6:8:70",
+      "category": "armors",
+      "name": "Red Wing Armor (Lucky)"
+    },
+    {
+      "externalKey": "openmu:s6:8:71",
+      "category": "armors",
+      "name": "Atlans Armor"
+    },
+    {
+      "externalKey": "openmu:s6:8:72",
+      "category": "armors",
+      "name": "Storm Jahad Armor"
+    },
+    {
+      "externalKey": "openmu:s6:8:73",
+      "category": "armors",
+      "name": "Phoenix Soul Armor"
+    },
+    {
+      "externalKey": "openmu:s6:9:0",
+      "category": "pants",
+      "name": "Bronze Pants"
+    },
+    {
+      "externalKey": "openmu:s6:9:1",
+      "category": "pants",
+      "name": "Dragon Pants"
+    },
+    {
+      "externalKey": "openmu:s6:9:2",
+      "category": "pants",
+      "name": "Pad Pants"
+    },
+    {
+      "externalKey": "openmu:s6:9:3",
+      "category": "pants",
+      "name": "Legendary Pants"
+    },
+    {
+      "externalKey": "openmu:s6:9:4",
+      "category": "pants",
+      "name": "Bone Pants"
+    },
+    {
+      "externalKey": "openmu:s6:9:5",
+      "category": "pants",
+      "name": "Leather Pants"
+    },
+    {
+      "externalKey": "openmu:s6:9:6",
+      "category": "pants",
+      "name": "Scale Pants"
+    },
+    {
+      "externalKey": "openmu:s6:9:7",
+      "category": "pants",
+      "name": "Sphinx Pants"
+    },
+    {
+      "externalKey": "openmu:s6:9:8",
+      "category": "pants",
+      "name": "Brass Pants"
+    },
+    {
+      "externalKey": "openmu:s6:9:9",
+      "category": "pants",
+      "name": "Plate Pants"
+    },
+    {
+      "externalKey": "openmu:s6:9:10",
+      "category": "pants",
+      "name": "Vine Pants"
+    },
+    {
+      "externalKey": "openmu:s6:9:11",
+      "category": "pants",
+      "name": "Silk Pants"
+    },
+    {
+      "externalKey": "openmu:s6:9:12",
+      "category": "pants",
+      "name": "Wind Pants"
+    },
+    {
+      "externalKey": "openmu:s6:9:13",
+      "category": "pants",
+      "name": "Spirit Pants"
+    },
+    {
+      "externalKey": "openmu:s6:9:14",
+      "category": "pants",
+      "name": "Guardian Pants"
+    },
+    {
+      "externalKey": "openmu:s6:9:15",
+      "category": "pants",
+      "name": "Storm Crow Pants"
+    },
+    {
+      "externalKey": "openmu:s6:9:16",
+      "category": "pants",
+      "name": "Black Dragon Pants"
+    },
+    {
+      "externalKey": "openmu:s6:9:17",
+      "category": "pants",
+      "name": "Dark Phoenix Pants"
+    },
+    {
+      "externalKey": "openmu:s6:9:18",
+      "category": "pants",
+      "name": "Grand Soul Pants"
+    },
+    {
+      "externalKey": "openmu:s6:9:19",
+      "category": "pants",
+      "name": "Divine Pants"
+    },
+    {
+      "externalKey": "openmu:s6:9:20",
+      "category": "pants",
+      "name": "Thunder Hawk Pants"
+    },
+    {
+      "externalKey": "openmu:s6:9:21",
+      "category": "pants",
+      "name": "Great Dragon Pants"
+    },
+    {
+      "externalKey": "openmu:s6:9:22",
+      "category": "pants",
+      "name": "Dark Soul Pants"
+    },
+    {
+      "externalKey": "openmu:s6:9:23",
+      "category": "pants",
+      "name": "Hurricane Pants"
+    },
+    {
+      "externalKey": "openmu:s6:9:24",
+      "category": "pants",
+      "name": "Red Spirit Pants"
+    },
+    {
+      "externalKey": "openmu:s6:9:25",
+      "category": "pants",
+      "name": "Light Plate Pants"
+    },
+    {
+      "externalKey": "openmu:s6:9:26",
+      "category": "pants",
+      "name": "Adamantine Pants"
+    },
+    {
+      "externalKey": "openmu:s6:9:27",
+      "category": "pants",
+      "name": "Dark Steel Pants"
+    },
+    {
+      "externalKey": "openmu:s6:9:28",
+      "category": "pants",
+      "name": "Dark Master Pants"
+    },
+    {
+      "externalKey": "openmu:s6:9:29",
+      "category": "pants",
+      "name": "Dragon Knight Pants"
+    },
+    {
+      "externalKey": "openmu:s6:9:30",
+      "category": "pants",
+      "name": "Venom Mist Pants"
+    },
+    {
+      "externalKey": "openmu:s6:9:31",
+      "category": "pants",
+      "name": "Sylphid Ray Pants"
+    },
+    {
+      "externalKey": "openmu:s6:9:32",
+      "category": "pants",
+      "name": "Volcano Pants"
+    },
+    {
+      "externalKey": "openmu:s6:9:33",
+      "category": "pants",
+      "name": "Sunlight Pants"
+    },
+    {
+      "externalKey": "openmu:s6:9:34",
+      "category": "pants",
+      "name": "Ashcrow Pants"
+    },
+    {
+      "externalKey": "openmu:s6:9:35",
+      "category": "pants",
+      "name": "Eclipse Pants"
+    },
+    {
+      "externalKey": "openmu:s6:9:36",
+      "category": "pants",
+      "name": "Iris Pants"
+    },
+    {
+      "externalKey": "openmu:s6:9:37",
+      "category": "pants",
+      "name": "Valiant Pants"
+    },
+    {
+      "externalKey": "openmu:s6:9:38",
+      "category": "pants",
+      "name": "Glorious Pants"
+    },
+    {
+      "externalKey": "openmu:s6:9:39",
+      "category": "pants",
+      "name": "Mistery Pants"
+    },
+    {
+      "externalKey": "openmu:s6:9:40",
+      "category": "pants",
+      "name": "Red Wing Pants"
+    },
+    {
+      "externalKey": "openmu:s6:9:41",
+      "category": "pants",
+      "name": "Ancient Pants"
+    },
+    {
+      "externalKey": "openmu:s6:9:42",
+      "category": "pants",
+      "name": "Black Rose Pants"
+    },
+    {
+      "externalKey": "openmu:s6:9:43",
+      "category": "pants",
+      "name": "Aura Pants"
+    },
+    {
+      "externalKey": "openmu:s6:9:44",
+      "category": "pants",
+      "name": "Lilium Pants"
+    },
+    {
+      "externalKey": "openmu:s6:9:45",
+      "category": "pants",
+      "name": "Titan Pants"
+    },
+    {
+      "externalKey": "openmu:s6:9:46",
+      "category": "pants",
+      "name": "Brave Pants"
+    },
+    {
+      "externalKey": "openmu:s6:9:47",
+      "category": "pants",
+      "name": "Destory Pants"
+    },
+    {
+      "externalKey": "openmu:s6:9:48",
+      "category": "pants",
+      "name": "Phantom Pants"
+    },
+    {
+      "externalKey": "openmu:s6:9:49",
+      "category": "pants",
+      "name": "Seraphim Pants"
+    },
+    {
+      "externalKey": "openmu:s6:9:50",
+      "category": "pants",
+      "name": "Faith Pants"
+    },
+    {
+      "externalKey": "openmu:s6:9:51",
+      "category": "pants",
+      "name": "Paewang Pants"
+    },
+    {
+      "externalKey": "openmu:s6:9:52",
+      "category": "pants",
+      "name": "Hades Pants"
+    },
+    {
+      "externalKey": "openmu:s6:9:59",
+      "category": "pants",
+      "name": "Sacred Pants"
+    },
+    {
+      "externalKey": "openmu:s6:9:60",
+      "category": "pants",
+      "name": "Storm Hard Pants"
+    },
+    {
+      "externalKey": "openmu:s6:9:61",
+      "category": "pants",
+      "name": "Piercing Pants"
+    },
+    {
+      "externalKey": "openmu:s6:9:62",
+      "category": "pants",
+      "name": "Scale Pants (Lucky)"
+    },
+    {
+      "externalKey": "openmu:s6:9:63",
+      "category": "pants",
+      "name": "Silk Pants (Lucky)"
+    },
+    {
+      "externalKey": "openmu:s6:9:64",
+      "category": "pants",
+      "name": "Sphinx Pants (Lucky)"
+    },
+    {
+      "externalKey": "openmu:s6:9:65",
+      "category": "pants",
+      "name": "Violent Wind Pants"
+    },
+    {
+      "externalKey": "openmu:s6:9:66",
+      "category": "pants",
+      "name": "Adamantine Pants (Lucky)"
+    },
+    {
+      "externalKey": "openmu:s6:9:67",
+      "category": "pants",
+      "name": "Dragon Pants (Lucky)"
+    },
+    {
+      "externalKey": "openmu:s6:9:68",
+      "category": "pants",
+      "name": "Guardian Pants (Lucky)"
+    },
+    {
+      "externalKey": "openmu:s6:9:69",
+      "category": "pants",
+      "name": "Legendary Pants (Lucky)"
+    },
+    {
+      "externalKey": "openmu:s6:9:70",
+      "category": "pants",
+      "name": "Red Wing Pants (Lucky)"
+    },
+    {
+      "externalKey": "openmu:s6:9:71",
+      "category": "pants",
+      "name": "Atlans Pants"
+    },
+    {
+      "externalKey": "openmu:s6:9:72",
+      "category": "pants",
+      "name": "Storm Jahad Pants"
+    },
+    {
+      "externalKey": "openmu:s6:9:73",
+      "category": "pants",
+      "name": "Phoenix Soul Pants"
+    },
+    {
+      "externalKey": "openmu:s6:10:0",
+      "category": "gloves",
+      "name": "Bronze Gloves"
+    },
+    {
+      "externalKey": "openmu:s6:10:1",
+      "category": "gloves",
+      "name": "Dragon Gloves"
+    },
+    {
+      "externalKey": "openmu:s6:10:2",
+      "category": "gloves",
+      "name": "Pad Gloves"
+    },
+    {
+      "externalKey": "openmu:s6:10:3",
+      "category": "gloves",
+      "name": "Legendary Gloves"
+    },
+    {
+      "externalKey": "openmu:s6:10:4",
+      "category": "gloves",
+      "name": "Bone Gloves"
+    },
+    {
+      "externalKey": "openmu:s6:10:5",
+      "category": "gloves",
+      "name": "Leather Gloves"
+    },
+    {
+      "externalKey": "openmu:s6:10:6",
+      "category": "gloves",
+      "name": "Scale Gloves"
+    },
+    {
+      "externalKey": "openmu:s6:10:7",
+      "category": "gloves",
+      "name": "Sphinx Gloves"
+    },
+    {
+      "externalKey": "openmu:s6:10:8",
+      "category": "gloves",
+      "name": "Brass Gloves"
+    },
+    {
+      "externalKey": "openmu:s6:10:9",
+      "category": "gloves",
+      "name": "Plate Gloves"
+    },
+    {
+      "externalKey": "openmu:s6:10:10",
+      "category": "gloves",
+      "name": "Vine Gloves"
+    },
+    {
+      "externalKey": "openmu:s6:10:11",
+      "category": "gloves",
+      "name": "Silk Gloves"
+    },
+    {
+      "externalKey": "openmu:s6:10:12",
+      "category": "gloves",
+      "name": "Wind Gloves"
+    },
+    {
+      "externalKey": "openmu:s6:10:13",
+      "category": "gloves",
+      "name": "Spirit Gloves"
+    },
+    {
+      "externalKey": "openmu:s6:10:14",
+      "category": "gloves",
+      "name": "Guardian Gloves"
+    },
+    {
+      "externalKey": "openmu:s6:10:15",
+      "category": "gloves",
+      "name": "Storm Crow Gloves"
+    },
+    {
+      "externalKey": "openmu:s6:10:16",
+      "category": "gloves",
+      "name": "Black Dragon Gloves"
+    },
+    {
+      "externalKey": "openmu:s6:10:17",
+      "category": "gloves",
+      "name": "Dark Phoenix Gloves"
+    },
+    {
+      "externalKey": "openmu:s6:10:18",
+      "category": "gloves",
+      "name": "Grand Soul Gloves"
+    },
+    {
+      "externalKey": "openmu:s6:10:19",
+      "category": "gloves",
+      "name": "Divine Gloves"
+    },
+    {
+      "externalKey": "openmu:s6:10:20",
+      "category": "gloves",
+      "name": "Thunder Hawk Gloves"
+    },
+    {
+      "externalKey": "openmu:s6:10:21",
+      "category": "gloves",
+      "name": "Great Dragon Gloves"
+    },
+    {
+      "externalKey": "openmu:s6:10:22",
+      "category": "gloves",
+      "name": "Dark Soul Gloves"
+    },
+    {
+      "externalKey": "openmu:s6:10:23",
+      "category": "gloves",
+      "name": "Hurricane Gloves"
+    },
+    {
+      "externalKey": "openmu:s6:10:24",
+      "category": "gloves",
+      "name": "Red Spirit Gloves"
+    },
+    {
+      "externalKey": "openmu:s6:10:25",
+      "category": "gloves",
+      "name": "Light Plate Gloves"
+    },
+    {
+      "externalKey": "openmu:s6:10:26",
+      "category": "gloves",
+      "name": "Adamantine Gloves"
+    },
+    {
+      "externalKey": "openmu:s6:10:27",
+      "category": "gloves",
+      "name": "Dark Steel Gloves"
+    },
+    {
+      "externalKey": "openmu:s6:10:28",
+      "category": "gloves",
+      "name": "Dark Master Gloves"
+    },
+    {
+      "externalKey": "openmu:s6:10:29",
+      "category": "gloves",
+      "name": "Dragon Knight Gloves"
+    },
+    {
+      "externalKey": "openmu:s6:10:30",
+      "category": "gloves",
+      "name": "Venom Mist Gloves"
+    },
+    {
+      "externalKey": "openmu:s6:10:31",
+      "category": "gloves",
+      "name": "Sylphid Ray Gloves"
+    },
+    {
+      "externalKey": "openmu:s6:10:32",
+      "category": "gloves",
+      "name": "Volcano Gloves"
+    },
+    {
+      "externalKey": "openmu:s6:10:33",
+      "category": "gloves",
+      "name": "Sunlight Gloves"
+    },
+    {
+      "externalKey": "openmu:s6:10:34",
+      "category": "gloves",
+      "name": "Ashcrow Gloves"
+    },
+    {
+      "externalKey": "openmu:s6:10:35",
+      "category": "gloves",
+      "name": "Eclipse Gloves"
+    },
+    {
+      "externalKey": "openmu:s6:10:36",
+      "category": "gloves",
+      "name": "Iris Gloves"
+    },
+    {
+      "externalKey": "openmu:s6:10:37",
+      "category": "gloves",
+      "name": "Valiant Gloves"
+    },
+    {
+      "externalKey": "openmu:s6:10:38",
+      "category": "gloves",
+      "name": "Glorious Gloves"
+    },
+    {
+      "externalKey": "openmu:s6:10:39",
+      "category": "gloves",
+      "name": "Mistery Gloves"
+    },
+    {
+      "externalKey": "openmu:s6:10:40",
+      "category": "gloves",
+      "name": "Red Wing Gloves"
+    },
+    {
+      "externalKey": "openmu:s6:10:41",
+      "category": "gloves",
+      "name": "Ancient Gloves"
+    },
+    {
+      "externalKey": "openmu:s6:10:42",
+      "category": "gloves",
+      "name": "Black Rose Gloves"
+    },
+    {
+      "externalKey": "openmu:s6:10:43",
+      "category": "gloves",
+      "name": "Aura Gloves"
+    },
+    {
+      "externalKey": "openmu:s6:10:44",
+      "category": "gloves",
+      "name": "Lilium Gloves"
+    },
+    {
+      "externalKey": "openmu:s6:10:45",
+      "category": "gloves",
+      "name": "Titan Gloves"
+    },
+    {
+      "externalKey": "openmu:s6:10:46",
+      "category": "gloves",
+      "name": "Brave Gloves"
+    },
+    {
+      "externalKey": "openmu:s6:10:47",
+      "category": "gloves",
+      "name": "Destroy Gloves"
+    },
+    {
+      "externalKey": "openmu:s6:10:48",
+      "category": "gloves",
+      "name": "Phantom Gloves"
+    },
+    {
+      "externalKey": "openmu:s6:10:49",
+      "category": "gloves",
+      "name": "Seraphim Gloves"
+    },
+    {
+      "externalKey": "openmu:s6:10:50",
+      "category": "gloves",
+      "name": "Faith Gloves"
+    },
+    {
+      "externalKey": "openmu:s6:10:51",
+      "category": "gloves",
+      "name": "Paewang Gloves"
+    },
+    {
+      "externalKey": "openmu:s6:10:52",
+      "category": "gloves",
+      "name": "Hades Gloves"
+    },
+    {
+      "externalKey": "openmu:s6:10:62",
+      "category": "gloves",
+      "name": "Scale Gloves (Lucky)"
+    },
+    {
+      "externalKey": "openmu:s6:10:63",
+      "category": "gloves",
+      "name": "Silk Gloves (Lucky)"
+    },
+    {
+      "externalKey": "openmu:s6:10:64",
+      "category": "gloves",
+      "name": "Sphinx Gloves (Lucky)"
+    },
+    {
+      "externalKey": "openmu:s6:10:65",
+      "category": "gloves",
+      "name": "Violent Wind Gloves"
+    },
+    {
+      "externalKey": "openmu:s6:10:66",
+      "category": "gloves",
+      "name": "Adamantine Gloves (Lucky)"
+    },
+    {
+      "externalKey": "openmu:s6:10:67",
+      "category": "gloves",
+      "name": "Dragon Gloves (Lucky)"
+    },
+    {
+      "externalKey": "openmu:s6:10:68",
+      "category": "gloves",
+      "name": "Guardian Gloves (Lucky)"
+    },
+    {
+      "externalKey": "openmu:s6:10:69",
+      "category": "gloves",
+      "name": "Legendary Gloves (Lucky)"
+    },
+    {
+      "externalKey": "openmu:s6:10:70",
+      "category": "gloves",
+      "name": "Red Wing Gloves (Lucky)"
+    },
+    {
+      "externalKey": "openmu:s6:10:71",
+      "category": "gloves",
+      "name": "Atlans Gloves"
+    },
+    {
+      "externalKey": "openmu:s6:11:0",
+      "category": "boots",
+      "name": "Bronze Boots"
+    },
+    {
+      "externalKey": "openmu:s6:11:1",
+      "category": "boots",
+      "name": "Dragon Boots"
+    },
+    {
+      "externalKey": "openmu:s6:11:2",
+      "category": "boots",
+      "name": "Pad Boots"
+    },
+    {
+      "externalKey": "openmu:s6:11:3",
+      "category": "boots",
+      "name": "Legendary Boots"
+    },
+    {
+      "externalKey": "openmu:s6:11:4",
+      "category": "boots",
+      "name": "Bone Boots"
+    },
+    {
+      "externalKey": "openmu:s6:11:5",
+      "category": "boots",
+      "name": "Leather Boots"
+    },
+    {
+      "externalKey": "openmu:s6:11:6",
+      "category": "boots",
+      "name": "Scale Boots"
+    },
+    {
+      "externalKey": "openmu:s6:11:7",
+      "category": "boots",
+      "name": "Sphinx Boots"
+    },
+    {
+      "externalKey": "openmu:s6:11:8",
+      "category": "boots",
+      "name": "Brass Boots"
+    },
+    {
+      "externalKey": "openmu:s6:11:9",
+      "category": "boots",
+      "name": "Plate Boots"
+    },
+    {
+      "externalKey": "openmu:s6:11:10",
+      "category": "boots",
+      "name": "Vine Boots"
+    },
+    {
+      "externalKey": "openmu:s6:11:11",
+      "category": "boots",
+      "name": "Silk Boots"
+    },
+    {
+      "externalKey": "openmu:s6:11:12",
+      "category": "boots",
+      "name": "Wind Boots"
+    },
+    {
+      "externalKey": "openmu:s6:11:13",
+      "category": "boots",
+      "name": "Spirit Boots"
+    },
+    {
+      "externalKey": "openmu:s6:11:14",
+      "category": "boots",
+      "name": "Guardian Boots"
+    },
+    {
+      "externalKey": "openmu:s6:11:15",
+      "category": "boots",
+      "name": "Storm Crow Boots"
+    },
+    {
+      "externalKey": "openmu:s6:11:16",
+      "category": "boots",
+      "name": "Black Dragon Boots"
+    },
+    {
+      "externalKey": "openmu:s6:11:17",
+      "category": "boots",
+      "name": "Dark Phoenix Boots"
+    },
+    {
+      "externalKey": "openmu:s6:11:18",
+      "category": "boots",
+      "name": "Grand Soul Boots"
+    },
+    {
+      "externalKey": "openmu:s6:11:19",
+      "category": "boots",
+      "name": "Divine Boots"
+    },
+    {
+      "externalKey": "openmu:s6:11:20",
+      "category": "boots",
+      "name": "Thunder Hawk Boots"
+    },
+    {
+      "externalKey": "openmu:s6:11:21",
+      "category": "boots",
+      "name": "Great Dragon Boots"
+    },
+    {
+      "externalKey": "openmu:s6:11:22",
+      "category": "boots",
+      "name": "Dark Soul Boots"
+    },
+    {
+      "externalKey": "openmu:s6:11:23",
+      "category": "boots",
+      "name": "Hurricane Boots"
+    },
+    {
+      "externalKey": "openmu:s6:11:24",
+      "category": "boots",
+      "name": "Red Spirit Boots"
+    },
+    {
+      "externalKey": "openmu:s6:11:25",
+      "category": "boots",
+      "name": "Light Plate Boots"
+    },
+    {
+      "externalKey": "openmu:s6:11:26",
+      "category": "boots",
+      "name": "Adamantine Boots"
+    },
+    {
+      "externalKey": "openmu:s6:11:27",
+      "category": "boots",
+      "name": "Dark Steel Boots"
+    },
+    {
+      "externalKey": "openmu:s6:11:28",
+      "category": "boots",
+      "name": "Dark Master Boots"
+    },
+    {
+      "externalKey": "openmu:s6:11:29",
+      "category": "boots",
+      "name": "Dragon Knight Boots"
+    },
+    {
+      "externalKey": "openmu:s6:11:30",
+      "category": "boots",
+      "name": "Venom Mist Boots"
+    },
+    {
+      "externalKey": "openmu:s6:11:31",
+      "category": "boots",
+      "name": "Sylphid Ray Boots"
+    },
+    {
+      "externalKey": "openmu:s6:11:32",
+      "category": "boots",
+      "name": "Volcano Boots"
+    },
+    {
+      "externalKey": "openmu:s6:11:33",
+      "category": "boots",
+      "name": "Sunlight Boots"
+    },
+    {
+      "externalKey": "openmu:s6:11:34",
+      "category": "boots",
+      "name": "Ashcrow Boots"
+    },
+    {
+      "externalKey": "openmu:s6:11:35",
+      "category": "boots",
+      "name": "Eclipse Boots"
+    },
+    {
+      "externalKey": "openmu:s6:11:36",
+      "category": "boots",
+      "name": "Iris Boots"
+    },
+    {
+      "externalKey": "openmu:s6:11:37",
+      "category": "boots",
+      "name": "Valiant Boots"
+    },
+    {
+      "externalKey": "openmu:s6:11:38",
+      "category": "boots",
+      "name": "Glorious Boots"
+    },
+    {
+      "externalKey": "openmu:s6:11:39",
+      "category": "boots",
+      "name": "Mistery Boots"
+    },
+    {
+      "externalKey": "openmu:s6:11:40",
+      "category": "boots",
+      "name": "Red Wing Boots"
+    },
+    {
+      "externalKey": "openmu:s6:11:41",
+      "category": "boots",
+      "name": "Ancient Boots"
+    },
+    {
+      "externalKey": "openmu:s6:11:42",
+      "category": "boots",
+      "name": "Black Rose Boots"
+    },
+    {
+      "externalKey": "openmu:s6:11:43",
+      "category": "boots",
+      "name": "Aura Boots"
+    },
+    {
+      "externalKey": "openmu:s6:11:44",
+      "category": "boots",
+      "name": "Lilium Boots"
+    },
+    {
+      "externalKey": "openmu:s6:11:45",
+      "category": "boots",
+      "name": "Titan Boots"
+    },
+    {
+      "externalKey": "openmu:s6:11:46",
+      "category": "boots",
+      "name": "Brave Boots"
+    },
+    {
+      "externalKey": "openmu:s6:11:47",
+      "category": "boots",
+      "name": "Destory Boots"
+    },
+    {
+      "externalKey": "openmu:s6:11:48",
+      "category": "boots",
+      "name": "Phantom Boots"
+    },
+    {
+      "externalKey": "openmu:s6:11:49",
+      "category": "boots",
+      "name": "Seraphim Boots"
+    },
+    {
+      "externalKey": "openmu:s6:11:50",
+      "category": "boots",
+      "name": "Faith Boots"
+    },
+    {
+      "externalKey": "openmu:s6:11:51",
+      "category": "boots",
+      "name": "Phaewang Boots"
+    },
+    {
+      "externalKey": "openmu:s6:11:52",
+      "category": "boots",
+      "name": "Hades Boots"
+    },
+    {
+      "externalKey": "openmu:s6:11:59",
+      "category": "boots",
+      "name": "Sacred Boots"
+    },
+    {
+      "externalKey": "openmu:s6:11:60",
+      "category": "boots",
+      "name": "Storm Hard Boots"
+    },
+    {
+      "externalKey": "openmu:s6:11:61",
+      "category": "boots",
+      "name": "Piercing Boots"
+    },
+    {
+      "externalKey": "openmu:s6:11:62",
+      "category": "boots",
+      "name": "Scale Boots (Lucky)"
+    },
+    {
+      "externalKey": "openmu:s6:11:63",
+      "category": "boots",
+      "name": "Silk Boots (Lucky)"
+    },
+    {
+      "externalKey": "openmu:s6:11:64",
+      "category": "boots",
+      "name": "Sphinx Boots (Lucky)"
+    },
+    {
+      "externalKey": "openmu:s6:11:65",
+      "category": "boots",
+      "name": "Violent Wind Boots"
+    },
+    {
+      "externalKey": "openmu:s6:11:66",
+      "category": "boots",
+      "name": "Adamantine Boots (Lucky)"
+    },
+    {
+      "externalKey": "openmu:s6:11:67",
+      "category": "boots",
+      "name": "Dragon Boots (Lucky)"
+    },
+    {
+      "externalKey": "openmu:s6:11:68",
+      "category": "boots",
+      "name": "Guardian Boots (Lucky)"
+    },
+    {
+      "externalKey": "openmu:s6:11:69",
+      "category": "boots",
+      "name": "Legendary Boots (Lucky)"
+    },
+    {
+      "externalKey": "openmu:s6:11:70",
+      "category": "boots",
+      "name": "Red Wing Boots (Lucky)"
+    },
+    {
+      "externalKey": "openmu:s6:11:71",
+      "category": "boots",
+      "name": "Atlans Boots"
+    },
+    {
+      "externalKey": "openmu:s6:11:72",
+      "category": "boots",
+      "name": "Storm Jahad Boots"
+    },
+    {
+      "externalKey": "openmu:s6:11:73",
+      "category": "boots",
+      "name": "Phoenix Soul Boots"
+    },
+    {
+      "externalKey": "openmu:s6:12:0",
+      "category": "wings",
+      "name": "Wings of Elf"
+    },
+    {
+      "externalKey": "openmu:s6:12:1",
+      "category": "wings",
+      "name": "Wings of Heaven"
+    },
+    {
+      "externalKey": "openmu:s6:12:2",
+      "category": "wings",
+      "name": "Wings of Satan"
+    },
+    {
+      "externalKey": "openmu:s6:12:3",
+      "category": "wings",
+      "name": "Wings of Spirits"
+    },
+    {
+      "externalKey": "openmu:s6:12:4",
+      "category": "wings",
+      "name": "Wings of Soul"
+    },
+    {
+      "externalKey": "openmu:s6:12:5",
+      "category": "wings",
+      "name": "Wings of Dragon"
+    },
+    {
+      "externalKey": "openmu:s6:12:6",
+      "category": "wings",
+      "name": "Wings of Darkness"
+    },
+    {
+      "externalKey": "openmu:s6:12:7",
+      "category": "orbs",
+      "name": "Orb of Twisting Slash"
+    },
+    {
+      "externalKey": "openmu:s6:12:8",
+      "category": "orbs",
+      "name": "Orb of Healing"
+    },
+    {
+      "externalKey": "openmu:s6:12:9",
+      "category": "orbs",
+      "name": "Orb of Greater Defense"
+    },
+    {
+      "externalKey": "openmu:s6:12:10",
+      "category": "orbs",
+      "name": "Orb of Greater Damage"
+    },
+    {
+      "externalKey": "openmu:s6:12:11",
+      "category": "orbs",
+      "name": "Orb of Summoning"
+    },
+    {
+      "externalKey": "openmu:s6:12:12",
+      "category": "orbs",
+      "name": "Orb of Rageful Blow"
+    },
+    {
+      "externalKey": "openmu:s6:12:13",
+      "category": "orbs",
+      "name": "Orb of Impale"
+    },
+    {
+      "externalKey": "openmu:s6:12:14",
+      "category": "orbs",
+      "name": "Orb of Greater Fortitude"
+    },
+    {
+      "externalKey": "openmu:s6:12:15",
+      "category": "jewels",
+      "name": "Jewel of Chaos"
+    },
+    {
+      "externalKey": "openmu:s6:12:16",
+      "category": "orbs",
+      "name": "Orb of Fire Slash"
+    },
+    {
+      "externalKey": "openmu:s6:12:17",
+      "category": "orbs",
+      "name": "Orb of Penetration"
+    },
+    {
+      "externalKey": "openmu:s6:12:18",
+      "category": "orbs",
+      "name": "Orb of Ice Arrow"
+    },
+    {
+      "externalKey": "openmu:s6:12:19",
+      "category": "orbs",
+      "name": "Orb of Death Stab"
+    },
+    {
+      "externalKey": "openmu:s6:12:21",
+      "category": "orbs",
+      "name": "Scroll of FireBurst"
+    },
+    {
+      "externalKey": "openmu:s6:12:22",
+      "category": "orbs",
+      "name": "Scroll of Summon"
+    },
+    {
+      "externalKey": "openmu:s6:12:23",
+      "category": "orbs",
+      "name": "Scroll of Critical Damage"
+    },
+    {
+      "externalKey": "openmu:s6:12:24",
+      "category": "orbs",
+      "name": "Scroll of Electric Spark"
+    },
+    {
+      "externalKey": "openmu:s6:12:30",
+      "category": "jewels",
+      "name": "Packed Jewel of Bless"
+    },
+    {
+      "externalKey": "openmu:s6:12:31",
+      "category": "jewels",
+      "name": "Packed Jewel of Soul"
+    },
+    {
+      "externalKey": "openmu:s6:12:32",
+      "category": "boxes",
+      "name": "Red Ribbon Box"
+    },
+    {
+      "externalKey": "openmu:s6:12:33",
+      "category": "boxes",
+      "name": "Green Ribbon Box"
+    },
+    {
+      "externalKey": "openmu:s6:12:34",
+      "category": "boxes",
+      "name": "Blue Ribbon Box"
+    },
+    {
+      "externalKey": "openmu:s6:12:35",
+      "category": "orbs",
+      "name": "Scroll of Fire Scream"
+    },
+    {
+      "externalKey": "openmu:s6:12:36",
+      "category": "wings",
+      "name": "Wing of Storm"
+    },
+    {
+      "externalKey": "openmu:s6:12:37",
+      "category": "wings",
+      "name": "Wing of Eternal"
+    },
+    {
+      "externalKey": "openmu:s6:12:38",
+      "category": "wings",
+      "name": "Wing of Illusion"
+    },
+    {
+      "externalKey": "openmu:s6:12:39",
+      "category": "wings",
+      "name": "Wing of Ruin"
+    },
+    {
+      "externalKey": "openmu:s6:12:40",
+      "category": "wings",
+      "name": "Cape of Emperor"
+    },
+    {
+      "externalKey": "openmu:s6:12:41",
+      "category": "wings",
+      "name": "Wings of Curse"
+    },
+    {
+      "externalKey": "openmu:s6:12:42",
+      "category": "wings",
+      "name": "Wings of Despair"
+    },
+    {
+      "externalKey": "openmu:s6:12:43",
+      "category": "wings",
+      "name": "Wing of Dimension"
+    },
+    {
+      "externalKey": "openmu:s6:12:44",
+      "category": "orbs",
+      "name": "Crystal of Destruction"
+    },
+    {
+      "externalKey": "openmu:s6:12:45",
+      "category": "orbs",
+      "name": "Crystal of Multi-Shot"
+    },
+    {
+      "externalKey": "openmu:s6:12:46",
+      "category": "orbs",
+      "name": "Crystal of Recovery"
+    },
+    {
+      "externalKey": "openmu:s6:12:47",
+      "category": "orbs",
+      "name": "Crystal of Flame Strike"
+    },
+    {
+      "externalKey": "openmu:s6:12:48",
+      "category": "orbs",
+      "name": "Scroll of Chaotic Diseier"
+    },
+    {
+      "externalKey": "openmu:s6:12:49",
+      "category": "wings",
+      "name": "Cape of Fighter"
+    },
+    {
+      "externalKey": "openmu:s6:12:50",
+      "category": "wings",
+      "name": "Cape of Overrule"
+    },
+    {
+      "externalKey": "openmu:s6:12:70",
+      "category": "socket-items",
+      "name": "Sphere (Mono)"
+    },
+    {
+      "externalKey": "openmu:s6:12:71",
+      "category": "socket-items",
+      "name": "Sphere (Di)"
+    },
+    {
+      "externalKey": "openmu:s6:12:72",
+      "category": "socket-items",
+      "name": "Sphere (Tri)"
+    },
+    {
+      "externalKey": "openmu:s6:12:73",
+      "category": "socket-items",
+      "name": "Sphere (4)"
+    },
+    {
+      "externalKey": "openmu:s6:12:74",
+      "category": "socket-items",
+      "name": "Sphere (5)"
+    },
+    {
+      "externalKey": "openmu:s6:12:130",
+      "category": "wings",
+      "name": "Small Cape of Lord"
+    },
+    {
+      "externalKey": "openmu:s6:12:131",
+      "category": "wings",
+      "name": "Small Wing of Curse"
+    },
+    {
+      "externalKey": "openmu:s6:12:132",
+      "category": "wings",
+      "name": "Small Wings of Elf"
+    },
+    {
+      "externalKey": "openmu:s6:12:133",
+      "category": "wings",
+      "name": "Small Wings of Heaven"
+    },
+    {
+      "externalKey": "openmu:s6:12:134",
+      "category": "wings",
+      "name": "Small Wings of Satan"
+    },
+    {
+      "externalKey": "openmu:s6:12:135",
+      "category": "wings",
+      "name": "Little Warrior's Cloak"
+    },
+    {
+      "externalKey": "openmu:s6:12:136",
+      "category": "jewels",
+      "name": "Packed Jewel of Life"
+    },
+    {
+      "externalKey": "openmu:s6:12:137",
+      "category": "jewels",
+      "name": "Packed Jewel of Creation"
+    },
+    {
+      "externalKey": "openmu:s6:12:138",
+      "category": "jewels",
+      "name": "Packed Jewel of Guardian"
+    },
+    {
+      "externalKey": "openmu:s6:12:139",
+      "category": "jewels",
+      "name": "Packed Gemstone"
+    },
+    {
+      "externalKey": "openmu:s6:12:140",
+      "category": "jewels",
+      "name": "Packed Jewel of Harmony"
+    },
+    {
+      "externalKey": "openmu:s6:12:141",
+      "category": "jewels",
+      "name": "Packed Jewel of Chaos"
+    },
+    {
+      "externalKey": "openmu:s6:12:142",
+      "category": "jewels",
+      "name": "Packed Lower refine stone"
+    },
+    {
+      "externalKey": "openmu:s6:12:143",
+      "category": "jewels",
+      "name": "Packed Higher refine stone"
+    },
+    {
+      "externalKey": "openmu:s6:13:0",
+      "category": "pets",
+      "name": "Guardian Angel"
+    },
+    {
+      "externalKey": "openmu:s6:13:1",
+      "category": "pets",
+      "name": "Imp"
+    },
+    {
+      "externalKey": "openmu:s6:13:2",
+      "category": "pets",
+      "name": "Horn of Uniria"
+    },
+    {
+      "externalKey": "openmu:s6:13:3",
+      "category": "pets",
+      "name": "Horn of Dinorant"
+    },
+    {
+      "externalKey": "openmu:s6:13:4",
+      "category": "pets",
+      "name": "Dark Horse"
+    },
+    {
+      "externalKey": "openmu:s6:13:5",
+      "category": "pets",
+      "name": "Dark Raven"
+    },
+    {
+      "externalKey": "openmu:s6:13:8",
+      "category": "jewelry",
+      "name": "Ring of Ice"
+    },
+    {
+      "externalKey": "openmu:s6:13:9",
+      "category": "jewelry",
+      "name": "Ring of Poison"
+    },
+    {
+      "externalKey": "openmu:s6:13:10",
+      "category": "jewelry",
+      "name": "Transformation Ring"
+    },
+    {
+      "externalKey": "openmu:s6:13:11",
+      "category": "misc",
+      "name": "Life Stone"
+    },
+    {
+      "externalKey": "openmu:s6:13:12",
+      "category": "jewelry",
+      "name": "Pendant of Lighting"
+    },
+    {
+      "externalKey": "openmu:s6:13:13",
+      "category": "jewelry",
+      "name": "Pendant of Fire"
+    },
+    {
+      "externalKey": "openmu:s6:13:14",
+      "category": "wings",
+      "name": "Loch's Feather"
+    },
+    {
+      "externalKey": "openmu:s6:13:15",
+      "category": "potions",
+      "name": "Fruits"
+    },
+    {
+      "externalKey": "openmu:s6:13:16",
+      "category": "event-items",
+      "name": "Scroll of Archangel"
+    },
+    {
+      "externalKey": "openmu:s6:13:17",
+      "category": "event-items",
+      "name": "Blood Bone"
+    },
+    {
+      "externalKey": "openmu:s6:13:18",
+      "category": "event-items",
+      "name": "Invisibility Cloak"
+    },
+    {
+      "externalKey": "openmu:s6:13:19",
+      "category": "event-items",
+      "name": "Weapon of Archangel"
+    },
+    {
+      "externalKey": "openmu:s6:13:20",
+      "category": "jewelry",
+      "name": "Wizard's Ring"
+    },
+    {
+      "externalKey": "openmu:s6:13:21",
+      "category": "jewelry",
+      "name": "Ring of Fire"
+    },
+    {
+      "externalKey": "openmu:s6:13:22",
+      "category": "jewelry",
+      "name": "Ring of Earth"
+    },
+    {
+      "externalKey": "openmu:s6:13:23",
+      "category": "jewelry",
+      "name": "Ring of Wind"
+    },
+    {
+      "externalKey": "openmu:s6:13:24",
+      "category": "jewelry",
+      "name": "Ring of Magic"
+    },
+    {
+      "externalKey": "openmu:s6:13:25",
+      "category": "jewelry",
+      "name": "Pendant of Ice"
+    },
+    {
+      "externalKey": "openmu:s6:13:26",
+      "category": "jewelry",
+      "name": "Pendant of Wind"
+    },
+    {
+      "externalKey": "openmu:s6:13:27",
+      "category": "jewelry",
+      "name": "Pendant of Water"
+    },
+    {
+      "externalKey": "openmu:s6:13:28",
+      "category": "jewelry",
+      "name": "Pendant of Ability"
+    },
+    {
+      "externalKey": "openmu:s6:13:29",
+      "category": "event-items",
+      "name": "Armor of Guardsman"
+    },
+    {
+      "externalKey": "openmu:s6:13:30",
+      "category": "wings",
+      "name": "Cape of Lord"
+    },
+    {
+      "externalKey": "openmu:s6:13:31",
+      "category": "pets",
+      "name": "Spirit"
+    },
+    {
+      "externalKey": "openmu:s6:13:32",
+      "category": "pets",
+      "name": "Splinter of Armor"
+    },
+    {
+      "externalKey": "openmu:s6:13:33",
+      "category": "pets",
+      "name": "Bless of Guardian"
+    },
+    {
+      "externalKey": "openmu:s6:13:34",
+      "category": "pets",
+      "name": "Claw of Beast"
+    },
+    {
+      "externalKey": "openmu:s6:13:35",
+      "category": "pets",
+      "name": "Fragment of Horn"
+    },
+    {
+      "externalKey": "openmu:s6:13:36",
+      "category": "pets",
+      "name": "Broken Horn"
+    },
+    {
+      "externalKey": "openmu:s6:13:37",
+      "category": "pets",
+      "name": "Horn of Fenrir"
+    },
+    {
+      "externalKey": "openmu:s6:13:38",
+      "category": "jewelry",
+      "name": "Moonstone Pendant"
+    },
+    {
+      "externalKey": "openmu:s6:13:39",
+      "category": "jewelry",
+      "name": "Elite Skeleton Transformation Ring"
+    },
+    {
+      "externalKey": "openmu:s6:13:40",
+      "category": "jewelry",
+      "name": "Jack O'lantern Transformation Ring"
+    },
+    {
+      "externalKey": "openmu:s6:13:41",
+      "category": "jewelry",
+      "name": "Christmas Transformation Ring"
+    },
+    {
+      "externalKey": "openmu:s6:13:42",
+      "category": "jewelry",
+      "name": "Game Master Transformation Ring"
+    },
+    {
+      "externalKey": "openmu:s6:13:43",
+      "category": "buffs",
+      "name": "Seal of Ascension"
+    },
+    {
+      "externalKey": "openmu:s6:13:44",
+      "category": "buffs",
+      "name": "Seal of Wealth"
+    },
+    {
+      "externalKey": "openmu:s6:13:45",
+      "category": "buffs",
+      "name": "Seal of Sustenance"
+    },
+    {
+      "externalKey": "openmu:s6:13:48",
+      "category": "event-items",
+      "name": "Kalima Ticket"
+    },
+    {
+      "externalKey": "openmu:s6:13:49",
+      "category": "event-items",
+      "name": "Old Scroll"
+    },
+    {
+      "externalKey": "openmu:s6:13:50",
+      "category": "event-items",
+      "name": "Scroll of Blood"
+    },
+    {
+      "externalKey": "openmu:s6:13:51",
+      "category": "event-items",
+      "name": "Illusion Sorcerer Covenant"
+    },
+    {
+      "externalKey": "openmu:s6:13:52",
+      "category": "wings",
+      "name": "Flame of Condor"
+    },
+    {
+      "externalKey": "openmu:s6:13:53",
+      "category": "wings",
+      "name": "Feather of Condor"
+    },
+    {
+      "externalKey": "openmu:s6:13:54",
+      "category": "misc",
+      "name": "Reset Fruit (Strength)"
+    },
+    {
+      "externalKey": "openmu:s6:13:55",
+      "category": "misc",
+      "name": "Reset Fruit (Agility)"
+    },
+    {
+      "externalKey": "openmu:s6:13:56",
+      "category": "misc",
+      "name": "Reset Fruit (Vitality)"
+    },
+    {
+      "externalKey": "openmu:s6:13:57",
+      "category": "misc",
+      "name": "Reset Fruit (Energy)"
+    },
+    {
+      "externalKey": "openmu:s6:13:58",
+      "category": "misc",
+      "name": "Reset Fruit (Command)"
+    },
+    {
+      "externalKey": "openmu:s6:13:62",
+      "category": "buffs",
+      "name": "Seal of Healing"
+    },
+    {
+      "externalKey": "openmu:s6:13:63",
+      "category": "buffs",
+      "name": "Seal of Divinity"
+    },
+    {
+      "externalKey": "openmu:s6:13:64",
+      "category": "pets",
+      "name": "Demon"
+    },
+    {
+      "externalKey": "openmu:s6:13:65",
+      "category": "pets",
+      "name": "Spirit of Guardian"
+    },
+    {
+      "externalKey": "openmu:s6:13:66",
+      "category": "event-items",
+      "name": "Invitation to Santa Village"
+    },
+    {
+      "externalKey": "openmu:s6:13:67",
+      "category": "pets",
+      "name": "Pet Rudolf"
+    },
+    {
+      "externalKey": "openmu:s6:13:68",
+      "category": "jewelry",
+      "name": "Snowman Transformation Ring"
+    },
+    {
+      "externalKey": "openmu:s6:13:76",
+      "category": "jewelry",
+      "name": "Panda Transformation Ring"
+    },
+    {
+      "externalKey": "openmu:s6:13:80",
+      "category": "pets",
+      "name": "Pet Panda"
+    },
+    {
+      "externalKey": "openmu:s6:13:93",
+      "category": "buffs",
+      "name": "Master Seal of Ascension"
+    },
+    {
+      "externalKey": "openmu:s6:13:94",
+      "category": "buffs",
+      "name": "Master Seal of Wealth"
+    },
+    {
+      "externalKey": "openmu:s6:13:104",
+      "category": "buffs",
+      "name": "Max AG Boost Aura"
+    },
+    {
+      "externalKey": "openmu:s6:13:105",
+      "category": "buffs",
+      "name": "Max SD Boost Aura"
+    },
+    {
+      "externalKey": "openmu:s6:13:106",
+      "category": "pets",
+      "name": "Pet Unicorn"
+    },
+    {
+      "externalKey": "openmu:s6:13:122",
+      "category": "jewelry",
+      "name": "Skeleton Transformation Ring"
+    },
+    {
+      "externalKey": "openmu:s6:13:123",
+      "category": "pets",
+      "name": "Pet Skeleton"
+    },
+    {
+      "externalKey": "openmu:s6:13:125",
+      "category": "event-items",
+      "name": "Doppelganger Free Ticket"
+    },
+    {
+      "externalKey": "openmu:s6:13:135",
+      "category": "misc",
+      "name": "1st Lucky Armor Ticket"
+    },
+    {
+      "externalKey": "openmu:s6:13:136",
+      "category": "misc",
+      "name": "1st Lucky Pants Ticket"
+    },
+    {
+      "externalKey": "openmu:s6:13:137",
+      "category": "misc",
+      "name": "1st Lucky Helm Ticket"
+    },
+    {
+      "externalKey": "openmu:s6:13:138",
+      "category": "misc",
+      "name": "1st Lucky Gloves Ticket"
+    },
+    {
+      "externalKey": "openmu:s6:13:139",
+      "category": "misc",
+      "name": "1st Lucky Boots Ticket"
+    },
+    {
+      "externalKey": "openmu:s6:13:140",
+      "category": "misc",
+      "name": "2nd Lucky Armor Ticket"
+    },
+    {
+      "externalKey": "openmu:s6:13:141",
+      "category": "misc",
+      "name": "2nd Lucky Pants Ticket"
+    },
+    {
+      "externalKey": "openmu:s6:13:142",
+      "category": "misc",
+      "name": "2nd Lucky Helm Ticket"
+    },
+    {
+      "externalKey": "openmu:s6:13:143",
+      "category": "misc",
+      "name": "2nd Lucky Gloves Ticket"
+    },
+    {
+      "externalKey": "openmu:s6:13:144",
+      "category": "misc",
+      "name": "2nd Lucky Boots Ticket"
+    },
+    {
+      "externalKey": "openmu:s6:14:0",
+      "category": "potions",
+      "name": "Apple"
+    },
+    {
+      "externalKey": "openmu:s6:14:1",
+      "category": "potions",
+      "name": "Small Healing Potion"
+    },
+    {
+      "externalKey": "openmu:s6:14:2",
+      "category": "potions",
+      "name": "Medium Healing Potion"
+    },
+    {
+      "externalKey": "openmu:s6:14:3",
+      "category": "potions",
+      "name": "Large Healing Potion"
+    },
+    {
+      "externalKey": "openmu:s6:14:4",
+      "category": "potions",
+      "name": "Small Mana Potion"
+    },
+    {
+      "externalKey": "openmu:s6:14:5",
+      "category": "potions",
+      "name": "Medium Mana Potion"
+    },
+    {
+      "externalKey": "openmu:s6:14:6",
+      "category": "potions",
+      "name": "Large Mana Potion"
+    },
+    {
+      "externalKey": "openmu:s6:14:7",
+      "category": "potions",
+      "name": "Potion of Bless;Potion of Soul"
+    },
+    {
+      "externalKey": "openmu:s6:14:8",
+      "category": "potions",
+      "name": "Antidote"
+    },
+    {
+      "externalKey": "openmu:s6:14:9",
+      "category": "potions",
+      "name": "Ale"
+    },
+    {
+      "externalKey": "openmu:s6:14:10",
+      "category": "potions",
+      "name": "Town Portal Scroll"
+    },
+    {
+      "externalKey": "openmu:s6:14:11",
+      "category": "boxes",
+      "name": "Box of Luck"
+    },
+    {
+      "externalKey": "openmu:s6:14:13",
+      "category": "jewels",
+      "name": "Jewel of Bless"
+    },
+    {
+      "externalKey": "openmu:s6:14:14",
+      "category": "jewels",
+      "name": "Jewel of Soul"
+    },
+    {
+      "externalKey": "openmu:s6:14:16",
+      "category": "jewels",
+      "name": "Jewel of Life"
+    },
+    {
+      "externalKey": "openmu:s6:14:17",
+      "category": "event-items",
+      "name": "Devil's Eye"
+    },
+    {
+      "externalKey": "openmu:s6:14:18",
+      "category": "event-items",
+      "name": "Devil's Key"
+    },
+    {
+      "externalKey": "openmu:s6:14:19",
+      "category": "event-items",
+      "name": "Devil's Invitation"
+    },
+    {
+      "externalKey": "openmu:s6:14:21",
+      "category": "misc",
+      "name": "Rena"
+    },
+    {
+      "externalKey": "openmu:s6:14:22",
+      "category": "jewels",
+      "name": "Jewel of Creation"
+    },
+    {
+      "externalKey": "openmu:s6:14:23",
+      "category": "quest-items",
+      "name": "Scroll of Emperor;Ring of Honor"
+    },
+    {
+      "externalKey": "openmu:s6:14:24",
+      "category": "quest-items",
+      "name": "Broken Sword;Dark Stone"
+    },
+    {
+      "externalKey": "openmu:s6:14:25",
+      "category": "quest-items",
+      "name": "Tear of Elf"
+    },
+    {
+      "externalKey": "openmu:s6:14:26",
+      "category": "quest-items",
+      "name": "Soul Shard of Wizard"
+    },
+    {
+      "externalKey": "openmu:s6:14:28",
+      "category": "misc",
+      "name": "Lost Map"
+    },
+    {
+      "externalKey": "openmu:s6:14:29",
+      "category": "misc",
+      "name": "Symbol of Kundun"
+    },
+    {
+      "externalKey": "openmu:s6:14:31",
+      "category": "jewels",
+      "name": "Jewel of Guardian"
+    },
+    {
+      "externalKey": "openmu:s6:14:32",
+      "category": "boxes",
+      "name": "Pink Chocolate Box"
+    },
+    {
+      "externalKey": "openmu:s6:14:33",
+      "category": "boxes",
+      "name": "Red Chocolate Box"
+    },
+    {
+      "externalKey": "openmu:s6:14:34",
+      "category": "boxes",
+      "name": "Blue Chocolate Box"
+    },
+    {
+      "externalKey": "openmu:s6:14:35",
+      "category": "potions",
+      "name": "Small Shield Potion"
+    },
+    {
+      "externalKey": "openmu:s6:14:36",
+      "category": "potions",
+      "name": "Medium Shield Potion"
+    },
+    {
+      "externalKey": "openmu:s6:14:37",
+      "category": "potions",
+      "name": "Large Shield Potion"
+    },
+    {
+      "externalKey": "openmu:s6:14:38",
+      "category": "potions",
+      "name": "Small Complex Potion"
+    },
+    {
+      "externalKey": "openmu:s6:14:39",
+      "category": "potions",
+      "name": "Medium Complex Potion"
+    },
+    {
+      "externalKey": "openmu:s6:14:40",
+      "category": "potions",
+      "name": "Large Complex Potion"
+    },
+    {
+      "externalKey": "openmu:s6:14:41",
+      "category": "jewels",
+      "name": "Gemstone"
+    },
+    {
+      "externalKey": "openmu:s6:14:42",
+      "category": "jewels",
+      "name": "Jewel of Harmony"
+    },
+    {
+      "externalKey": "openmu:s6:14:43",
+      "category": "jewels",
+      "name": "Lower refine stone"
+    },
+    {
+      "externalKey": "openmu:s6:14:44",
+      "category": "jewels",
+      "name": "Higher refine stone"
+    },
+    {
+      "externalKey": "openmu:s6:14:45",
+      "category": "boxes",
+      "name": "Pumpkin of Luck"
+    },
+    {
+      "externalKey": "openmu:s6:14:46",
+      "category": "potions",
+      "name": "Jack O'Lantern Blessings"
+    },
+    {
+      "externalKey": "openmu:s6:14:47",
+      "category": "potions",
+      "name": "Jack O'Lantern Wrath"
+    },
+    {
+      "externalKey": "openmu:s6:14:48",
+      "category": "potions",
+      "name": "Jack O'Lantern Cry"
+    },
+    {
+      "externalKey": "openmu:s6:14:49",
+      "category": "potions",
+      "name": "Jack O'Lantern Food"
+    },
+    {
+      "externalKey": "openmu:s6:14:50",
+      "category": "potions",
+      "name": "Jack O'Lantern Drink"
+    },
+    {
+      "externalKey": "openmu:s6:14:51",
+      "category": "boxes",
+      "name": "Christmas Star"
+    },
+    {
+      "externalKey": "openmu:s6:14:52",
+      "category": "boxes",
+      "name": "GM Gift"
+    },
+    {
+      "externalKey": "openmu:s6:14:53",
+      "category": "misc",
+      "name": "Talisman of Luck"
+    },
+    {
+      "externalKey": "openmu:s6:14:63",
+      "category": "boxes",
+      "name": "Firecracker"
+    },
+    {
+      "externalKey": "openmu:s6:14:64",
+      "category": "event-items",
+      "name": "Cursed Castle Water"
+    },
+    {
+      "externalKey": "openmu:s6:14:65",
+      "category": "quest-items",
+      "name": "Flame of Death Beam Knight"
+    },
+    {
+      "externalKey": "openmu:s6:14:66",
+      "category": "quest-items",
+      "name": "Horn of Hell Maine"
+    },
+    {
+      "externalKey": "openmu:s6:14:67",
+      "category": "quest-items",
+      "name": "Feather of Dark Phoenix"
+    },
+    {
+      "externalKey": "openmu:s6:14:68",
+      "category": "quest-items",
+      "name": "Eye of Abyssal"
+    },
+    {
+      "externalKey": "openmu:s6:14:70",
+      "category": "potions",
+      "name": "Elite Healing Potion"
+    },
+    {
+      "externalKey": "openmu:s6:14:71",
+      "category": "potions",
+      "name": "Elite Mana Potion"
+    },
+    {
+      "externalKey": "openmu:s6:14:72",
+      "category": "buffs",
+      "name": "Scroll of Quickness"
+    },
+    {
+      "externalKey": "openmu:s6:14:73",
+      "category": "buffs",
+      "name": "Scroll of Defense"
+    },
+    {
+      "externalKey": "openmu:s6:14:74",
+      "category": "buffs",
+      "name": "Scroll of Wrath"
+    },
+    {
+      "externalKey": "openmu:s6:14:75",
+      "category": "buffs",
+      "name": "Scroll of Wizardry"
+    },
+    {
+      "externalKey": "openmu:s6:14:76",
+      "category": "buffs",
+      "name": "Scroll of Health"
+    },
+    {
+      "externalKey": "openmu:s6:14:77",
+      "category": "buffs",
+      "name": "Scroll of Mana"
+    },
+    {
+      "externalKey": "openmu:s6:14:78",
+      "category": "buffs",
+      "name": "Elixir of Strength"
+    },
+    {
+      "externalKey": "openmu:s6:14:79",
+      "category": "buffs",
+      "name": "Elixir of Agility"
+    },
+    {
+      "externalKey": "openmu:s6:14:80",
+      "category": "buffs",
+      "name": "Elixir of Health"
+    },
+    {
+      "externalKey": "openmu:s6:14:81",
+      "category": "buffs",
+      "name": "Elixir of Energy"
+    },
+    {
+      "externalKey": "openmu:s6:14:82",
+      "category": "buffs",
+      "name": "Elixir of Control"
+    },
+    {
+      "externalKey": "openmu:s6:14:84",
+      "category": "boxes",
+      "name": "Cherry Blossom Play-Box"
+    },
+    {
+      "externalKey": "openmu:s6:14:85",
+      "category": "potions",
+      "name": "Cherry Blossom Wine"
+    },
+    {
+      "externalKey": "openmu:s6:14:86",
+      "category": "potions",
+      "name": "Cherry Blossom Rice Cake"
+    },
+    {
+      "externalKey": "openmu:s6:14:87",
+      "category": "potions",
+      "name": "Cherry Blossom Flower Petal"
+    },
+    {
+      "externalKey": "openmu:s6:14:90",
+      "category": "misc",
+      "name": "Golden Cherry Blossom Branch"
+    },
+    {
+      "externalKey": "openmu:s6:14:91",
+      "category": "misc",
+      "name": "Summoner Character Card"
+    },
+    {
+      "externalKey": "openmu:s6:14:94",
+      "category": "potions",
+      "name": "Medium Elite Healing Potion"
+    },
+    {
+      "externalKey": "openmu:s6:14:96",
+      "category": "misc",
+      "name": "Talisman of Chaos Assembly"
+    },
+    {
+      "externalKey": "openmu:s6:14:97",
+      "category": "buffs",
+      "name": "Scroll of Battle"
+    },
+    {
+      "externalKey": "openmu:s6:14:98",
+      "category": "buffs",
+      "name": "Scroll of Strength"
+    },
+    {
+      "externalKey": "openmu:s6:14:99",
+      "category": "boxes",
+      "name": "Christmas Firecracker"
+    },
+    {
+      "externalKey": "openmu:s6:14:101",
+      "category": "event-items",
+      "name": "Suspicious Scrap of Paper"
+    },
+    {
+      "externalKey": "openmu:s6:14:102",
+      "category": "event-items",
+      "name": "Gaion's Order"
+    },
+    {
+      "externalKey": "openmu:s6:14:103",
+      "category": "event-items",
+      "name": "First Secromicon Fragment"
+    },
+    {
+      "externalKey": "openmu:s6:14:104",
+      "category": "event-items",
+      "name": "Second Secromicon Fragment"
+    },
+    {
+      "externalKey": "openmu:s6:14:105",
+      "category": "event-items",
+      "name": "Third Secromicon Fragment"
+    },
+    {
+      "externalKey": "openmu:s6:14:106",
+      "category": "event-items",
+      "name": "Fourth Secromicon Fragment"
+    },
+    {
+      "externalKey": "openmu:s6:14:107",
+      "category": "event-items",
+      "name": "Fifth Secromicon Fragment"
+    },
+    {
+      "externalKey": "openmu:s6:14:108",
+      "category": "event-items",
+      "name": "Sixth Secromicon Fragment"
+    },
+    {
+      "externalKey": "openmu:s6:14:109",
+      "category": "event-items",
+      "name": "Complete Secromicon"
+    },
+    {
+      "externalKey": "openmu:s6:14:110",
+      "category": "event-items",
+      "name": "Sign of Dimensions"
+    },
+    {
+      "externalKey": "openmu:s6:14:111",
+      "category": "event-items",
+      "name": "Mirror of Dimensions"
+    },
+    {
+      "externalKey": "openmu:s6:14:133",
+      "category": "potions",
+      "name": "Elite SD Potion"
+    },
+    {
+      "externalKey": "openmu:s6:14:140",
+      "category": "buffs",
+      "name": "Scroll of Healing"
+    },
+    {
+      "externalKey": "openmu:s6:14:160",
+      "category": "misc",
+      "name": "Jewel of Extension"
+    },
+    {
+      "externalKey": "openmu:s6:14:161",
+      "category": "misc",
+      "name": "Jewel of Elevation"
+    },
+    {
+      "externalKey": "openmu:s6:14:162",
+      "category": "misc",
+      "name": "Magic Backpack"
+    },
+    {
+      "externalKey": "openmu:s6:14:163",
+      "category": "misc",
+      "name": "Vault Expansion Certificate"
+    },
+    {
+      "externalKey": "openmu:s6:14:169",
+      "category": "misc",
+      "name": "Rage Fighter Character Card"
+    },
+    {
+      "externalKey": "openmu:s6:15:0",
+      "category": "scrolls",
+      "name": "Scroll of Poison"
+    },
+    {
+      "externalKey": "openmu:s6:15:1",
+      "category": "scrolls",
+      "name": "Scroll of Meteorite"
+    },
+    {
+      "externalKey": "openmu:s6:15:2",
+      "category": "scrolls",
+      "name": "Scroll of Lighting"
+    },
+    {
+      "externalKey": "openmu:s6:15:3",
+      "category": "scrolls",
+      "name": "Scroll of Fire Ball"
+    },
+    {
+      "externalKey": "openmu:s6:15:4",
+      "category": "scrolls",
+      "name": "Scroll of Flame"
+    },
+    {
+      "externalKey": "openmu:s6:15:5",
+      "category": "scrolls",
+      "name": "Scroll of Teleport"
+    },
+    {
+      "externalKey": "openmu:s6:15:6",
+      "category": "scrolls",
+      "name": "Scroll of Ice"
+    },
+    {
+      "externalKey": "openmu:s6:15:7",
+      "category": "scrolls",
+      "name": "Scroll of Twister"
+    },
+    {
+      "externalKey": "openmu:s6:15:8",
+      "category": "scrolls",
+      "name": "Scroll of Evil Spirit"
+    },
+    {
+      "externalKey": "openmu:s6:15:9",
+      "category": "scrolls",
+      "name": "Scroll of Hellfire"
+    },
+    {
+      "externalKey": "openmu:s6:15:10",
+      "category": "scrolls",
+      "name": "Scroll of Power Wave"
+    },
+    {
+      "externalKey": "openmu:s6:15:11",
+      "category": "scrolls",
+      "name": "Scroll of Aqua Beam"
+    },
+    {
+      "externalKey": "openmu:s6:15:12",
+      "category": "scrolls",
+      "name": "Scroll of Cometfall"
+    },
+    {
+      "externalKey": "openmu:s6:15:13",
+      "category": "scrolls",
+      "name": "Scroll of Inferno"
+    },
+    {
+      "externalKey": "openmu:s6:15:14",
+      "category": "scrolls",
+      "name": "Scroll of Teleport Ally"
+    },
+    {
+      "externalKey": "openmu:s6:15:15",
+      "category": "scrolls",
+      "name": "Scroll of Soul Barrier"
+    },
+    {
+      "externalKey": "openmu:s6:15:16",
+      "category": "scrolls",
+      "name": "Scroll of Decay"
+    },
+    {
+      "externalKey": "openmu:s6:15:17",
+      "category": "scrolls",
+      "name": "Scroll of Ice Storm"
+    },
+    {
+      "externalKey": "openmu:s6:15:18",
+      "category": "scrolls",
+      "name": "Scroll of Nova"
+    },
+    {
+      "externalKey": "openmu:s6:15:19",
+      "category": "scrolls",
+      "name": "Chain Lightning Parchment"
+    },
+    {
+      "externalKey": "openmu:s6:15:20",
+      "category": "scrolls",
+      "name": "Drain Life Parchment"
+    },
+    {
+      "externalKey": "openmu:s6:15:21",
+      "category": "scrolls",
+      "name": "Lightning Shock Parchment"
+    },
+    {
+      "externalKey": "openmu:s6:15:22",
+      "category": "scrolls",
+      "name": "Damage Reflection Parchment"
+    },
+    {
+      "externalKey": "openmu:s6:15:23",
+      "category": "scrolls",
+      "name": "Berserker Parchment"
+    },
+    {
+      "externalKey": "openmu:s6:15:24",
+      "category": "scrolls",
+      "name": "Sleep Parchment"
+    },
+    {
+      "externalKey": "openmu:s6:15:26",
+      "category": "scrolls",
+      "name": "Weakness Parchment"
+    },
+    {
+      "externalKey": "openmu:s6:15:27",
+      "category": "scrolls",
+      "name": "Innovation Parchment"
+    },
+    {
+      "externalKey": "openmu:s6:15:28",
+      "category": "scrolls",
+      "name": "Scroll of Wizardry Enhance"
+    },
+    {
+      "externalKey": "openmu:s6:15:29",
+      "category": "scrolls",
+      "name": "Scroll of Gigantic Storm"
+    },
+    {
+      "externalKey": "openmu:s6:15:30",
+      "category": "scrolls",
+      "name": "Chain Drive Parchment"
+    },
+    {
+      "externalKey": "openmu:s6:15:31",
+      "category": "scrolls",
+      "name": "Dark Side Parchment"
+    },
+    {
+      "externalKey": "openmu:s6:15:32",
+      "category": "scrolls",
+      "name": "Dragon Roar Parchment"
+    },
+    {
+      "externalKey": "openmu:s6:15:33",
+      "category": "scrolls",
+      "name": "Dragon Slasher Parchment"
+    },
+    {
+      "externalKey": "openmu:s6:15:34",
+      "category": "scrolls",
+      "name": "Ignore Defense Parchment"
+    },
+    {
+      "externalKey": "openmu:s6:15:35",
+      "category": "scrolls",
+      "name": "Increase Health Parchment"
+    },
+    {
+      "externalKey": "openmu:s6:15:36",
+      "category": "scrolls",
+      "name": "Increase Block Parchment"
+    }
+  ]
+}

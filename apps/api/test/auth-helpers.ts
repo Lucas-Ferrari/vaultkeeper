@@ -48,6 +48,24 @@ export function getWith(app: App, path: string, cookie?: string) {
   return app.request(`${TEST_PUBLIC_URL}${path}`, cookie ? { headers: { cookie } } : {});
 }
 
+/** JSON request to the app (POST/PATCH/PUT/DELETE) with an optional session cookie. */
+export function sendJson(
+  app: App,
+  method: "POST" | "PATCH" | "PUT" | "DELETE",
+  path: string,
+  body?: unknown,
+  cookie?: string,
+) {
+  const headers = new Headers({ origin: TEST_PUBLIC_URL });
+  if (body !== undefined) headers.set("content-type", "application/json");
+  if (cookie) headers.set("cookie", cookie);
+  return app.request(`${TEST_PUBLIC_URL}${path}`, {
+    method,
+    headers,
+    ...(body === undefined ? {} : { body: JSON.stringify(body) }),
+  });
+}
+
 export interface SignedInUser {
   id: string;
   email: string;

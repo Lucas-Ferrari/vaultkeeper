@@ -5,6 +5,8 @@ import { secureHeaders } from "hono/secure-headers";
 import type { Auth } from "./auth/auth";
 import { requireUser, sessionMiddleware } from "./auth/middleware";
 import type { Database } from "./db/client";
+import { adminCatalogRoutes, catalogRoutes } from "./features/catalog/routes";
+import { createCatalogService } from "./features/catalog/service";
 import { healthRoutes } from "./features/health/routes";
 import { meRoutes } from "./features/me/routes";
 import { jsonBodyLimit } from "./shared/http/body-limit";
@@ -34,8 +36,14 @@ export interface AppDeps {
  */
 export function createApp(deps: AppDeps) {
   const { auth, db } = deps;
+  const catalog = createCatalogService({ db });
 
-  const v1 = new Hono().use(sessionMiddleware(auth)).use(requireUser).route("/me", meRoutes());
+  const v1 = new Hono()
+    .use(sessionMiddleware(auth))
+    .use(requireUser)
+    .route("/me", meRoutes())
+    .route("/catalog", catalogRoutes(catalog))
+    .route("/admin/catalog", adminCatalogRoutes(catalog));
 
   const app = new Hono()
     .use(requestId())

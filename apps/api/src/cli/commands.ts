@@ -5,6 +5,7 @@ import type { CommandTable } from "./dispatch";
 import type { CliIo, ExitCode } from "./io";
 import { run as promoteAdmin, PROMOTE_ADMIN_USAGE } from "./promote-admin";
 import { run as resetPassword, RESET_PASSWORD_USAGE } from "./reset-password";
+import { run as seed, SEED_USAGE } from "./seed";
 
 /** What the account commands need; opened per run so `cli --help` never touches the database. */
 export interface CliServices {
@@ -48,6 +49,11 @@ export function createCommands({ open, io, readStdin }: CommandsDeps): CommandTa
       summary:
         "Set a new password (printed once, or read from stdin) and sign the user out everywhere.",
       run: withServices((args, { auth }) => resetPassword(args, { auth, io, readStdin })),
+    },
+    seed: {
+      usage: SEED_USAGE,
+      summary: "Upsert the OpenMU Season 6 catalog seed (deploy: migrate -> seed). Idempotent.",
+      run: withServices((args, { db }) => seed(args, { db, io })),
     },
   };
 }

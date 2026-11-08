@@ -11,6 +11,8 @@
     "typecheck": "turbo run typecheck",
     "test": "vitest run",
     "test:int": "vitest run --project api-int",
+    "test:perf": "vitest run --config vitest.perf.config.ts",
+    "catalog:generate": "pnpm --filter @vaultkeeper/catalog-import generate",
     "e2e": "turbo run e2e",
     "format": "prettier --write .",
     "format:check": "prettier --check .",

@@ -20,7 +20,13 @@ vi.mock(import("./reset-password"), async (original) => ({
   run: vi.fn(async () => EXIT.FAILURE),
 }));
 
+vi.mock(import("./seed"), async (original) => ({
+  ...(await original()),
+  run: vi.fn(async () => EXIT.OK),
+}));
+
 const promoteAdmin = await import("./promote-admin");
+const seed = await import("./seed");
 const demoteAdmin = await import("./demote-admin");
 const resetPassword = await import("./reset-password");
 
@@ -98,11 +104,12 @@ describe("createCommands (real command table)", () => {
     vi.clearAllMocks();
   });
 
-  it("exposes promote-admin, demote-admin and reset-password", () => {
+  it("exposes promote-admin, demote-admin, reset-password and seed", () => {
     expect(Object.keys(createCommands({ open, io, readStdin })).sort()).toEqual([
       "demote-admin",
       "promote-admin",
       "reset-password",
+      "seed",
     ]);
   });
 
@@ -110,6 +117,7 @@ describe("createCommands (real command table)", () => {
     ["promote-admin", promoteAdmin.run, { db: services.db, io }],
     ["demote-admin", demoteAdmin.run, { db: services.db, io }],
     ["reset-password", resetPassword.run, { auth: services.auth, io, readStdin }],
+    ["seed", seed.run, { db: services.db, io }],
   ] as const)("%s -> that CLI's run(args, deps), then closes the pool", async (name, run, deps) => {
     const commands = createCommands({ open, io, readStdin });
 

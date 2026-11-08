@@ -1,0 +1,29 @@
+Vaultkeeper
+===========
+
+Vaultkeeper is not affiliated with Webzen or MEGADEV. No game art, item images or other assets
+from Webzen, megamu.net or MuOnlineFanz are included in this repository.
+
+Third-party data
+----------------
+
+OpenMU — https://github.com/MUnique/OpenMU
+MIT License, (c) 2017 MUnique
+
+The catalog seed apps/api/seed/catalog.openmu-s6.json (item names, item groups and numbers) is
+derived from OpenMU's Season 6 item initializers
+(src/Persistence/Initialization/VersionSeasonSix/Items/*.cs and
+src/Persistence/Initialization/Properties/ItemNames.resx) at commit
+cb52cd658c5d49aacca6ee9bb1cbb9e011685ce2, by scripts/catalog-import. The test fixtures in
+scripts/catalog-import/test/fixtures are short excerpts of the same files. They are used under
+the following license:
+
+--- OpenMU LICENSE (verbatim) ---
+Copyright 2017 MUnique
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+--- end of OpenMU LICENSE ---

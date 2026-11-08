@@ -53,6 +53,23 @@ export const TEXT_LIMIT = {
   ENTRY_NOTES: 500,
 } as const;
 
+/** Catalog category limits (admin-curated; slug is the PK and never edited). */
+export const CATEGORY_LIMIT = {
+  SLUG_MAX: 40,
+  NAME_MAX: 60,
+  ICON_MAX: 40,
+  SORT_ORDER_MAX: 10_000,
+} as const;
+
+/**
+ * Catalog search (R-SRCH-1): q is at most 80 chars; below 2 non-space chars the API browses by
+ * name prefix/category instead of fuzzy matching (S7: never a full-table dump, limit applies).
+ */
+export const SEARCH_LIMIT = {
+  QUERY_MAX: 80,
+  FUZZY_MIN_CHARS: 2,
+} as const;
+
 /** Stock entry quantity range. */
 export const QUANTITY = {
   MIN: 1,

@@ -1,0 +1,17 @@
+{
+  "name": "@vaultkeeper/catalog-import",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Dev-only generator: OpenMU Season 6 item definitions -> apps/api/seed/catalog.openmu-s6.json (design 10).",
+  "scripts": {
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "generate": "tsx src/cli.ts"
+  },
+  "dependencies": {
+    "fast-xml-parser": "5.11.2"
+  },
+  "devDependencies": {
+    "tsx": "4.23.15"
+  }
+}
