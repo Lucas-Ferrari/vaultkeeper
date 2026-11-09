@@ -1,0 +1,13 @@
+**/node_modules
+**/dist
+**/.turbo
+**/coverage
+**/playwright-report
+**/test-results
+**/.lighthouseci
+.git
+.data
+backups
+.env
+.env.*
+!.env.example

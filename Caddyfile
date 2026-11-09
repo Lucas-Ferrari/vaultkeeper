@@ -1,0 +1,37 @@
+# Edge proxy (task 7.2, ADR9): one origin for the PWA, the API and media.
+# DOMAIN comes from .env via docker-compose. DOMAIN=localhost -> Caddy's local CA (smoke test).
+{$DOMAIN} {
+	encode zstd gzip
+
+	# API, auth, media and health go to the api container. Caddy is the ONLY public hop, so it
+	# overwrites X-Forwarded-For with the real client address: Better Auth's rate limiter reads
+	# that header (advanced.ipAddress.ipAddressHeaders), and a client-sent value must never win.
+	@api path /api/* /media/* /healthz
+	handle @api {
+		reverse_proxy api:3000 {
+			header_up X-Forwarded-For {remote_host}
+			header_up X-Real-IP {remote_host}
+		}
+	}
+
+	handle {
+		root * /srv/web
+
+		# Hashed bundles never change; the SW and its entry points must always be revalidated.
+		@immutable path /assets/*
+		header @immutable Cache-Control "public, max-age=31536000, immutable"
+		@revalidate path /sw.js /workbox-*.js /index.html /manifest.webmanifest
+		header @revalidate Cache-Control "no-cache"
+
+		# SPA: unknown paths fall back to index.html (client-side router).
+		try_files {path} /index.html
+		file_server
+	}
+
+	header {
+		Strict-Transport-Security "max-age=31536000; includeSubDomains"
+		X-Content-Type-Options nosniff
+		Referrer-Policy strict-origin-when-cross-origin
+		-Server
+	}
+}

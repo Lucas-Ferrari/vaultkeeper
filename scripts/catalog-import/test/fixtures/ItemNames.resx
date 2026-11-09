@@ -1,0 +1,73 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<!-- Excerpt of OpenMU src/Persistence/Initialization/Properties/ItemNames.resx (MIT, (c) 2017 MUnique; see NOTICE). Test fixture only. -->
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <data name="Kris" xml:space="preserve">
+    <value>Kris</value>
+  </data>
+  <data name="ShortSword" xml:space="preserve">
+    <value>Short Sword</value>
+  </data>
+  <data name="SmallShield" xml:space="preserve">
+    <value>Small Shield</value>
+  </data>
+  <data name="BronzeHelm" xml:space="preserve">
+    <value>Bronze Helm</value>
+  </data>
+  <data name="BronzeGloves" xml:space="preserve">
+    <value>Bronze Gloves</value>
+  </data>
+  <data name="BronzeBoots" xml:space="preserve">
+    <value>Bronze Boots</value>
+  </data>
+  <data name="ScaleHelm" xml:space="preserve">
+    <value>Scale Helm</value>
+  </data>
+  <data name="WingsOfElf" xml:space="preserve">
+    <value>Wings of Elf</value>
+  </data>
+  <data name="CapeOfLord" xml:space="preserve">
+    <value>Cape of Lord</value>
+  </data>
+  <data name="Apple" xml:space="preserve">
+    <value>Apple</value>
+  </data>
+  <data name="JackOLanternBlessings" xml:space="preserve">
+    <value>Jack O&apos;Lantern Blessings</value>
+  </data>
+  <data name="BoxOfLuck" xml:space="preserve">
+    <value>Box of Luck</value>
+  </data>
+  <data name="OrbOfTwistingSlash" xml:space="preserve">
+    <value>Orb of Twisting Slash</value>
+  </data>
+  <data name="Feather" xml:space="preserve">
+    <value>Feather</value>
+  </data>
+  <data name="EliteHealingPotion" xml:space="preserve">
+    <value>Elite Healing Potion</value>
+  </data>
+  <data name="SphereMono" xml:space="preserve">
+    <value>Sphere (Mono)</value>
+  </data>
+  <data name="JewelOfGuardian" xml:space="preserve">
+    <value>Jewel of Guardian</value>
+  </data>
+  <data name="JewelOfBless" xml:space="preserve">
+    <value>Jewel of Bless</value>
+  </data>
+  <data name="SmallCapeOfLord" xml:space="preserve">
+    <value>Small Cape of Lord</value>
+  </data>
+  <data name="Padded" xml:space="preserve">
+    <value>  Padded   Name  </value>
+  </data>
+  <data name="Empty" xml:space="preserve">
+    <value></value>
+  </data>
+</root>

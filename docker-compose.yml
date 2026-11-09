@@ -1,0 +1,94 @@
+# Production stack (task 7.3, design 14). Usage on the VPS: see docs/deployment.md.
+#   docker compose --env-file .env up -d --build
+# Only caddy publishes ports; api and postgres live on the internal network.
+name: ${COMPOSE_PROJECT_NAME:-vaultkeeper}
+
+x-api-env: &api-env
+  NODE_ENV: production
+  PORT: "3000"
+  PUBLIC_URL: https://${DOMAIN:?set DOMAIN in .env}
+  DATABASE_URL: postgres://${POSTGRES_USER:-vaultkeeper}:${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in .env}@postgres:5432/${POSTGRES_DB:-vaultkeeper}
+  BETTER_AUTH_SECRET: ${BETTER_AUTH_SECRET:?set BETTER_AUTH_SECRET in .env}
+  GOOGLE_CLIENT_ID: ${GOOGLE_CLIENT_ID:-}
+  GOOGLE_CLIENT_SECRET: ${GOOGLE_CLIENT_SECRET:-}
+  DISCORD_CLIENT_ID: ${DISCORD_CLIENT_ID:-}
+  DISCORD_CLIENT_SECRET: ${DISCORD_CLIENT_SECRET:-}
+  MEDIA_DIR: /data/media
+  UPLOAD_MAX_BYTES: ${UPLOAD_MAX_BYTES:-1048576}
+  CSV_MAX_BYTES: ${CSV_MAX_BYTES:-2097152}
+  LOG_LEVEL: ${LOG_LEVEL:-info}
+
+services:
+  caddy:
+    build:
+      context: .
+      dockerfile: Dockerfile.web
+    image: vaultkeeper-web:${IMAGE_TAG:-latest}
+    restart: unless-stopped
+    environment:
+      DOMAIN: ${DOMAIN:?set DOMAIN in .env}
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    volumes:
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      api:
+        condition: service_healthy
+    networks: [internal]
+
+  api:
+    build:
+      context: .
+      dockerfile: apps/api/Dockerfile
+    image: vaultkeeper-api:${IMAGE_TAG:-latest}
+    restart: unless-stopped
+    environment: *api-env
+    volumes:
+      - media:/data/media
+    depends_on:
+      postgres:
+        condition: service_healthy
+      migrate:
+        condition: service_completed_successfully
+    networks: [internal]
+
+  # One-shot: apply migrations, then the idempotent catalog seed (R-DEP-2). Runs on every `up`.
+  migrate:
+    image: vaultkeeper-api:${IMAGE_TAG:-latest}
+    pull_policy: never
+    restart: "no"
+    environment: *api-env
+    command: ["sh", "-c", "node --import tsx src/cli/migrate.ts && vk seed"]
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks: [internal]
+
+  postgres:
+    image: postgres:17-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-vaultkeeper}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in .env}
+      POSTGRES_DB: ${POSTGRES_DB:-vaultkeeper}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+    networks: [internal]
+
+networks:
+  internal: {}
+
+volumes:
+  pgdata:
+  media:
+  caddy_data:
+  caddy_config:
