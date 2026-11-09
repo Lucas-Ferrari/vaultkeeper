@@ -43,6 +43,13 @@
       "when": 1794100676725,
       "tag": "0005_stock_groups",
       "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1794185035167,
+      "tag": "0006_character_name_10",
+      "breakpoints": true
     }
   ]
 }

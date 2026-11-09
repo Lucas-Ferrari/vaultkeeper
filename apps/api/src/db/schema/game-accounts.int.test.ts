@@ -95,15 +95,15 @@ describe("game accounts, characters and storage locations", () => {
       });
     });
 
-    it("enforces name length 1..30", async () => {
+    it("enforces name length 1..10 (MU limit)", async () => {
       await run(async (client) => {
         const account = await insertAccount(client, alice, "Chars-Len");
         await expectPgError(insertCharacter(client, alice, account, ""), PG_ERROR.CHECK_VIOLATION);
         await expectPgError(
-          insertCharacter(client, alice, account, "x".repeat(31)),
+          insertCharacter(client, alice, account, "x".repeat(11)),
           PG_ERROR.CHECK_VIOLATION,
         );
-        await insertCharacter(client, alice, account, "y".repeat(30));
+        await insertCharacter(client, alice, account, "y".repeat(10));
       });
     });
 

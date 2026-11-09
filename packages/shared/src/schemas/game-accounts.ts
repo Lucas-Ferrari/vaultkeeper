@@ -16,7 +16,7 @@ function trimmedName(max: number) {
 /** R-GA-1: account name, trimmed, 1..50, unique per user (case-insensitive, DB index). */
 export const gameAccountName = trimmedName(TEXT_LIMIT.GAME_ACCOUNT_NAME);
 
-/** R-GA-3: character name, trimmed, 1..30 (spec wins over design 05), unique per account. */
+/** R-GA-3: character name, trimmed, 1..10 (MU limit), unique per account. */
 export const characterName = trimmedName(TEXT_LIMIT.CHARACTER_NAME);
 
 const accountNotes = z

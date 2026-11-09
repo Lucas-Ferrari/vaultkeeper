@@ -63,11 +63,11 @@ describe("characters + inventory (task 4.3)", () => {
   });
 
   it("lists an account's characters by name; B gets 404 on A's account", async () => {
-    await createCharacter(t.app, a.cookie, mainId, "BladeKnight");
+    await createCharacter(t.app, a.cookie, mainId, "BladeKn");
     const res = await getWith(t.app, `${ACCOUNTS}/${mainId}/characters`, a.cookie);
     expect(res.status).toBe(200);
     expect(characterList.parse(await res.json()).map((c) => c.name)).toEqual([
-      "BladeKnight",
+      "BladeKn",
       "DarkLord",
     ]);
     expect((await getWith(t.app, `${ACCOUNTS}/${mainId}/characters`, b.cookie)).status).toBe(404);
@@ -87,12 +87,12 @@ describe("characters + inventory (task 4.3)", () => {
       t.app,
       "PATCH",
       `${CHARACTERS}/${sm.id}`,
-      { name: "GrandMaster", class: "Grand Master" },
+      { name: "GrandMstr", class: "Grand Master" },
       a.cookie,
     );
     expect(res.status).toBe(200);
     expect(character.parse(await res.json())).toMatchObject({
-      name: "GrandMaster",
+      name: "GrandMstr",
       class: "Grand Master",
     });
     const dup = await sendJson(
@@ -122,12 +122,12 @@ describe("characters + inventory (task 4.3)", () => {
     ).toBe(1);
   });
 
-  it("validates the name length (1..30)", async () => {
+  it("validates the name length (1..10, MU limit)", async () => {
     const long = await sendJson(
       t.app,
       "POST",
       `${ACCOUNTS}/${mainId}/characters`,
-      { name: "x".repeat(31) },
+      { name: "x".repeat(11) },
       a.cookie,
     );
     expect(long.status).toBe(422);

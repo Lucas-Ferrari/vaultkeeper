@@ -52,13 +52,13 @@ export type CatalogSource = (typeof CATALOG_SOURCE)[keyof typeof CATALOG_SOURCE]
 export const CATEGORY_SLUG_PATTERN = /^[a-z0-9-]+$/;
 
 /**
- * Max text lengths (chars). Spec lengths win over design (tasks index): account 50, character 30,
+ * Max text lengths (chars). Spec lengths win over design (tasks index): account 50, character 10 (MU limit),
  * entry notes 500. Names are also at least 1 char.
  */
 export const TEXT_LIMIT = {
   CATALOG_ITEM_NAME: 120,
   GAME_ACCOUNT_NAME: 50,
-  CHARACTER_NAME: 30,
+  CHARACTER_NAME: 10,
   GROUP_NAME: 60,
   GROUP_DESCRIPTION: 500,
   ENTRY_OPTIONS: 500,

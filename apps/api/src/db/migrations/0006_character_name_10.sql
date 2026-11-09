@@ -1,0 +1,2 @@
+ALTER TABLE "characters" DROP CONSTRAINT "characters_name_length";--> statement-breakpoint
+ALTER TABLE "characters" ADD CONSTRAINT "characters_name_length" CHECK (char_length("characters"."name") BETWEEN 1 AND 10);

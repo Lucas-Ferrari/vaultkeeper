@@ -31,7 +31,7 @@ describe("shared constants (smoke)", () => {
     expect(TEXT_LIMIT).toEqual({
       CATALOG_ITEM_NAME: 120,
       GAME_ACCOUNT_NAME: 50,
-      CHARACTER_NAME: 30,
+      CHARACTER_NAME: 10,
       GROUP_NAME: 60,
       GROUP_DESCRIPTION: 500,
       ENTRY_OPTIONS: 500,

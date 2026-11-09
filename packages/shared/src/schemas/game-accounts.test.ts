@@ -22,15 +22,15 @@ describe("gameAccountName (R-GA-1: trimmed, 1..50)", () => {
   });
 });
 
-describe("characterName (R-GA-3: trimmed, 1..30; spec wins over design 05)", () => {
+describe("characterName (R-GA-3: trimmed, 1..10, MU limit)", () => {
   it("accepts 1 and 30 chars", () => {
     expect(characterName.parse(" DarkLord ")).toBe("DarkLord");
-    expect(characterName.parse("a".repeat(30))).toHaveLength(30);
+    expect(characterName.parse("a".repeat(10))).toHaveLength(10);
   });
 
   it("rejects blank and 31 chars", () => {
     expect(characterName.safeParse(" ").success).toBe(false);
-    expect(characterName.safeParse("a".repeat(31)).success).toBe(false);
+    expect(characterName.safeParse("a".repeat(11)).success).toBe(false);
   });
 });
 
